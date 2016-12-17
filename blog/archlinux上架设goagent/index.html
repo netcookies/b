@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html lang="en-US">
+
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="chrome=1">
+<meta name="HandheldFriendly" content="True">
+<meta name="MobileOptimized" content="320">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="referrer" content="no-referrer">
+<meta name="description" content="Don&#39;t panic">
+
+<base href="https://netcookies.github.io/b/">
+<title>
+
+
+     archlinux上架设goagent  
+
+</title>
+<link rel="canonical" href="https://netcookies.github.io/b/blog/archlinux%E4%B8%8A%E6%9E%B6%E8%AE%BEgoagent/">
+
+
+<script type="text/javascript">
+    var baseURL = 'https:\/\/netcookies.github.io\/b\/';
+    var host = baseURL.substring(0, baseURL.length - 1).replace(/\//g, '');
+    if ((host === window.location.host) && (window.location.protocol !== 'https:')) {
+        window.location.protocol = 'https:';
+    }
+</script>
+
+
+
+
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.8.0/styles/default.min.css">
+
+
+<link rel="stylesheet" href="https://netcookies.github.io/b/css/reset.css">
+<link rel="stylesheet" href="https://netcookies.github.io/b/css/pygments.css">
+<link rel="stylesheet" href="https://netcookies.github.io/b/css/main.css">
+
+
+    <link rel="stylesheet" href="https://netcookies.github.io/b/css/override.css">
+
+
+
+<link rel="shortcut icon"
+
+    href="https://netcookies.github.io/b/img/leaf.ico"
+
+>
+
+
+
+
+
+
+</head>
+
+
+<body lang="en">
+
+<section class="header"> 
+    <div class="container">
+        <div class="content">
+            
+            <a href="https://netcookies.github.io/b/"><div class="name">Isulew Li</div></a>
+            <nav>
+                <ul>
+                    <a href="https://netcookies.github.io/b/blog/"><li>Blog</li></a>
+                    <a href="https://netcookies.github.io/b/about/"><li>About</li></a>
+                    <a href="https://netcookies.github.io/b/code/"><li>Code</li></a>
+                </ul>
+            </nav>
+        </div>
+    </div>
+</section>
+
+<section class="icons">
+    <div class="container">
+        <div class="content">
+
+        
+            <a href="//github.com/netcookies" target="_blank">
+                <i class="icon ion-social-github"></i>
+            </a>
+        
+        
+        
+            <a href="//twitter.com/netcookies" target="_blank">
+                <i class="icon ion-social-twitter"></i>
+            </a>
+        
+
+        
+
+        
+
+        
+
+        
+            <a href="mailto:netcookies@gmail.com">
+                <i class="icon ion-ios-email larger"></i>
+            </a>
+        
+
+        
+            <a href="https://netcookies.github.io/b/index.xml">
+                <i class="icon ion-social-rss larger"></i>
+            </a>
+        
+        </div>
+    </div>
+</section>
+
+
+<section class="main post non-narrow zero-top-spacing">
+    <div class="container">
+        <div class="content">
+            <div class="front-matter">
+                <div class="title-container">
+                    <div class="page-heading">
+
+    archlinux上架设goagent 
+
+</div>
+
+                    <div class="initials"><a href="https://netcookies.github.io/b/"></a></div>
+                </div>
+                <div class="meta">
+                    <div class="date" title="Fri Aug 29 2014 12:40:00 CST">Aug 29, 2014</div>
+                    <div class="reading-time"><div class="middot"></div>2 minutes read</div>
+                </div>
+            </div>
+            <div class="markdown">
+                <ul>
+<li>安装准备
+需要安装的包</li>
+</ul>
+
+<pre><code>pacman -S wget 
+pacman -S  python2-crypto python2-pyopenssl  python2-gevent python2-greenlet nss
+</code></pre>
+
+<ul>
+<li>获取安装包</li>
+</ul>
+
+<pre><code>cd ~
+wget https://nodeload.github.com/goagent/goagent/legacy.zip/3.0
+mv goagent* goagent
+</code></pre>
+
+<ul>
+<li>goagent配置</li>
+</ul>
+
+<pre><code>cd ~/goagent/local
+cat &gt; proxy.user.ini &lt;&lt; EOF
+[listen]
+ip = 0.0.0.0
+username = *proxy*
+password = *goagent*
+visible = 0
+
+[gae]
+appid = &lt;goagent&gt;
+password = &lt;password&gt;
+window = 6
+keepalive = 1
+obfuscate = 1
+
+[pac]
+enable = 0
+
+[iplist]
+google_cn = &lt;iplist&gt;
+google_hk = &lt;iplist&gt;
+EOF
+</code></pre>
+
+<ul>
+<li>配置nss(libnss3-tool)</li>
+</ul>
+
+<pre><code>mkdir -p ~/.pki/nssdb
+chmod 700 ~/.pki/nssdb
+certutil -d ~/.pki/nssdb -N --empty-passwod
+certutil -d sql:$HOME/.pki/nssdb -A -t &quot;C,,&quot; -n GoAgent -i ~/programs/goagent/local/CA.crt
+</code></pre>
+
+<p>按提示设置nssdb的密码。
+手工运行<code>python2 proxy.py</code>, 并输入上面设置的nssdb的密码</p>
+
+<ul>
+<li>建立daemon开机自启</li>
+</ul>
+
+<pre><code>ln -s /bin/python2.7 /bin/python
+cat &gt; /lib/systemd/system/goagent.service &lt;&lt;EOF
+[Unit]
+Description=Goagent Proxy
+After=syslog.target network.target
+
+[Service]
+User=root
+Group=root
+Type=oneshot
+RemainAfterExit=yes
+ExecStart=/bin/bash /root/goagent/local/proxy.sh start
+ExecStop=/bin/bash /root/goagent/local/proxy.sh stop
+
+[Install]
+WantedBy=multi-user.target
+EOF
+
+ln -s /lib/systemd/system/goagent.service /etc/systemd/system/goagent.service
+systemctl daemon-reload
+systemctl enable goagent.service
+systemctl start goagent.service
+</code></pre>
+
+<p>查看日志命令<code>journalctl -u goagent</code></p>
+
+<p><em>补充说明：</em>
+遇到问题<code>error[24]: too many open files</code></p>
+
+<p>问题是由于ulimit和/etc/security/limits.conf中的设置造成的
+出于对资源以及安全的考虑，我们不修改这两个配置，而采用重启的方法解决。当然此处也列出这两个配置的修改方法：<strong>不建议采用</strong></p>
+
+<pre><code>ulimit -a #查看配置
+ulimit -u 65536
+ulimit -n 65536
+
+在limits.conf末尾加上
+*soft nofile 65536
+*hard nofile 65536
+</code></pre>
+
+<p>我们采用定时重启的方法，配置如下：</p>
+
+<p>写个重启<code>goagent.service</code>的脚本</p>
+
+<pre><code>cat &gt; /root/goagent_restart.sh &lt;&lt;EOF
+#!bin/sh
+#restart goagent.
+systemctl restart goagent.service
+</code></pre>
+
+<p>新建个service和timer用来定时执行上面的脚本</p>
+
+<pre><code>cat &gt; /lib/systemd/system/goagent_restart.service &lt;&lt;EOF
+[Unit]
+Description=Goagent Proxy
+
+[Service]
+User=root
+Group=root
+Type=simple
+ExecStart=/bin/sh /root/goagent_restart.sh
+
+[Install]
+WantedBy=multi-user.target
+EOF
+
+cat &gt; /lib/systemd/system/goagent_restart.timer &lt;&lt;EOF
+[Unit]
+Description=restart goagent every 12h
+
+[Timer]
+# Time to wait after booting before we run first time
+OnBootSec=10min
+# Time between running each consecutive time
+OnUnitActiveSec=12h
+Unit=goagent_restart.service
+
+[Install]
+WantedBy=multi-user.target
+EOF
+
+ln -s /lib/systemd/system/goagent_restart.* /etc/systemd/system/
+systemctl daemon-reload
+systemctl enable goagent_restart.*
+systemctl start goagent_restart.*
+</code></pre>
+
+                <br>
+                <p><a href="https://netcookies.github.io/b/blog/">Back to posts</a></p>
+            </div>
+            <br>
+            <div class="disqus">
+                <div id="disqus_thread"></div>
+<script type="text/javascript">
+    var disqus_shortname = 'nzndorg';
+    var disqus_identifier = 'https:\/\/netcookies.github.io\/b\/blog\/archlinux%E4%B8%8A%E6%9E%B6%E8%AE%BEgoagent\/';
+    var disqus_title = 'archlinux上架设goagent ';
+    var disqus_url = 'https:\/\/netcookies.github.io\/b\/blog\/archlinux%E4%B8%8A%E6%9E%B6%E8%AE%BEgoagent\/';
+
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+
+<script type="text/javascript">
+var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+</script>
+<script type="text/javascript">
+try {
+    var pageTracker = _gat._getTracker("UA-89033419-1");
+    pageTracker._trackPageview();
+} catch(err) {}
+</script>
+
+
+
+  <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.8.0/highlight.min.js"></script>
+  
+
+  <script type="text/javascript">
+    hljs.initHighlightingOnLoad();
+  </script>
+
+
+
+</body>
+</html>
+

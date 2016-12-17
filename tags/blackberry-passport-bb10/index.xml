@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Isulew&#39;s Blog</title>
+    <link>https://netcookies.github.io/b/tags/blackberry-passport-bb10/index.xml</link>
+    <description>Recent content on Isulew&#39;s Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <atom:link href="https://netcookies.github.io/b/tags/blackberry-passport-bb10/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>BlackBerry Passport一星期评测</title>
+      <link>https://netcookies.github.io/b/4share/2015-01-17/</link>
+      <pubDate>Sat, 17 Jan 2015 18:17:00 +0800</pubDate>
+      
+      <guid>https://netcookies.github.io/b/4share/2015-01-17/</guid>
+      <description>
+
+&lt;p&gt;前言：&lt;/p&gt;
+
+&lt;h2 id=&#34;pp到手一周了-常用的几个应用该装的也装了-现在把几个测试通过的软件分享给大家&#34;&gt;####PP到手一周了，常用的几个应用该装的也装了，现在把几个测试通过的软件分享给大家：&lt;/h2&gt;
+
+&lt;pre&gt;&lt;code&gt;软件名称 | 软件类别 | 简介说明 | 下载地址
+------- | ------ | ------- | -------
+高德地图 | 原生 | 难得的良心软件，语音导航，离线地图 | BBW 
+Parrot |原生 | 录音软件，原生的就大大嘀支持 | BBW
+KeepassB | 原生 | BB10端最好用的密码管理软件（具体可以自行搜索keepass)，当然BlackBerry自己出的密码管理器也不错，不过坏处是只能在手机上用不能多平台 | BBW
+微信 | 原生 | 原生微信的好处是可以HUB推送，不用挂着后台 | BBW
+QQ | 非原生 | 疼逊的你不用不行 | [BaiduPan](http://pan.baidu.com/s/1o6mMxqa)
+wechat | 非原生 | 微信，比上面原生的那款功能更全 | [BaiduPan](http://pan.baidu.com/s/1o6mMxqa)
+手机营业厅 | 非原生 | 联通手机营业厅，用PP应该不会有人不用联通卡吧 | [BaiduPan](http://pan.baidu.com/s/1o6mMxqa)
+CMB | 非原生 | 招商银行手机网银，招行的网银一向是所有银行中最棒的，且海淘美亚招行有促销活动 | [BaiduPan](http://pan.baidu.com/s/1o6mMxqa)
+网易云音乐 | 非原生 | 网易出品的东西一向良心，有最新版的就自己升级吧 | [BaiduPan](http://pan.baidu.com/s/1o6mMxqa)
+有道词典 | 非原生 | 网易出品中广告最多的，这个是去广告版本| [BaiduPan](http://pan.baidu.com/s/1o6mMxqa)
+贴吧简版 | 非原生 | 百度贴吧简版修改吧，去广告 | [BaiduPan](http://pan.baidu.com/s/1o6mMxqa)
+skype | 非原生 | 与国外朋友家人联系靠这个通话最方便安全了（这个经常自动后台唤醒） | [BaiduPan](http://pan.baidu.com/s/1o6mMxqa)
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;hr /&gt;
+
+&lt;p&gt;####下面是几个重量级的（也是本文的重点）：&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;软件名称 | 软件类别 | 简介说明 | 下载地址
+------- | ------ | ------- | -------
+Greeify | 非原生 | 绿色守护，安卓下最牛b的软件之一，可以绿色化后台（阻止流氓软件后台，什么疼逊，百度一家亲，都是开一个，启动全家后台。用这个基本可以保证后台不会自启） | [BaiduPan](http://pan.baidu.com/s/1o6mMxqa)
+PermissionManger | 非原生 | 权限管理，别名App ops，管理程序的权限，安卓4.3kikat原生支持） | [BaiduPan](http://pan.baidu.com/s/1o6mMxqa)
+GestureSearch | 非原生 | Google自家出品的手势搜索（后面有介绍用法） | [BaiduPan](http://pan.baidu.com/s/1o6mMxqa)    
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;hr /&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>

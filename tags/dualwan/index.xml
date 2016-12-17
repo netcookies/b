@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Isulew&#39;s Blog</title>
+    <link>https://netcookies.github.io/b/tags/dualwan/index.xml</link>
+    <description>Recent content on Isulew&#39;s Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-US</language>
+    <atom:link href="https://netcookies.github.io/b/tags/dualwan/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>dualwan一线多拨</title>
+      <link>https://netcookies.github.io/b/blog/dualwan%E4%B8%80%E7%BA%BF%E5%A4%9A%E6%8B%A8/</link>
+      <pubDate>Sun, 06 Jul 2014 21:19:00 +0800</pubDate>
+      
+      <guid>https://netcookies.github.io/b/blog/dualwan%E4%B8%80%E7%BA%BF%E5%A4%9A%E6%8B%A8/</guid>
+      <description>&lt;p&gt;1.telnet 至路由器并运行命令显示vlan配置&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;# nvram show | grep vlan
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;显示结果如下&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;vlan0ports=2 1 0 5*
+vlan1ports=4 5
+vlan2ports=3 5
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;2.运行以下命令，将lan2与lan1加入同一个vlan&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;nvram set vlan0ports=1 0 5*
+nvram set vlan2ports=3 2 5*
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;3.用网线桥接wan与lan1(lan2)， isp的接入线插入lan2（lan1)
+4.以下脚本用来在路由初始化时自动双（多）拨&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;#!/bin/sh
+GET_PPP_GATEWAY() {
+        iface=$1
+        echo &amp;quot;iface=&amp;quot;$iface
+        PPP_IP=$(ifconfig $iface|grep &amp;quot;inet addr&amp;quot;|awk -F &amp;quot;:&amp;quot; &#39;{print $2}&#39;|awk -F &amp;quot; &amp;quot; &#39;{print $1}&#39;)
+        PPP_GATEWAY=$PPP_IP
+}
+
+#30秒后开始检测WAN1, WAN2
+sleep 30
+WAN1_IF=$(nvram get wan_iface)
+WAN2_IF=$(nvram get wan2_iface)
+WAN1_IP=$(ifconfig $WAN1_IF |grep -c &amp;quot;inet addr:10.3&amp;quot;)
+WAN2_IP=$(ifconfig $WAN2_IF |grep -c &amp;quot;inet addr:10.3&amp;quot;)
+if [ &amp;quot;$WAN1_IF&amp;quot; == &amp;quot;&amp;quot; ] || [ &amp;quot;$WAN2_IF&amp;quot; == &amp;quot;&amp;quot; ]; then
+        echo &amp;quot;2WAN fail&amp;quot;
+        kill -SIGHUP 1
+else
+        GET_PPP_GATEWAY $WAN1_IF
+        if [ &amp;quot;$PPP_IP&amp;quot; == &amp;quot;&amp;quot; ]; then
+                kill -SIGHUP 1
+                exit
+        fi
+        
+        GET_PPP_GATEWAY $WAN2_IF
+        if [ &amp;quot;$PPP_IP&amp;quot; == &amp;quot;&amp;quot; ]; then
+                kill -SIGHUP 1
+                exit
+        fi        
+        echo &amp;quot;2WAN ok 1&amp;quot;
+fi
+
+if [ &amp;quot;$WAN1_IP&amp;quot; == &amp;quot;0&amp;quot; ] &amp;amp;&amp;amp; [ &amp;quot;$WAN2_IP&amp;quot; == &amp;quot;0&amp;quot; ]; then
+        echo &amp;quot;2WAN ok 2&amp;quot;
+else
+        echo &amp;quot;2WAN fail&amp;quot;
+        kill -SIGHUP 1
+fi
+&lt;/code&gt;&lt;/pre&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>

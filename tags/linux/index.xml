@@ -1,0 +1,675 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Isulew&#39;s Blog</title>
+    <link>https://netcookies.github.io/b/tags/linux/index.xml</link>
+    <description>Recent content on Isulew&#39;s Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-US</language>
+    <atom:link href="https://netcookies.github.io/b/tags/linux/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>Raspberry Pi编译驱动（8188eu)</title>
+      <link>https://netcookies.github.io/b/blog/raspberry-pi%E7%BC%96%E8%AF%91%E9%A9%B1%E5%8A%A88188eu/</link>
+      <pubDate>Wed, 04 Nov 2015 16:56:00 +0800</pubDate>
+      
+      <guid>https://netcookies.github.io/b/blog/raspberry-pi%E7%BC%96%E8%AF%91%E9%A9%B1%E5%8A%A88188eu/</guid>
+      <description>&lt;ol&gt;
+&lt;li&gt;下载内核源码,，用&lt;code&gt;uname -r&lt;/code&gt;查看本机内核
+&lt;code&gt;
+wget https://github.com/raspberrypi/linux/archive/rpi-4.0.y.tar.gz
+tar xzf rpi-4.0.y.tar.gz
+&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;确保gcc版本是4.6&lt;code&gt;gcc -v&lt;/code&gt;， 4.8无法正常编译内核&lt;/li&gt;
+&lt;li&gt;将源码移至目录&lt;code&gt;/usr/src&lt;/code&gt;，并建立软链至&lt;code&gt;/lib/modules/&lt;/code&gt;
+&lt;code&gt;
+[sudo] mv linux-rpi-4.0.y /usr/src
+[sudo] ln -s /usr/src/linux-rpi-4.0.y /lib/modules/`uname -r`/build
+cd /lib/modules/`uname -r`/build
+&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;clean下源码，生成make的config，预备编译内核
+&lt;code&gt;
+make mrproper
+modprobe configs  
+zcat /proc/config.gz &amp;gt; .config
+modules_prepare
+&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;为了节约时间不重头编译内核，下载&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;&lt;em&gt;updated: 此文件会随着内核版本变动，请下载对应版本，否则就算编译成功也不可用，版本参考&lt;a href=&#34;https://github.com/raspberrypi/firmware/commit/13aa07f322b6f1645508b5c24ad70035f2a963d5&#34;&gt;https://github.com/raspberrypi/firmware/commit/13aa07f322b6f1645508b5c24ad70035f2a963d5&lt;/a&gt;&lt;/em&gt;&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;wget https://github.com/raspberrypi/firmware/raw/master/extra/Module7.symvers
+cp Module7.symvers Module.symvers
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;ol&gt;
+&lt;li&gt;编译驱动8188eu
+&lt;code&gt;
+cd ~
+wget https://github.com/lwfinger/rtl8188eu/archive/master.zip
+unzip master.zip
+rm -rf master.zip
+cd rtl8188eu
+sudo make -j4
+sudo make install
+&lt;/code&gt;&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;参考链接：
+&lt;a href=&#34;http://kollocc.blogspot.com/2013/12/raspberry-pi.html&#34;&gt;link1&lt;/a&gt;
+&lt;a href=&#34;http://m.blog.csdn.net/blog/dyc12292/47039637&#34;&gt;link2&lt;/a&gt;&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Shadowsocks 安装配置常见问题解答</title>
+      <link>https://netcookies.github.io/b/blog/shadowsocks-%E5%AE%89%E8%A3%85%E9%85%8D%E7%BD%AE%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98%E8%A7%A3%E7%AD%94/</link>
+      <pubDate>Fri, 23 Oct 2015 21:07:00 +0800</pubDate>
+      
+      <guid>https://netcookies.github.io/b/blog/shadowsocks-%E5%AE%89%E8%A3%85%E9%85%8D%E7%BD%AE%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98%E8%A7%A3%E7%AD%94/</guid>
+      <description>
+
+&lt;h3 id=&#34;init-system-helpers-缺失&#34;&gt;init-system-helpers 缺失&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;vps 用的是 debian-minimal 或 ubuntu-minimal系统时，apt-get install 有的包时可能会提示以上错误&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;Depends: init-system-helpers (&amp;gt;= 1.18~) but it is not installable
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;解决方法一：&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;wget http://launchpadlibrarian.net/173841617/init-system-helpers_1.18_all.deb
+dpkg -i init-system-helpers_1.18_all.deb
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;解决方法二：&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;echo &amp;quot;deb http://http.debian.net/debian wheezy-backports main&amp;quot; &amp;gt;&amp;gt; /etc/apt/sources.list
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3 id=&#34;1024-以内端口-bind-权限不足&#34;&gt;1024 以内端口 bind 权限不足？&lt;/h3&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;setcap &#39;cap_net_bind_service=+ep&#39; /path/to/program
+&lt;/code&gt;&lt;/pre&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>archlinux上架设goagent </title>
+      <link>https://netcookies.github.io/b/blog/archlinux%E4%B8%8A%E6%9E%B6%E8%AE%BEgoagent/</link>
+      <pubDate>Fri, 29 Aug 2014 12:40:00 +0800</pubDate>
+      
+      <guid>https://netcookies.github.io/b/blog/archlinux%E4%B8%8A%E6%9E%B6%E8%AE%BEgoagent/</guid>
+      <description>&lt;ul&gt;
+&lt;li&gt;安装准备
+需要安装的包&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;pre&gt;&lt;code&gt;pacman -S wget 
+pacman -S  python2-crypto python2-pyopenssl  python2-gevent python2-greenlet nss
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;ul&gt;
+&lt;li&gt;获取安装包&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;pre&gt;&lt;code&gt;cd ~
+wget https://nodeload.github.com/goagent/goagent/legacy.zip/3.0
+mv goagent* goagent
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;ul&gt;
+&lt;li&gt;goagent配置&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;pre&gt;&lt;code&gt;cd ~/goagent/local
+cat &amp;gt; proxy.user.ini &amp;lt;&amp;lt; EOF
+[listen]
+ip = 0.0.0.0
+username = *proxy*
+password = *goagent*
+visible = 0
+
+[gae]
+appid = &amp;lt;goagent&amp;gt;
+password = &amp;lt;password&amp;gt;
+window = 6
+keepalive = 1
+obfuscate = 1
+
+[pac]
+enable = 0
+
+[iplist]
+google_cn = &amp;lt;iplist&amp;gt;
+google_hk = &amp;lt;iplist&amp;gt;
+EOF
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;ul&gt;
+&lt;li&gt;配置nss(libnss3-tool)&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;pre&gt;&lt;code&gt;mkdir -p ~/.pki/nssdb
+chmod 700 ~/.pki/nssdb
+certutil -d ~/.pki/nssdb -N --empty-passwod
+certutil -d sql:$HOME/.pki/nssdb -A -t &amp;quot;C,,&amp;quot; -n GoAgent -i ~/programs/goagent/local/CA.crt
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;按提示设置nssdb的密码。
+手工运行&lt;code&gt;python2 proxy.py&lt;/code&gt;, 并输入上面设置的nssdb的密码&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;建立daemon开机自启&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;pre&gt;&lt;code&gt;ln -s /bin/python2.7 /bin/python
+cat &amp;gt; /lib/systemd/system/goagent.service &amp;lt;&amp;lt;EOF
+[Unit]
+Description=Goagent Proxy
+After=syslog.target network.target
+
+[Service]
+User=root
+Group=root
+Type=oneshot
+RemainAfterExit=yes
+ExecStart=/bin/bash /root/goagent/local/proxy.sh start
+ExecStop=/bin/bash /root/goagent/local/proxy.sh stop
+
+[Install]
+WantedBy=multi-user.target
+EOF
+
+ln -s /lib/systemd/system/goagent.service /etc/systemd/system/goagent.service
+systemctl daemon-reload
+systemctl enable goagent.service
+systemctl start goagent.service
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;查看日志命令&lt;code&gt;journalctl -u goagent&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;em&gt;补充说明：&lt;/em&gt;
+遇到问题&lt;code&gt;error[24]: too many open files&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;问题是由于ulimit和/etc/security/limits.conf中的设置造成的
+出于对资源以及安全的考虑，我们不修改这两个配置，而采用重启的方法解决。当然此处也列出这两个配置的修改方法：&lt;strong&gt;不建议采用&lt;/strong&gt;&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;ulimit -a #查看配置
+ulimit -u 65536
+ulimit -n 65536
+
+在limits.conf末尾加上
+*soft nofile 65536
+*hard nofile 65536
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;我们采用定时重启的方法，配置如下：&lt;/p&gt;
+
+&lt;p&gt;写个重启&lt;code&gt;goagent.service&lt;/code&gt;的脚本&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;cat &amp;gt; /root/goagent_restart.sh &amp;lt;&amp;lt;EOF
+#!bin/sh
+#restart goagent.
+systemctl restart goagent.service
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;新建个service和timer用来定时执行上面的脚本&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;cat &amp;gt; /lib/systemd/system/goagent_restart.service &amp;lt;&amp;lt;EOF
+[Unit]
+Description=Goagent Proxy
+
+[Service]
+User=root
+Group=root
+Type=simple
+ExecStart=/bin/sh /root/goagent_restart.sh
+
+[Install]
+WantedBy=multi-user.target
+EOF
+
+cat &amp;gt; /lib/systemd/system/goagent_restart.timer &amp;lt;&amp;lt;EOF
+[Unit]
+Description=restart goagent every 12h
+
+[Timer]
+# Time to wait after booting before we run first time
+OnBootSec=10min
+# Time between running each consecutive time
+OnUnitActiveSec=12h
+Unit=goagent_restart.service
+
+[Install]
+WantedBy=multi-user.target
+EOF
+
+ln -s /lib/systemd/system/goagent_restart.* /etc/systemd/system/
+systemctl daemon-reload
+systemctl enable goagent_restart.*
+systemctl start goagent_restart.*
+&lt;/code&gt;&lt;/pre&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>通过SSH安装oracle </title>
+      <link>https://netcookies.github.io/b/blog/%E9%80%9A%E8%BF%87ssh%E5%AE%89%E8%A3%85oracle/</link>
+      <pubDate>Wed, 27 Aug 2014 16:35:00 +0800</pubDate>
+      
+      <guid>https://netcookies.github.io/b/blog/%E9%80%9A%E8%BF%87ssh%E5%AE%89%E8%A3%85oracle/</guid>
+      <description>&lt;p&gt;上一篇说到安装ArchLinux后，现在需安装Oracle&lt;/p&gt;
+
+&lt;p&gt;安装之前&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;cd ~
+pacman -S vim ssh abs unzip wget xorg-xhost
+wget https://aur.archlinux.org/packages/au/aura-bin/aura-bin.tar.gz
+tar -xzf aura-bin.tar.gz
+cd aura-bin
+makepkg
+pacman -U aura-bin-x.x.x.x-x-x86_64.pkg.tar.xz
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;下载oracle有两种方法&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;-1. 一种登录oracle网站下载好保存在本地，再通过sftp等方法传至服务器
+2. 用chrome导出登录后的cookie，并用wget直接通过服务器端下载，插件下载：[地址](https://chrome.google.com/webstore/detail/cookietxt-export/lopabhfecdfhgogdbojmaicoicjekelh)
+
+wget --load-cookies cookie_txt_file  http://download.oracle.com/otn/linux/oracle11g/R2/linux.x64_11gR2_database_1of2.zip 
+http://download.oracle.com/otn/linux/oracle11g/R2/linux.x64_11gR2_database_2of2.zip
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;解压安装包&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;find . -name &#39;*of2.zip&#39; -exec unzip {} \;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;oracle required packages&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;pacman -S sudo icu gawk gdb elfutils sysstat libstdc++5 jre7-openjdk libaio
+aura -Akua beecrypt rpm-org
+aura -A ksh
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;添加用户，与用户组&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;groupadd oinstall
+groupadd dba
+groupadd oper
+groupadd asmadmin
+
+useradd -g oinstall -G dba,oper,asmadmin oracle -b /oracle
+passwd oracle
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;处理sysctl, limits.conf&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;cat &amp;gt; /etc/sysctl.d/99-sysctl.conf &amp;lt;&amp;lt; EOF
+fs.suid_dumpable = 1
+fs.aio-max-nr = 1048576
+fs.file-max = 6815744
+kernel.shmall = 2097152
+kernel.shmmax = 536870912
+kernel.shmmni = 4096
+# semaphores: semmsl, semmns, semopm, semmni
+kernel.sem = 250 32000 100 128
+net.ipv4.ip_local_port_range = 9000 65500
+net.core.rmem_default=262144
+net.core.rmem_max=4194304
+net.core.wmem_default=262144
+net.core.wmem_max=1048586
+EOF
+vim /etc/security/limits.conf
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;pre&gt;&lt;code&gt;oracle              soft    nproc   2047
+oracle              hard    nproc   16384
+oracle              soft    nofile  4096
+oracle              hard    nofile  65536
+oracle              soft    stack   10240
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;建立安装目录并设立权限&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;mkdir -p /oracle/inventory /oracle/recovery /oracle/product/db /oracle/tmp
+chown -R oracle:dba /oracle
+chmod 777 /oracle/tmp
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;编辑oracle用户的.bashrc&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;#Oracle Settings
+export TMP=/tmp
+export TMPDIR=/tmp
+export ORACLE_HOSTNAME=oracledb.localdomain
+export ORACLE_UNQNAME=xdb
+export ORACLE_BASE=/oracle
+export ORACLE_HOME=/oracle/product/db
+export ORACLE_SID=xdb
+export ORACLE_INVENTORY=/oracle/inventory
+export ORACLE_BASE ORACLE_SID ORACLE_HOME
+export PATH=$ORACLE_HOME/bin:$PATH
+export LD_LIBRARY_PATH=$ORACLE_HOME/lib:$LD_LIBRARY_PATH
+export CLASSPATH=$ORACLE_HOME/jlib:$ORACLE_HOME/rdbms/jlib
+export EDITOR=vim
+export VISUAL=vim
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;开始安装,&lt;code&gt;&amp;lt;machine-name&amp;gt;&lt;/code&gt;可以留空，这样就指定即在服务器本机打开X视窗安装&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;DISPLAY=&amp;lt;machine-name&amp;gt;:0.0; export DISPLAY
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;如果为通过SSH远程安装oracle，则可通过ssh的x11 forwarding功能，通过本地的X server来开启安装窗口，这里博主用的是&lt;a href=&#34;http://sourceforge.net/projects/xming/&#34;&gt;Xming&lt;/a&gt;。
+Xming的安装包有自带putty,如果已经有putty了可以不安装。
+putty需要进行如下配置，开启x11 forwarding&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;Session
+    Host Name 填入无端IP
+    Saved Sessions 填入要保存的名称
+Connection
+    SSH
+        X11
+            Enable X11 forwarding 开启
+            X display location 填入 localhost:0.0 或 127.0.0.1:0.0
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;运行Xming中的XLaunch将No Access Control勾上
+最后将代码中的ip地址替换成运行有Xming的主机IP，并运行&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;使用oracle用户通过ssh连接至服务器
+DISPLAY=&amp;lt;Local IP addr&amp;gt;:0.0; export DISPLAY;xhost +
+cd /安装包路径
+./runInstaller
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;图形化的安装界面略过~~
+安装后，让数据库自启
+新建启动和关闭的脚本&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;mkdir -p ~/scripts
+chown oracle.oinstall ~/scripts
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;~/scripts/startup.sh&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;#!/bin/bash
+
+#Oracle Settings
+export TMP=/oracle/tmp
+export TMPDIR=/oracle/tmp
+export ORACLE_HOSTNAME=oracledb.localdomain
+export ORACLE_UNQNAME=xdb
+export ORACLE_SID=xdb
+export PATH=$ORACLE_HOME/bin:$PATH
+
+ORAENV_ASK=NO
+. oraenv
+ORAENV_ASK=YES
+
+# Start Listener
+lsnrctl start
+
+# Start Database
+sqlplus / as sysdba &amp;lt;&amp;lt; EOF
+STARTUP;
+EXIT;
+EOF
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;~/scripts/shutdown.sh&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;#!/bin/bash
+
+#Oracle Settings
+export TMP=/oracle/tmp
+export TMPDIR=/oracle/tmp
+export ORACLE_HOSTNAME=oracledb.localdomain
+export ORACLE_UNQNAME=xdb
+export ORACLE_SID=xdb
+export PATH=$ORACLE_HOME/bin:$PATH
+
+ORAENV_ASK=NO
+. oraenv
+ORAENV_ASK=YES
+
+# Stop Database
+sqlplus / as sysdba &amp;lt;&amp;lt; EOF
+SHUTDOWN IMMEDIATE;
+EXIT;
+EOF
+
+# Stop Listener
+lsnrctl stop
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;脚本权限&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;chmod u+x /oracle/scripts/s*.sh
+chown oracle.oinstall /oracle/scripts/s*.sh
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;建立服务 &lt;code&gt;/lib/systemd/system/dbora.service&lt;/code&gt;&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;[Unit]
+Description=The Oracle Database Service
+After=syslog.target network.target
+
+[Service]
+Type=simple
+ExecStart=/bin/su oracle -c &amp;quot;/oracle/scripts/startup.sh &amp;gt;&amp;gt; /oracle/scripts/startup_shutdown.log 2&amp;gt;&amp;amp;1&amp;quot; &amp;amp;
+ExecStop=/bin/su oracle -c &amp;quot;/oracle/scripts/shutdown.sh &amp;gt;&amp;gt; /oracle/scripts/startup_shutdown.log 2&amp;gt;&amp;amp;1&amp;quot;
+
+[Install]
+WantedBy=multi-user.target
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;pre&gt;&lt;code&gt;ln -s /lib/systemd/system/dbora.service /etc/systemd/system/dbora.service
+systemctl daemon-reload
+systemctl enable dbora.service
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;查看服务状态&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;systemctl status dbora.service
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;enjoy~!&lt;/p&gt;
+
+&lt;p&gt;quote from &lt;a href=&#34;https://wiki.archlinux.org/index.php/Oracle&#34;&gt;wiki.archlinux.org&lt;/a&gt; &lt;a href=&#34;http://www.oracle-base.com/articles/11g/oracle-db-11gr2-installation-on-oracle-linux-5.php#manual_setup&#34;&gt;oracle-base&lt;/a&gt;&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>ArchLinux 安装与配置</title>
+      <link>https://netcookies.github.io/b/blog/archlinux-%E5%AE%89%E8%A3%85%E4%B8%8E%E9%85%8D%E7%BD%AE/</link>
+      <pubDate>Wed, 27 Aug 2014 13:05:00 +0800</pubDate>
+      
+      <guid>https://netcookies.github.io/b/blog/archlinux-%E5%AE%89%E8%A3%85%E4%B8%8E%E9%85%8D%E7%BD%AE/</guid>
+      <description>&lt;p&gt;检查需要配置网络的接口名(interface)&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;ip link
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;输出如下：&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;1: lo: &amp;lt;LOOPBACK,UP,LOWER_UP&amp;gt; mtu 65536 qdisc noqueue state UNKNOWN mode DEFAULT
+    link/loopback 00:00:00:00:00:00 brd 00:00:00:00:00:00
+2: enp2s0f0: &amp;lt;BROADCAST,MULTICAST&amp;gt; mtu 1500 qdisc noop state DOWN mode DEFAULT qlen 1000
+    link/ether 00:11:25:31:69:20 brd ff:ff:ff:ff:ff:ff
+3: wlp3s0: &amp;lt;BROADCAST,MULTICAST,UP,LOWER_UP&amp;gt; mtu 1500 qdisc mq state UP mode DORMANT qlen 1000
+    link/ether 01:02:03:04:05:06 brd ff:ff:ff:ff:ff:ff
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;配置有线网络，如果为dhcp自动分配或无线网络的这里略过&lt;a href=&#34;https://wiki.archlinux.org/index.php/Beginners%27_guide#Wireless_2&#34;&gt;详细&lt;/a&gt;&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;ip addr add 192.168.0.100/24 dev enp2s0f0
+ip route add default via 192.168.0.1
+vi /etc/resolv.conf
+#填入dns
+nameserver 114.114.114.114
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;用fdisk分区，分出一个swap及一个ext3/ext4分区&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;fdisk /dev/sda
+o   #创建一个新的分区表
+n   #创建新分区
+p   #主分区
+2   #分区2，用作swap，大小与内存相等及可
+enter #这里默认即可
++1G #大小1G
+n   #创建新分区
+p   #主分区
+1   #分区1，用作系统区
+enter #这里默认即可
+enter #默认剩余的所有空间
+w   #写入分区表
+mkfs.ext3 /dev/sda1     #格式化分区
+mkswap /dev/sda2
+swapon /dev/sda2
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;挂载分区，更改源&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;mount /dev/sda1 /mnt
+vi /etc/pacman.d/mirrorlist
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;国内源如下：&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;##
+## Arch Linux repository mirrorlist
+## Generated on 2014-08-26
+##
+
+## China
+#Server = http://mirrors.163.com/archlinux/$repo/os/$arch
+#Server = http://mirror.bjtu.edu.cn/archlinux/$repo/os/$arch
+#Server = http://mirrors.hust.edu.cn/archlinux/$repo/os/$arch
+#Server = http://mirrors.hustunique.com/archlinux/$repo/os/$arch
+#Server = http://mirrors.neusoft.edu.cn/archlinux/$repo/os/$arch
+#Server = http://run.hit.edu.cn/archlinux/$repo/os/$arch
+#Server = http://mirrors.ustc.edu.cn/archlinux/$repo/os/$arch
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;开始安装&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;pacstrap -i /mnt base base-devel
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;生成fstab&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;genfstab -U -p /mnt &amp;gt;&amp;gt; /mnt/etc/fstab
+vi /mnt/etc/fstab #确认下看看有没有错误
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;chroot 并配置系统&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;arch-chroot /mnt /bin/bash
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;语言配置&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;vi /etc/locale.gen
+#将en_US.UTF-8 UTF-8 前面的#号去掉
+...
+#en_SG ISO-8859-1
+en_US.UTF-8 UTF-8
+#en_US ISO-8859-1
+...
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;pre&gt;&lt;code&gt;locale-gen
+echo LANG=en_US.UTF-8 &amp;gt; /etc/locale.conf
+export LANG=en_US.UTF-8
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;时区&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;ln -s /usr/share/zoneinfo/Asia/Shanghai /etc/localtime
+hwclock --systohc --utc
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;加载必要的内核模块&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;vi /etc/modules-load.d/virtio-net.conf 
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;以下模块为qemu 虚拟机必须&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;# Load &#39;virtio-net.ko&#39; at boot. 
+
+virtio-net
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;主机名&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;echo myhostname &amp;gt; /etc/hostname
+vi /etc/hosts
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;pre&gt;&lt;code&gt;#
+# /etc/hosts: static lookup table for host names
+#
+
+#&amp;lt;ip-address&amp;gt;	&amp;lt;hostname.domain.org&amp;gt;	&amp;lt;hostname&amp;gt;
+127.0.0.1	localhost.localdomain	localhost	myhostname
+::1		localhost.localdomain	localhost
+
+# End of file
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;网络配置&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;systemctl stop dhcpcd.service
+systemctl disable dhcpcd.service
+cd /etc/netctl
+cp examples/ethernet-static my_network
+netctl enable my_network
+vi my_network  #将其中的接口 地址 网关 dns 等修改成对应的值
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Create an initial ramdisk environment&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;vi /etc/mkinitcpio.conf
+...
+MODULES=&amp;quot;virtio virtio_blk virtio_pci virtio_net&amp;quot;
+...
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;pre&gt;&lt;code&gt;mkinitcpio -p linux
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;设定root密码&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;passwd
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;安装bootloader&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;pacman -S syslinux
+syslinux-install_update -iam
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;编辑/boot/syslinux/syslinux.cfg， 将其中的/dev/sda3 改成你实际的root分区&lt;/p&gt;
+
+&lt;p&gt;重启, 进行最后配置，安装些常用的软件&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;systemctl disable dhcpcd.service
+pacman -S vim openssh
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;done! enjoy~&lt;/p&gt;
+
+&lt;p&gt;&lt;em&gt;quote from &lt;a href=&#34;https://wiki.archlinux.org/index.php/Beginners%27_guide#Wired&#34;&gt;ArchLinux&lt;/a&gt;&lt;/em&gt;&lt;/p&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>

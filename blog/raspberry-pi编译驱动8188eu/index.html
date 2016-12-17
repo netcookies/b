@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en-US">
+
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="chrome=1">
+<meta name="HandheldFriendly" content="True">
+<meta name="MobileOptimized" content="320">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="referrer" content="no-referrer">
+<meta name="description" content="Don&#39;t panic">
+
+<base href="https://netcookies.github.io/b/">
+<title>
+
+
+     Raspberry Pi编译驱动（8188eu) 
+
+</title>
+<link rel="canonical" href="https://netcookies.github.io/b/blog/raspberry-pi%E7%BC%96%E8%AF%91%E9%A9%B1%E5%8A%A88188eu/">
+
+
+<script type="text/javascript">
+    var baseURL = 'https:\/\/netcookies.github.io\/b\/';
+    var host = baseURL.substring(0, baseURL.length - 1).replace(/\//g, '');
+    if ((host === window.location.host) && (window.location.protocol !== 'https:')) {
+        window.location.protocol = 'https:';
+    }
+</script>
+
+
+
+
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.8.0/styles/default.min.css">
+
+
+<link rel="stylesheet" href="https://netcookies.github.io/b/css/reset.css">
+<link rel="stylesheet" href="https://netcookies.github.io/b/css/pygments.css">
+<link rel="stylesheet" href="https://netcookies.github.io/b/css/main.css">
+
+
+    <link rel="stylesheet" href="https://netcookies.github.io/b/css/override.css">
+
+
+
+<link rel="shortcut icon"
+
+    href="https://netcookies.github.io/b/img/leaf.ico"
+
+>
+
+
+
+
+
+
+</head>
+
+
+<body lang="en">
+
+<section class="header"> 
+    <div class="container">
+        <div class="content">
+            
+            <a href="https://netcookies.github.io/b/"><div class="name">Isulew Li</div></a>
+            <nav>
+                <ul>
+                    <a href="https://netcookies.github.io/b/blog/"><li>Blog</li></a>
+                    <a href="https://netcookies.github.io/b/about/"><li>About</li></a>
+                    <a href="https://netcookies.github.io/b/code/"><li>Code</li></a>
+                </ul>
+            </nav>
+        </div>
+    </div>
+</section>
+
+<section class="icons">
+    <div class="container">
+        <div class="content">
+
+        
+            <a href="//github.com/netcookies" target="_blank">
+                <i class="icon ion-social-github"></i>
+            </a>
+        
+        
+        
+            <a href="//twitter.com/netcookies" target="_blank">
+                <i class="icon ion-social-twitter"></i>
+            </a>
+        
+
+        
+
+        
+
+        
+
+        
+            <a href="mailto:netcookies@gmail.com">
+                <i class="icon ion-ios-email larger"></i>
+            </a>
+        
+
+        
+            <a href="https://netcookies.github.io/b/index.xml">
+                <i class="icon ion-social-rss larger"></i>
+            </a>
+        
+        </div>
+    </div>
+</section>
+
+
+<section class="main post non-narrow zero-top-spacing">
+    <div class="container">
+        <div class="content">
+            <div class="front-matter">
+                <div class="title-container">
+                    <div class="page-heading">
+
+    Raspberry Pi编译驱动（8188eu)
+
+</div>
+
+                    <div class="initials"><a href="https://netcookies.github.io/b/"></a></div>
+                </div>
+                <div class="meta">
+                    <div class="date" title="Wed Nov 4 2015 16:56:00 CST">Nov 4, 2015</div>
+                    <div class="reading-time"><div class="middot"></div>1 minute read</div>
+                </div>
+            </div>
+            <div class="markdown">
+                <ol>
+<li>下载内核源码,，用<code>uname -r</code>查看本机内核
+<code>
+wget https://github.com/raspberrypi/linux/archive/rpi-4.0.y.tar.gz
+tar xzf rpi-4.0.y.tar.gz
+</code></li>
+<li>确保gcc版本是4.6<code>gcc -v</code>， 4.8无法正常编译内核</li>
+<li>将源码移至目录<code>/usr/src</code>，并建立软链至<code>/lib/modules/</code>
+<code>
+[sudo] mv linux-rpi-4.0.y /usr/src
+[sudo] ln -s /usr/src/linux-rpi-4.0.y /lib/modules/`uname -r`/build
+cd /lib/modules/`uname -r`/build
+</code></li>
+<li>clean下源码，生成make的config，预备编译内核
+<code>
+make mrproper
+modprobe configs  
+zcat /proc/config.gz &gt; .config
+modules_prepare
+</code></li>
+<li>为了节约时间不重头编译内核，下载</li>
+</ol>
+
+<p><em>updated: 此文件会随着内核版本变动，请下载对应版本，否则就算编译成功也不可用，版本参考<a href="https://github.com/raspberrypi/firmware/commit/13aa07f322b6f1645508b5c24ad70035f2a963d5">https://github.com/raspberrypi/firmware/commit/13aa07f322b6f1645508b5c24ad70035f2a963d5</a></em></p>
+
+<pre><code>wget https://github.com/raspberrypi/firmware/raw/master/extra/Module7.symvers
+cp Module7.symvers Module.symvers
+</code></pre>
+
+<ol>
+<li>编译驱动8188eu
+<code>
+cd ~
+wget https://github.com/lwfinger/rtl8188eu/archive/master.zip
+unzip master.zip
+rm -rf master.zip
+cd rtl8188eu
+sudo make -j4
+sudo make install
+</code></li>
+</ol>
+
+<p>参考链接：
+<a href="http://kollocc.blogspot.com/2013/12/raspberry-pi.html">link1</a>
+<a href="http://m.blog.csdn.net/blog/dyc12292/47039637">link2</a></p>
+
+                <br>
+                <p><a href="https://netcookies.github.io/b/blog/">Back to posts</a></p>
+            </div>
+            <br>
+            <div class="disqus">
+                <div id="disqus_thread"></div>
+<script type="text/javascript">
+    var disqus_shortname = 'nzndorg';
+    var disqus_identifier = 'https:\/\/netcookies.github.io\/b\/blog\/raspberry-pi%E7%BC%96%E8%AF%91%E9%A9%B1%E5%8A%A88188eu\/';
+    var disqus_title = 'Raspberry Pi编译驱动（8188eu)';
+    var disqus_url = 'https:\/\/netcookies.github.io\/b\/blog\/raspberry-pi%E7%BC%96%E8%AF%91%E9%A9%B1%E5%8A%A88188eu\/';
+
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+
+<script type="text/javascript">
+var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+</script>
+<script type="text/javascript">
+try {
+    var pageTracker = _gat._getTracker("UA-89033419-1");
+    pageTracker._trackPageview();
+} catch(err) {}
+</script>
+
+
+
+  <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.8.0/highlight.min.js"></script>
+  
+
+  <script type="text/javascript">
+    hljs.initHighlightingOnLoad();
+  </script>
+
+
+
+</body>
+</html>
+

@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Isulew&#39;s Blog</title>
+    <link>https://netcookies.github.io/b/tags/bb10-blackberry/index.xml</link>
+    <description>Recent content on Isulew&#39;s Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <atom:link href="https://netcookies.github.io/b/tags/bb10-blackberry/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>Black Passport进阶操作指南（三）</title>
+      <link>https://netcookies.github.io/b/4share/2015-02-04/</link>
+      <pubDate>Wed, 04 Feb 2015 15:03:00 +0800</pubDate>
+      
+      <guid>https://netcookies.github.io/b/4share/2015-02-04/</guid>
+      <description>&lt;p&gt;转眼到手半个月了，PP已然胜任主力机，只是需要比IOS, Android花更多心思。
+有几个问题分享下，以免大家再走弯路&lt;/p&gt;
+
+&lt;ol&gt;
+&lt;li&gt;新版微信和QQ图标显示不出来的问题，大家可以到百度盘里下载转制好的bar文件，我已经放到百度盘的bar文件夹内了。&lt;a href=&#34;http://pan.baidu.com/s/1o6mMxqa&#34;&gt;链接在此&lt;/a&gt;
+&lt;em&gt;附：&lt;a href=&#34;http://mytiankong.com/?p=10515&#34;&gt;bar文件安装方法&lt;/a&gt; | &lt;a href=&#34;http://apk2bar.org&#34;&gt;在线转制&lt;/a&gt;&lt;/em&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;NEVER USE BBLINK EVER!&lt;/strong&gt;  血泪搬的教训，没事别用BBLINK备份还原，亲身经历备份3个小时以上！你以为这就是个头了吗？NO！9G的包还原&lt;code&gt;3个小时&lt;/code&gt;连&lt;code&gt;1%&lt;/code&gt;都不到，最后只好把联系人和系统设置还原下，总共&lt;code&gt;18M&lt;/code&gt;,用时&lt;code&gt;1个小时&lt;/code&gt;。&lt;/li&gt;
+&lt;li&gt;非原生的安卓程序的自动更新，不建议大家通过此种渠道更新。可能会造成BB10权限混乱，此款程序&lt;strong&gt;永久消失，无法再安装&lt;/strong&gt;，只能恢复出厂设置。&lt;code&gt;安全的方法有两种： 卸载原程序后再安装；完全关闭程序（结束后台），确认更新后的程序签名一致再安装。&lt;/code&gt;&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;hr /&gt;
+
+&lt;p&gt;欢迎转载，天王盖地虎，博主pin:2BEEC35D&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Black Passport进阶操作指南（二）</title>
+      <link>https://netcookies.github.io/b/4share/2015-01-25/</link>
+      <pubDate>Sun, 25 Jan 2015 22:06:00 +0800</pubDate>
+      
+      <guid>https://netcookies.github.io/b/4share/2015-01-25/</guid>
+      <description>&lt;p&gt;PP自带的10.3系统电量控制还是不错的，但一种情况除外：就是你装了一堆的国产免费安卓应用，诸如不管你是聊天还是看新闻；或是查个字典，美图秀秀个图片；更不用说淘宝百度全家福，开其中一个唤醒全家App。电量那是刷刷刷的往下掉，原来可以用个两三天，现在一天一充不是梦&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;p&gt;当然博主不是光吐槽不办事，现在给出原创的办法：&lt;/p&gt;
+
+&lt;p&gt;运用安卓神器级的软件&lt;code&gt;绿色守护&lt;/code&gt;，下面贴出软件的介绍：&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;绿色守护Greenify可以帮助你甄别那些对系统全局性能和耗电量有不良影响的应用程序，这是一个完全绿色（不包括推送、定时更新等功能）的App，是否经常有些恶意程序或应用会消耗您的手机电池电量、损耗您的手机内存？现在有了绿色守护，这些都不用担心，它有独特的“绿色化”专利技术，帮您解决这些难题，设定一次，忘却烦恼。
+绿色守护软件可以在手机待机之时「静默」的将黑名单中的 App 强制关闭掉，不让其进行无聊的推送，这样在运行大型程序之后，可以有效的释放系统内存，并降低手机的唤醒概率，达到省电的目的。
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;详细介绍可以自行百度，或点击&lt;a href=&#34;http://www.appinn.com/greenify-android/&#34;&gt;小众软件的链接&lt;/a&gt;&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;ol&gt;
+&lt;li&gt;安装&lt;a href=&#34;http://nznd.org/post/4share/2015-01-17&#34;&gt;手势启动软件Gesture Search&lt;/a&gt;、&lt;a href=&#34;http://nznd.org/post/4share/2015-01-17&#34;&gt;绿色守护Greenify&lt;/a&gt;&lt;br /&gt;&lt;/li&gt;
+&lt;li&gt;此时启动绿色守护，会看到标题提示&lt;code&gt;自动休眠已关闭&lt;/code&gt;，当然我们的最终目的是&lt;code&gt;自动休眠&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;启动Gesture Search，如图操作划个&lt;code&gt;设&lt;/code&gt;字
+&lt;img src=&#34;http://netcookies.github.io/fbcdn/blog_img_assets/post/150125IMG1.jpg&#34; alt=&#34;&#34; /&gt;&lt;/li&gt;
+&lt;li&gt;打开检索到的&lt;code&gt;设置&lt;/code&gt;
+&lt;img src=&#34;http://netcookies.github.io/fbcdn/blog_img_assets/post/150125IMG2.jpg&#34; alt=&#34;&#34; /&gt;&lt;/li&gt;
+&lt;li&gt;进入&lt;code&gt;辅助设置&lt;/code&gt;
+&lt;img src=&#34;http://netcookies.github.io/fbcdn/blog_img_assets/post/150125IMG3.jpg&#34; alt=&#34;&#34; /&gt;&lt;/li&gt;
+&lt;li&gt;设置绿色守护为&lt;code&gt;开启&lt;/code&gt;状态
+&lt;img src=&#34;http://netcookies.github.io/fbcdn/blog_img_assets/post/150125IMG4.jpg&#34; alt=&#34;&#34; /&gt;&lt;/li&gt;
+&lt;li&gt;再次打开绿色守护，点击选项&lt;code&gt;试验性特性&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;设定&lt;code&gt;工作模式&lt;/code&gt;=&lt;code&gt;非root模式&lt;/code&gt;、&lt;code&gt;全自动化休眠（4.1+）&lt;/code&gt;打上勾
+&lt;img src=&#34;http://netcookies.github.io/fbcdn/blog_img_assets/post/150125IMG5.jpg&#34; alt=&#34;&#34; /&gt;&lt;/li&gt;
+&lt;li&gt;返回绿色守护主界面，此时点击右上角&lt;code&gt;+号&lt;/code&gt;将需要休眠的App加入休眠列表中&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;hr /&gt;
+
+&lt;p&gt;常见问题：
+* 全自动休眠如何工作？&lt;/p&gt;
+
+&lt;p&gt;&lt;em&gt;关屏数分钟后，会自动休眠已加入列表中的应用。你会发现数分钟后再次唤醒手机，首先看到的是个黑屏（其实是绿色守护），等几秒可以看到画面停留在最后休眠的应用详情界面&lt;/em&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;我可以手工休眠吗？&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;em&gt;打开绿色守护，点击ZZZ的图标就可以啦&lt;/em&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;打开绿色守护提示，自动化休眠已终止怎么办？&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;em&gt;点击ZZZ，进入应用详情的界面；直接点后退，回到绿色守护的初始页面即可。此时已经为自动化休眠工作状态，可以直接手工休眠试试&lt;/em&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;还有其它问题？&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;em&gt;欢迎留言，留言了我也不一定知道，知道了我也不一定回。哈哈：）&lt;/em&gt;&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;p&gt;欢迎转载，天王盖地虎，博主pin:2BEEC35D&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Black Passport进阶操作指南（一）</title>
+      <link>https://netcookies.github.io/b/4share/2015-01-23/</link>
+      <pubDate>Fri, 23 Jan 2015 20:45:00 +0800</pubDate>
+      
+      <guid>https://netcookies.github.io/b/4share/2015-01-23/</guid>
+      <description>&lt;ol&gt;
+&lt;li&gt;键盘操作总结
+
+&lt;ul&gt;
+&lt;li&gt;在大部分原生的程序里，可以进行平行或垂直滚动&lt;/li&gt;
+&lt;li&gt;在输入界面，迅速在&lt;code&gt;键盘从上向下滑动&lt;/code&gt;可以，弹出数字和符号界面&lt;/li&gt;
+&lt;li&gt;在输入界面，&lt;code&gt;双击键盘&lt;/code&gt;可以调出放大气泡（光标位置），此时可以左右滑动键盘移动气泡&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;需要注意的是BB10有的原生软件在UI上放置了&lt;code&gt;三个点&lt;/code&gt;的扩展功能键，初次使用BB10的用户可能会以为这就是该软件的选项界面。实际上通常打开软件选项的正确入口是&lt;code&gt;从屏幕边界下滑&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;在任意界面下，&lt;code&gt;双指从屏幕边界下滑&lt;/code&gt;可以打开快捷设置通知栏&lt;/li&gt;
+&lt;li&gt;快捷查看电池的两种方式：
+
+&lt;ul&gt;
+&lt;li&gt;通过&lt;code&gt;从屏幕边界上滑&lt;/code&gt;最小化app时，不要松开手指可以看到左上角会临时显示电量百分比&lt;/li&gt;
+&lt;li&gt;在系统设置-快捷设置中， 将设备管理器加入快捷设置中，这样在快捷设置中可以看到电量百分比&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;实现系统自带的定时静音功能：
+
+&lt;ul&gt;
+&lt;li&gt;日历就是实现定时静音功能的app，没错，你没有听错BB10的隐藏功能太多了，你指不定哪天就会发现新的惊喜&lt;/li&gt;
+&lt;li&gt;具体操作： 第一步、将需要静音的时间段加入到日历的事件中&lt;/li&gt;
+&lt;li&gt;第二步、 下滑打开日历的设置，开启会议模式&lt;/li&gt;
+&lt;li&gt;这样在你所定义的事件时间内，手机会自动切换到会议模式就静音啦
+&lt;br /&gt;&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;暂时总结就这么多，欢迎转载，以后再补充 ：）
+天王盖地虎，博主pin:2BEEC35D&lt;/p&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>

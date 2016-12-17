@@ -1,0 +1,730 @@
+<!DOCTYPE html>
+<html ⚡>
+  <head>
+    <meta charset="utf-8">
+<meta name="pinterest" content="nopin">
+<meta name="viewport" content="width=device-width,minimum-scale=1,initial-scale=1">
+<meta name="theme-color" content="#263238">
+
+<meta name="generator" content="Hugo 0.17" />
+
+<link rel="apple-touch-icon" href="https://netcookies.github.io/b/images/logo.png">
+
+
+<link rel="canonical" href="https://netcookies.github.io/b/works/2014-05-29/">
+
+
+    
+    <link href="https://fonts.googleapis.com/css?family=Lobster|Lato:400,700" rel="stylesheet">
+    
+    <title>架设kvm虚拟化服务器  - Isulew&#39;s Blog</title>
+    <style amp-boilerplate>body{-webkit-animation:-amp-start 8s steps(1,end) 0s 1 normal both;-moz-animation:-amp-start 8s steps(1,end) 0s 1 normal both;-ms-animation:-amp-start 8s steps(1,end) 0s 1 normal both;animation:-amp-start 8s steps(1,end) 0s 1 normal both}@-webkit-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-moz-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-ms-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-o-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}</style><noscript><style amp-boilerplate>body{-webkit-animation:none;-moz-animation:none;-ms-animation:none;animation:none}</style></noscript>
+    <script async src="https://cdn.ampproject.org/v0.js"></script>
+    <script async custom-element="amp-analytics" src="https://cdn.ampproject.org/v0/amp-analytics-0.1.js"></script>
+    <script async custom-element="amp-twitter" src="https://cdn.ampproject.org/v0/amp-twitter-0.1.js"></script>
+<script async custom-element="amp-iframe" src="https://cdn.ampproject.org/v0/amp-iframe-0.1.js"></script>
+<script async custom-element="amp-ad" src="https://cdn.ampproject.org/v0/amp-ad-0.1.js"></script>
+
+    
+<meta name="description" content="软硬件环境： * ubuntu-14.04-server-amd64.iso * ibm x3550 m3工具： * ultra-iso * u盘（用来制作启动盘） * putty * TightVNC制作启动盘 1. 通过ultra-iso打开ubuntu-14.04-server-amd64.iso 2. 点击启动 -&amp;gt; 写入硬盘映像，点击格式化 *fat32 快速格式化* 3. 写入并等待完成  ###安装ubuntu过程 注意以下三点 1. 语言有中文但是因为默认没有配置字体，故还是选en_US的比较好 2. 配置network默认是dhcp，dhcp取得ip后，back至上一步手动分配个静态ip。服务器还是静态比较靠谱3. 安装服务的时候，openssh、samba勾上，便于远程管理，ssh虽然能传文件，但感觉不是那么方便哈哈 ###kvm 1. 要安装必要的软件包，从终端中输入： sudo apt-get install qemu-kvm libvirt-bin 在安装了libvirt-bin后，用于管理虚拟机的用户需要被添加到libvirtd组。这样做会赋予这个用户 进入到高级网络选项的权限。 sudo adduser $USER libvirtd   安装virt-installsudo apt-get install virtinst  安装guestsudo virt-install -n web_devel -r 256 \ --disk path=/var/lib/libvirt/images/web_devel.img,bus=virtio,size=4 -c \ ubuntu-14.">
+
+<meta property="og:title" content="架设kvm虚拟化服务器  - Isulew&#39;s Blog">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://netcookies.github.io/b/works/2014-05-29/">
+<meta property="og:image" content="https://netcookies.github.io/b/images/default.png">
+<meta property="og:site_name" content="Isulew&#39;s Blog">
+<meta property="og:description" content="软硬件环境： * ubuntu-14.04-server-amd64.iso * ibm x3550 m3工具： * ultra-iso * u盘（用来制作启动盘） * putty * TightVNC制作启动盘 1. 通过ultra-iso打开ubuntu-14.04-server-amd64.iso 2. 点击启动 -&amp;gt; 写入硬盘映像，点击格式化 *fat32 快速格式化* 3. 写入并等待完成  ###安装ubuntu过程 注意以下三点 1. 语言有中文但是因为默认没有配置字体，故还是选en_US的比较好 2. 配置network默认是dhcp，dhcp取得ip后，back至上一步手动分配个静态ip。服务器还是静态比较靠谱3. 安装服务的时候，openssh、samba勾上，便于远程管理，ssh虽然能传文件，但感觉不是那么方便哈哈 ###kvm 1. 要安装必要的软件包，从终端中输入： sudo apt-get install qemu-kvm libvirt-bin 在安装了libvirt-bin后，用于管理虚拟机的用户需要被添加到libvirtd组。这样做会赋予这个用户 进入到高级网络选项的权限。 sudo adduser $USER libvirtd   安装virt-installsudo apt-get install virtinst  安装guestsudo virt-install -n web_devel -r 256 \ --disk path=/var/lib/libvirt/images/web_devel.img,bus=virtio,size=4 -c \ ubuntu-14.">
+<meta property="og:locale" content="ja_JP">
+
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:site" content="Isulew&#39;s Blog">
+<meta name="twitter:url" content="https://netcookies.github.io/b/works/2014-05-29/">
+<meta name="twitter:title" content="架设kvm虚拟化服务器  - Isulew&#39;s Blog">
+<meta name="twitter:description" content="软硬件环境： * ubuntu-14.04-server-amd64.iso * ibm x3550 m3工具： * ultra-iso * u盘（用来制作启动盘） * putty * TightVNC制作启动盘 1. 通过ultra-iso打开ubuntu-14.04-server-amd64.iso 2. 点击启动 -&amp;gt; 写入硬盘映像，点击格式化 *fat32 快速格式化* 3. 写入并等待完成  ###安装ubuntu过程 注意以下三点 1. 语言有中文但是因为默认没有配置字体，故还是选en_US的比较好 2. 配置network默认是dhcp，dhcp取得ip后，back至上一步手动分配个静态ip。服务器还是静态比较靠谱3. 安装服务的时候，openssh、samba勾上，便于远程管理，ssh虽然能传文件，但感觉不是那么方便哈哈 ###kvm 1. 要安装必要的软件包，从终端中输入： sudo apt-get install qemu-kvm libvirt-bin 在安装了libvirt-bin后，用于管理虚拟机的用户需要被添加到libvirtd组。这样做会赋予这个用户 进入到高级网络选项的权限。 sudo adduser $USER libvirtd   安装virt-installsudo apt-get install virtinst  安装guestsudo virt-install -n web_devel -r 256 \ --disk path=/var/lib/libvirt/images/web_devel.img,bus=virtio,size=4 -c \ ubuntu-14.">
+<meta name="twitter:image" content="https://netcookies.github.io/b/images/default.png">
+
+
+<script type="application/ld+json">
+  {
+    "@context": "http://schema.org",
+    "@type": "NewsArticle",
+    "mainEntityOfPage": {
+      "@type": "WebPage",
+      "@id":"https:\/\/netcookies.github.io\/b\/"
+    },
+    "headline": "架设kvm虚拟化服务器  - Isulew\x27s Blog",
+    "image": {
+      "@type": "ImageObject",
+      "url": "https:\/\/netcookies.github.io\/b\/images\/default.png",
+      "height": 800,
+      "width": 800
+    },
+    "datePublished": "2014-05-29T17:07:00JST",
+    "dateModified": "2014-05-29T17:07:00JST",
+    "author": {
+      "@type": "Person",
+      "name": "Isulew\x27s Blog"
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "Isulew\x27s Blog",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https:\/\/netcookies.github.io\/b\/images/logo.png",
+        "width": 600,
+        "height": 60
+      }
+    },
+    "description": "软硬件环境： * ubuntu-14.04-server-amd64.iso * ibm x3550 m3\n工具： * ultra-iso * u盘（用来制作启动盘） * putty * TightVNC\n制作启动盘 1. 通过ultra-iso打开ubuntu-14.04-server-amd64.iso 2. 点击启动 -\x26gt; 写入硬盘映像，点击格式化 *fat32 快速格式化* 3. 写入并等待完成  ###安装ubuntu过程 注意以下三点 1. 语言有中文但是因为默认没有配置字体，故还是选en_US的比较好 2. 配置network默认是dhcp，dhcp取得ip后，back至上一步手动分配个静态ip。服务器还是静态比较靠谱\n3. 安装服务的时候，openssh、samba勾上，便于远程管理，ssh虽然能传文件，但感觉不是那么方便哈哈 ###kvm 1. 要安装必要的软件包，从终端中输入：\n sudo apt-get install qemu-kvm libvirt-bin 在安装了libvirt-bin后，用于管理虚拟机的用户需要被添加到libvirtd组。这样做会赋予这个用户 进入到高级网络选项的权限。 sudo adduser $USER libvirtd   安装virt-install\nsudo apt-get install virtinst  安装guest\nsudo virt-install -n web_devel -r 256 \\ --disk path=\/var\/lib\/libvirt\/images\/web_devel.img,bus=virtio,size=4 -c \\ ubuntu-14."
+  }
+</script>
+
+
+    <style amp-custom>
+      html { font-size: 18px;}@media (max-width: 768px) { html { font-size: 15px; }}body { font-family: Lato,'Hiragino Kaku Gothic Pro',メイリオ,Meiryo,sans-serif; font-size: inherit; margin: 0; color: #263238;}html, body { margin: 0;}a { text-decoration: none; color: #e91e63;}p { margin: 0;}ul,ol { margin: 0; padding: 0;}h1, h2, h3, h4, h5, h6 { margin: 0; font-weight: 700;}h1 { font-size: 1.8rem; line-height: 2rem; margin: 1.5rem 0; }h2 { font-size: 1.4rem; line-height: 2rem; margin: 1.5rem 0; }h3 { font-size: 1.2rem; line-height: 1.5rem; margin: 1.5rem 0; }h4, h5, h6 { font-size: 1rem; line-height: 1.5rem; margin: 1.5rem 0; }.clearfix::after { content: ''; display: block; clear: both;}main { display: block;}/* Layouts */.l-header { padding: .5rem 0; margin-bottom: 2rem; border-bottom: 1px dashed #cfd8dc; text-align: center;}.l-footer { font-size: .8rem; padding: 1rem 0; border-top: 1px dashed #cfd8dc;}.l-container { max-width: 42rem; margin: 0 auto; padding: 0 1rem;}/* Parts:logo */.p-logo { font-family: Lobster, cursive;}.p-logo a { color: #000; font-size: 1.6rem; line-height: 2rem;}/* Parts:section */section { border-top: 2px solid #eceff1; padding: 1.5rem 0;}section>header { text-transform: uppercase; font-weight: 700; margin-bottom: 2rem; text-align: center;}section>header span { display: inline-block; background-color: #000; color: #fff; letter-spacing: 3px; font-size: .7rem; padding: .5rem .75rem;}/* Parts:facts */.p-facts { list-style: none; font-size: .8rem; margin-bottom: 1rem;}.p-facts:last-child { margin-bottom: 0;}.p-facts li { display: inline-block; margin-right: .5rem; text-transform: uppercase;}.p-facts li header { margin-bottom: .25rem; font-weight: 700;}.p-facts li header a { color: #000; text-decoration: underline;}.p-facts li li { display: inline-block; margin-right: .5rem;}.p-facts li li::after { content: ',';}.p-facts li li:last-child::after { content: '';}/* Parts:crumb */.p-crumb { list-style: none; margin-bottom: 1rem; font-size: .8rem; text-transform: uppercase; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;}.p-crumb:last-child { margin-bottom: 0;}.p-crumb li { display: inline;}.p-crumb li::after { content: '›'; margin: 0 .5rem;}.p-crumb li:last-child::after { content: '';}/* Parts:page-title */.p-page-title { margin-bottom: 2rem;}.p-page-title .title { margin-bottom: .5rem;}/* Parts:share */.p-share { margin-bottom: 1.5rem;}.p-share a { display: inline-block; text-align: center; padding: .5rem .5rem; margin-right: .25rem; font-size: .6rem; background-color: #eceff1; font-weight: 700k}.p-share a.ht { color: #00a4de; }.p-share a.fb { color: #3b5998; }.p-share a.tw { color: #1da1f2; }.p-share a.gp { color: #dd4b39; }.p-share a.ln { color: #00c300; }.p-share a.ht::before { content: 'Hatena'; }.p-share a.fb::before { content: 'Facebook'; }.p-share a.tw::before { content: 'Twitter'; }.p-share a.gp::before { content: 'Google+'; }.p-share a.ln::before { content: 'LINE'; }/* Parts:terms */.p-terms { padding-left: 2rem;}/* Parts:article */.p-articles { list-style: none;}.p-articles>li { margin-bottom: 1.5rem; padding-bottom: 1.5rem; border-bottom: 1px dashed #cfd8dc;}.p-articles>li:last-child { border-bottom: none; padding-bottom: 0;}.p-articles.thin>li { margin-bottom: 1rem; padding-bottom: 1rem;}article .article-header { display: table-cell; height: 6rem; vertical-align: middle;}article .title { margin: 0; margin-bottom: .5rem; font-size: 1.4rem; line-height: 2rem;}article .title a { color: #000;}article .header-wrapper { margin-bottom: 1.5rem;}article .thumbnail { display: block; background-position: center; background-size: cover; background-image: url(https://netcookies.github.io/b/images/default.jpg); width: 6rem; height: 6rem; border-radius: 50%; box-shadow: 0 0 3px 0 #333 inset; float: left; margin-right: 1rem;}article .summary { margin-bottom: 1.5rem;}article .readmore { text-align: center;}article .readmore a { font-size: .8rem; color: #000; text-decoration: underline;}article.li.sm .header-wrapper { margin-bottom: 0;}.article-body h2 { padding: 1rem 0; border-bottom: 2px solid #eceff1;}.article-body h2:first-child { margin-top: 0; }.article-body h3 { color: #cddc39;}.article-body h4 { border-left: solid .25rem #cddc39; padding: 0 .5rem;}.article-body p { margin: 1.5rem 0; line-height: 1.5rem;}.article-body a { text-decoration: underline;}.article-body ul,.article-body ol { padding-left: 1.5rem;}.article-body code { display: inline-block; font-family: Menlo, consolas, monospace; background-color: #eceff1; font-size: .8rem; padding: 0 .5rem; line-height: 1.5rem;}.article-body pre { margin: 1.5rem 0; padding: 1.5rem; font-size: .8rem; background-color: #263238; color: #fff; overflow: auto;}.article-body pre code { background-color: transparent;}.article-body blockquote { margin: 1.5rem 0; padding: .5rem 0; font-size: .8rem; border-top: 1px solid #eceff1; border-bottom: 1px solid #eceff1; color: #607d8b;}.article-body blockquote p { margin: .5rem 0; line-height: 1rem;}.article-body strong { box-shadow: 0 -.5rem 0 0 #f06292 inset;}.article-body em { font-style: normal; font-weight: 700; color: #ff5722;}.article-body figure { margin: 1.5rem -2rem; }.article-body figure.left,.article-body figure.right { width: 15rem; height: 12rem; margin-top: 0; margin-left: 0; margin-right: 0;}.article-body figure.left { float: left; margin-right: 1rem; margin-left: -2rem; }.article-body figure.right { float: right; margin-left: 1rem; margin-right: -2rem; }@media (max-width: 768px) { .article-body figure { margin: 1.5rem -1rem; } .article-body figure.left, .article-body figure.right { float: none; margin: 0 -1rem; width: auto; height: auto; }}.article-body figcaption { padding: .5rem 0; font-size: .8rem; text-align: center;}.article-body figcaption a { color: #263238;}
+
+      
+    </style>
+  </head>
+
+  <body>
+    
+    
+    <amp-analytics type="googleanalytics" id="analytics1">
+      <script type="application/json">
+        {
+          "vars": {
+            "account": "UA-89033419-1"
+          },
+          "triggers": {
+            "trackPageview": {
+              "on": "visible",
+              "request": "pageview"
+            }
+          }
+        }
+      </script>
+    </amp-analytics>
+    
+    
+
+    <header class="l-header">
+      <div class="l-container">
+        <div class="h-logo p-logo">
+          <a href="https://netcookies.github.io/b/" class="h-logo">Isulew&#39;s Blog</a>
+        </div>
+      </div>
+    </header>
+
+    <main>
+      
+<div class="l-container">
+  <article class="single article-d935c0747a27569f91c7d6ce30fc318f">
+  <div class="header-wrapper">
+    <a href="https://netcookies.github.io/b/works/2014-05-29/" class="thumbnail" title="架设kvm虚拟化服务器 "></a>
+    <header class="article-header">
+      <div class="clearfix">
+        <h1 class="title">架设kvm虚拟化服务器 </h1>
+        <ul class="p-facts">
+          <li><time datetime="2014-05-29T17:07:00JST">May 29, 2014</time></li>
+          <li><a href="https://netcookies.github.io/b/works/">Works</a></li>
+          
+        </ul>
+      </div>
+    </header>
+  </div>
+
+  <aside class="p-share">
+  <a href="http://b.hatena.ne.jp/add?mode=confirm&url=https%3a%2f%2fnetcookies.github.io%2fb%2fworks%2f2014-05-29%2f&title=%e6%9e%b6%e8%ae%bekvm%e8%99%9a%e6%8b%9f%e5%8c%96%e6%9c%8d%e5%8a%a1%e5%99%a8%20" title="はてなブックマーク" class="ht" target="_blank" rel="nofollow"></a>
+  <a href="http://www.facebook.com/sharer.php?u=https%3a%2f%2fnetcookies.github.io%2fb%2fworks%2f2014-05-29%2f&t=%e6%9e%b6%e8%ae%bekvm%e8%99%9a%e6%8b%9f%e5%8c%96%e6%9c%8d%e5%8a%a1%e5%99%a8%20" title="Facebookでシェア" class="fb" target="_blank" rel="nofollow"></a>
+  <a href="http://twitter.com/intent/tweet?url=https%3a%2f%2fnetcookies.github.io%2fb%2fworks%2f2014-05-29%2f&text=%e6%9e%b6%e8%ae%bekvm%e8%99%9a%e6%8b%9f%e5%8c%96%e6%9c%8d%e5%8a%a1%e5%99%a8%20&tw_p=tweetbutton" title="Twitterでシェア" class="tw" target="_blank" rel="nofollow"></a>
+  <a href="https://plus.google.com/share?url=https%3a%2f%2fnetcookies.github.io%2fb%2fworks%2f2014-05-29%2f" title="Google Plusでシェア" class="gp" target="_blank" rel="nofollow"></a>
+  <a href="http://line.me/R/msg/text/?%e6%9e%b6%e8%ae%bekvm%e8%99%9a%e6%8b%9f%e5%8c%96%e6%9c%8d%e5%8a%a1%e5%99%a8%20 https%3a%2f%2fnetcookies.github.io%2fb%2fworks%2f2014-05-29%2f" title="LINEでシェア" class="ln" target="_blank" rel="nofollow"></a>
+</aside>
+
+
+  <div class="article-body">
+
+<p>软硬件环境：
+*   ubuntu-14.04-server-amd64.iso
+*   ibm x3550 m3</p>
+
+<p>工具：
+*   ultra-iso
+*   u盘（用来制作启动盘）
+*   putty
+*   TightVNC</p>
+
+<hr />
+
+<h3 id="制作启动盘">制作启动盘</h3>
+
+<pre><code>1.  通过ultra-iso打开ubuntu-14.04-server-amd64.iso
+2.  点击启动 -&gt; 写入硬盘映像，点击格式化 *fat32 快速格式化*  
+3.  写入并等待完成
+</code></pre>
+
+<hr />
+
+<p>###安装ubuntu过程
+    注意以下三点
+        1.  语言有中文但是因为默认没有配置字体，故还是选en_US的比较好
+        2.  配置network默认是dhcp，dhcp取得ip后，back至上一步手动分配个静态ip。服务器还是静态比较靠谱</p>
+
+<h2 id="3-安装服务的时候-openssh-samba勾上-便于远程管理-ssh虽然能传文件-但感觉不是那么方便哈哈">3.  安装服务的时候，openssh、samba勾上，便于远程管理，ssh虽然能传文件，但感觉不是那么方便哈哈</h2>
+
+<p>###kvm
+1.  要安装必要的软件包，从终端中输入：</p>
+
+<pre><code>    sudo apt-get install qemu-kvm libvirt-bin
+
+在安装了libvirt-bin后，用于管理虚拟机的用户需要被添加到libvirtd组。这样做会赋予这个用户   进入到高级网络选项的权限。
+
+    sudo adduser $USER libvirtd
+</code></pre>
+
+<ol>
+<li><p>安装virt-install</p>
+
+<pre><code>sudo apt-get install virtinst
+</code></pre></li>
+
+<li><p>安装guest</p>
+
+<pre><code>sudo virt-install -n web_devel -r 256 \
+--disk path=/var/lib/libvirt/images/web_devel.img,bus=virtio,size=4 -c \
+ubuntu-14.04-server-i386.iso --network network=default,model=virtio \
+--graphics vnc,listen=0.0.0.0 --noautoconsole -v
+</code></pre></li>
+
+<li><p>网络配置</p>
+
+<p>如果按第3步中_network=default_，guest可以访问外网，但不能访问host和其他guest。如果用作服务器的话，显然不行。
+故如下配置bridge:
+安装bridge相关工具</p>
+
+<pre><code>    sudo apt-get install bridge-utils
+</code></pre>
+
+<p>编辑/etc/network/interfaces</p>
+
+<pre><code>    auto lo
+    iface lo inet loopback
+
+    auto eth0
+    iface eth0 inet manual
+
+    auto br0
+    iface br0 inet static
+            address 192.168.0.10
+            network 192.168.0.0
+            netmask 255.255.255.0
+            broadcast 192.168.0.255
+            gateway 192.168.0.1
+            bridge_ports eth0
+            bridge_stp off
+            bridge_fd 0
+            bridge_maxwait 0
+</code></pre>
+
+<p>or DHCP:</p>
+
+<pre><code>    auto lo
+    iface lo inet loopback
+
+    auto eth0
+    iface eth0 inet manual
+
+    auto br0
+    iface br0 inet dhcp
+            bridge_ports eth0
+            bridge_stp off
+            bridge_fd 0
+            bridge_maxwait 0
+</code></pre>
+
+<p>重启网络服务：</p>
+
+<pre><code>    sudo /etc/init.d/networking restart
+</code></pre>
+
+<p>or</p>
+
+<pre><code>    sudo ifup br0
+</code></pre>
+
+<p>通过virsh创建bridge虚拟网络:</p>
+
+<pre><code>    virsh
+    net-create bridge.xml
+</code></pre>
+
+<p>xml内容：</p>
+
+<pre><code>    &lt;network&gt;
+    &lt;name&gt;host-bridge&lt;/name&gt;
+    &lt;forward mode=&quot;bridge&quot;/&gt;
+    &lt;bridge name=&quot;br0&quot;/&gt;
+    &lt;/network&gt;
+</code></pre>
+
+<p>编辑guest配置，将网络由nat模式改为bridge</p>
+
+<pre><code>    edit &lt;guest domain&gt;
+</code></pre>
+
+<p>将</p>
+
+<pre><code>    &lt;interface type='network'&gt;
+    &lt;mac address='00:11:22:33:44:55'/&gt;
+    &lt;source network='default'/&gt;
+    &lt;/interface&gt;
+</code></pre>
+
+<p>改为：</p>
+
+<pre><code>    &lt;interface type='bridge'&gt;
+    &lt;mac address='00:11:22:33:44:55'/&gt;
+    &lt;source bridge='br0'/&gt;
+    &lt;/interface&gt;
+</code></pre>
+
+<p>关闭虚拟机，并重启libvirtd服务:</p>
+
+<pre><code>    sudo /etc/init.d/libvirtd restart
+</code></pre>
+
+<p>启动虚拟机，检测下是桥接是否运行正常，下图vnet0是guest虚拟网卡，br0是桥接网卡，eth1为物理网卡：</p>
+
+<pre><code>    # brctl show
+    bridge name     bridge id               STP enabled     interfaces
+    br0             8000.e41f13b416f6       no              eth1
+                                                            vnet0
+</code></pre></li>
+
+<li><p>oem激活</p>
+
+<p>请参看<a href="http://blog.lofyer.org/slic-for-qemu-kvm/">此篇</a>，这不作详解了</p></li>
+</ol>
+</div>
+
+  <aside class="p-share">
+  <a href="http://b.hatena.ne.jp/add?mode=confirm&url=https%3a%2f%2fnetcookies.github.io%2fb%2fworks%2f2014-05-29%2f&title=%e6%9e%b6%e8%ae%bekvm%e8%99%9a%e6%8b%9f%e5%8c%96%e6%9c%8d%e5%8a%a1%e5%99%a8%20" title="はてなブックマーク" class="ht" target="_blank" rel="nofollow"></a>
+  <a href="http://www.facebook.com/sharer.php?u=https%3a%2f%2fnetcookies.github.io%2fb%2fworks%2f2014-05-29%2f&t=%e6%9e%b6%e8%ae%bekvm%e8%99%9a%e6%8b%9f%e5%8c%96%e6%9c%8d%e5%8a%a1%e5%99%a8%20" title="Facebookでシェア" class="fb" target="_blank" rel="nofollow"></a>
+  <a href="http://twitter.com/intent/tweet?url=https%3a%2f%2fnetcookies.github.io%2fb%2fworks%2f2014-05-29%2f&text=%e6%9e%b6%e8%ae%bekvm%e8%99%9a%e6%8b%9f%e5%8c%96%e6%9c%8d%e5%8a%a1%e5%99%a8%20&tw_p=tweetbutton" title="Twitterでシェア" class="tw" target="_blank" rel="nofollow"></a>
+  <a href="https://plus.google.com/share?url=https%3a%2f%2fnetcookies.github.io%2fb%2fworks%2f2014-05-29%2f" title="Google Plusでシェア" class="gp" target="_blank" rel="nofollow"></a>
+  <a href="http://line.me/R/msg/text/?%e6%9e%b6%e8%ae%bekvm%e8%99%9a%e6%8b%9f%e5%8c%96%e6%9c%8d%e5%8a%a1%e5%99%a8%20 https%3a%2f%2fnetcookies.github.io%2fb%2fworks%2f2014-05-29%2f" title="LINEでシェア" class="ln" target="_blank" rel="nofollow"></a>
+</aside>
+
+
+  <footer class="article-footer">
+    <section>
+      <ol class="p-crumb">
+        <li><a href="https://netcookies.github.io/b/">Isulew&#39;s Blog</a></li>
+        
+        <li itemscope="" itemtype="http://data-vocabulary.org/Breadcrumb"><a href="https://netcookies.github.io/b/works/" itemprop="url"><span itemprop="title">Works</span></a></li>
+        
+        <li>架设kvm虚拟化服务器 </li>
+      </ol>
+
+      
+      
+      
+      
+      
+      <ul class="p-facts">
+        <li>
+          <header><a href="https://netcookies.github.io/b/tags/">tags</a></header>
+          <ul>
+            
+
+  
+  
+  <section>
+    <header><span>Latests</span></header>
+    <ul class="p-articles thin">
+      <li><article class="li sm article-01dacd66058cf5e7494919c27be4e13c">
+  <div class="header-wrapper">
+    <a href="https://netcookies.github.io/b/4share/2016-09-15/" class="thumbnail" title="当梯子不可用时可以自动重启梯子的脚本"></a>
+    <header class="article-header">
+      <div class="clearfix">
+        <h2 class="title"><a href="https://netcookies.github.io/b/4share/2016-09-15/">当梯子不可用时可以自动重启梯子的脚本</a></h2>
+        <ul class="p-facts">
+          <li><time datetime="2016-09-15T18:00:00JST">Sep 15, 2016</time></li>
+          <li><a href="https://netcookies.github.io/b/4share/">4Share</a></li>
+          
+        </ul>
+      </div>
+    </header>
+  </div>
+</article>
+</li><li><article class="li sm article-bad3924eadbed258a0c2f459db4ce2cc">
+  <div class="header-wrapper">
+    <a href="https://netcookies.github.io/b/4share/2016-04-25/" class="thumbnail" title="自建rss服务并适配 IOS 移动端（ TTRSS &#43; Fever )"></a>
+    <header class="article-header">
+      <div class="clearfix">
+        <h2 class="title"><a href="https://netcookies.github.io/b/4share/2016-04-25/">自建rss服务并适配 IOS 移动端（ TTRSS &#43; Fever )</a></h2>
+        <ul class="p-facts">
+          <li><time datetime="2016-04-25T13:43:00JST">Apr 25, 2016</time></li>
+          <li><a href="https://netcookies.github.io/b/4share/">4Share</a></li>
+          
+        </ul>
+      </div>
+    </header>
+  </div>
+</article>
+</li><li><article class="li sm article-868d54f8c7bdfeabe4c2357b4df68cb7">
+  <div class="header-wrapper">
+    <a href="https://netcookies.github.io/b/4share/2016-01-15/" class="thumbnail" title="一加X ROOT 并安装Xposed(不解锁BootLoader)"></a>
+    <header class="article-header">
+      <div class="clearfix">
+        <h2 class="title"><a href="https://netcookies.github.io/b/4share/2016-01-15/">一加X ROOT 并安装Xposed(不解锁BootLoader)</a></h2>
+        <ul class="p-facts">
+          <li><time datetime="2016-01-15T16:46:00JST">Jan 15, 2016</time></li>
+          <li><a href="https://netcookies.github.io/b/4share/">4Share</a></li>
+          
+        </ul>
+      </div>
+    </header>
+  </div>
+</article>
+</li><li><article class="li sm article-24758de123a5bc0528270e1024372766">
+  <div class="header-wrapper">
+    <a href="https://netcookies.github.io/b/4share/2015-11-04/" class="thumbnail" title="Raspberry Pi编译驱动（8188eu)"></a>
+    <header class="article-header">
+      <div class="clearfix">
+        <h2 class="title"><a href="https://netcookies.github.io/b/4share/2015-11-04/">Raspberry Pi编译驱动（8188eu)</a></h2>
+        <ul class="p-facts">
+          <li><time datetime="2015-11-04T16:56:00JST">Nov 4, 2015</time></li>
+          <li><a href="https://netcookies.github.io/b/4share/">4Share</a></li>
+          
+        </ul>
+      </div>
+    </header>
+  </div>
+</article>
+</li><li><article class="li sm article-e1de7009e6836307f737bb1e311c52fe">
+  <div class="header-wrapper">
+    <a href="https://netcookies.github.io/b/4share/2015-10-23/" class="thumbnail" title="Shadowsocks 安装配置常见问题解答"></a>
+    <header class="article-header">
+      <div class="clearfix">
+        <h2 class="title"><a href="https://netcookies.github.io/b/4share/2015-10-23/">Shadowsocks 安装配置常见问题解答</a></h2>
+        <ul class="p-facts">
+          <li><time datetime="2015-10-23T21:07:00JST">Oct 23, 2015</time></li>
+          <li><a href="https://netcookies.github.io/b/4share/">4Share</a></li>
+          
+        </ul>
+      </div>
+    </header>
+  </div>
+</article>
+</li><li><article class="li sm article-bc2925b43c2463e031df561c921feac9">
+  <div class="header-wrapper">
+    <a href="https://netcookies.github.io/b/4share/2015-09-29/" class="thumbnail" title="Raspberry Pi 搭建Anyconnect VPN"></a>
+    <header class="article-header">
+      <div class="clearfix">
+        <h2 class="title"><a href="https://netcookies.github.io/b/4share/2015-09-29/">Raspberry Pi 搭建Anyconnect VPN</a></h2>
+        <ul class="p-facts">
+          <li><time datetime="2015-09-29T23:12:00JST">Sep 29, 2015</time></li>
+          <li><a href="https://netcookies.github.io/b/4share/">4Share</a></li>
+          
+        </ul>
+      </div>
+    </header>
+  </div>
+</article>
+</li><li><article class="li sm article-69762998ef57fd01fc17331284435397">
+  <div class="header-wrapper">
+    <a href="https://netcookies.github.io/b/4share/2015-08-24/" class="thumbnail" title="Blackberry 10 系统穿墙指北"></a>
+    <header class="article-header">
+      <div class="clearfix">
+        <h2 class="title"><a href="https://netcookies.github.io/b/4share/2015-08-24/">Blackberry 10 系统穿墙指北</a></h2>
+        <ul class="p-facts">
+          <li><time datetime="2015-08-24T23:42:00JST">Aug 24, 2015</time></li>
+          <li><a href="https://netcookies.github.io/b/4share/">4Share</a></li>
+          
+        </ul>
+      </div>
+    </header>
+  </div>
+</article>
+</li><li><article class="li sm article-1eed9ca8ad8301daf05ac83f83e88a72">
+  <div class="header-wrapper">
+    <a href="https://netcookies.github.io/b/4share/2015-08-08/" class="thumbnail" title="Win10 VPN TCP/IP属性无法打开解决办法"></a>
+    <header class="article-header">
+      <div class="clearfix">
+        <h2 class="title"><a href="https://netcookies.github.io/b/4share/2015-08-08/">Win10 VPN TCP/IP属性无法打开解决办法</a></h2>
+        <ul class="p-facts">
+          <li><time datetime="2015-08-08T22:54:00JST">Aug 8, 2015</time></li>
+          <li><a href="https://netcookies.github.io/b/4share/">4Share</a></li>
+          
+        </ul>
+      </div>
+    </header>
+  </div>
+</article>
+</li><li><article class="li sm article-8ad5b80e783b962dbd91a3e185f0d799">
+  <div class="header-wrapper">
+    <a href="https://netcookies.github.io/b/works/2015-03-08/" class="thumbnail" title="CSS基础Q&amp;A"></a>
+    <header class="article-header">
+      <div class="clearfix">
+        <h2 class="title"><a href="https://netcookies.github.io/b/works/2015-03-08/">CSS基础Q&amp;A</a></h2>
+        <ul class="p-facts">
+          <li><time datetime="2015-03-08T22:40:00JST">Mar 8, 2015</time></li>
+          <li><a href="https://netcookies.github.io/b/works/">Works</a></li>
+          
+        </ul>
+      </div>
+    </header>
+  </div>
+</article>
+</li><li><article class="li sm article-cffbe5e49a8e826e68ab202030b29fc8">
+  <div class="header-wrapper">
+    <a href="https://netcookies.github.io/b/works/2015-03-03/" class="thumbnail" title="Lithium CSS Guide"></a>
+    <header class="article-header">
+      <div class="clearfix">
+        <h2 class="title"><a href="https://netcookies.github.io/b/works/2015-03-03/">Lithium CSS Guide</a></h2>
+        <ul class="p-facts">
+          <li><time datetime="2015-03-03T23:18:00JST">Mar 3, 2015</time></li>
+          <li><a href="https://netcookies.github.io/b/works/">Works</a></li>
+          
+        </ul>
+      </div>
+    </header>
+  </div>
+</article>
+</li><li><article class="li sm article-73d5d3e0ca193b010244bc00cbf18a0d">
+  <div class="header-wrapper">
+    <a href="https://netcookies.github.io/b/4share/2015-02-04/" class="thumbnail" title="Black Passport进阶操作指南（三）"></a>
+    <header class="article-header">
+      <div class="clearfix">
+        <h2 class="title"><a href="https://netcookies.github.io/b/4share/2015-02-04/">Black Passport进阶操作指南（三）</a></h2>
+        <ul class="p-facts">
+          <li><time datetime="2015-02-04T15:03:00JST">Feb 4, 2015</time></li>
+          <li><a href="https://netcookies.github.io/b/4share/">4Share</a></li>
+          
+        </ul>
+      </div>
+    </header>
+  </div>
+</article>
+</li><li><article class="li sm article-43e95da2633db5c533c84329d6fb5a2a">
+  <div class="header-wrapper">
+    <a href="https://netcookies.github.io/b/4share/2015-01-25/" class="thumbnail" title="Black Passport进阶操作指南（二）"></a>
+    <header class="article-header">
+      <div class="clearfix">
+        <h2 class="title"><a href="https://netcookies.github.io/b/4share/2015-01-25/">Black Passport进阶操作指南（二）</a></h2>
+        <ul class="p-facts">
+          <li><time datetime="2015-01-25T22:06:00JST">Jan 25, 2015</time></li>
+          <li><a href="https://netcookies.github.io/b/4share/">4Share</a></li>
+          
+        </ul>
+      </div>
+    </header>
+  </div>
+</article>
+</li><li><article class="li sm article-ec86d7a5186bd67723af7027cf59c456">
+  <div class="header-wrapper">
+    <a href="https://netcookies.github.io/b/4share/2015-01-23/" class="thumbnail" title="Black Passport进阶操作指南（一）"></a>
+    <header class="article-header">
+      <div class="clearfix">
+        <h2 class="title"><a href="https://netcookies.github.io/b/4share/2015-01-23/">Black Passport进阶操作指南（一）</a></h2>
+        <ul class="p-facts">
+          <li><time datetime="2015-01-23T20:45:00JST">Jan 23, 2015</time></li>
+          <li><a href="https://netcookies.github.io/b/4share/">4Share</a></li>
+          
+        </ul>
+      </div>
+    </header>
+  </div>
+</article>
+</li><li><article class="li sm article-dc6d4377f3b4833c911d919c23f190cf">
+  <div class="header-wrapper">
+    <a href="https://netcookies.github.io/b/4share/2015-01-17/" class="thumbnail" title="BlackBerry Passport一星期评测"></a>
+    <header class="article-header">
+      <div class="clearfix">
+        <h2 class="title"><a href="https://netcookies.github.io/b/4share/2015-01-17/">BlackBerry Passport一星期评测</a></h2>
+        <ul class="p-facts">
+          <li><time datetime="2015-01-17T18:17:00JST">Jan 17, 2015</time></li>
+          <li><a href="https://netcookies.github.io/b/4share/">4Share</a></li>
+          
+        </ul>
+      </div>
+    </header>
+  </div>
+</article>
+</li><li><article class="li sm article-802fe96093c9092b7b329fc935d2304f">
+  <div class="header-wrapper">
+    <a href="https://netcookies.github.io/b/works/2014-10-09/" class="thumbnail" title="PowerDisgner数据建模时生成oracle脚本需要的配置"></a>
+    <header class="article-header">
+      <div class="clearfix">
+        <h2 class="title"><a href="https://netcookies.github.io/b/works/2014-10-09/">PowerDisgner数据建模时生成oracle脚本需要的配置</a></h2>
+        <ul class="p-facts">
+          <li><time datetime="2014-10-09T16:38:00JST">Oct 9, 2014</time></li>
+          <li><a href="https://netcookies.github.io/b/works/">Works</a></li>
+          
+        </ul>
+      </div>
+    </header>
+  </div>
+</article>
+</li><li><article class="li sm article-5f18a6829f873bc7229f8f730e17cf49">
+  <div class="header-wrapper">
+    <a href="https://netcookies.github.io/b/4share/2014-09-11/" class="thumbnail" title="介绍下KeePass， 用强迫症的方式管理密码"></a>
+    <header class="article-header">
+      <div class="clearfix">
+        <h2 class="title"><a href="https://netcookies.github.io/b/4share/2014-09-11/">介绍下KeePass， 用强迫症的方式管理密码</a></h2>
+        <ul class="p-facts">
+          <li><time datetime="2014-09-11T17:01:00JST">Sep 11, 2014</time></li>
+          <li><a href="https://netcookies.github.io/b/4share/">4Share</a></li>
+          
+        </ul>
+      </div>
+    </header>
+  </div>
+</article>
+</li><li><article class="li sm article-19ff6bd84ec3e9b8b535d09da04931e4">
+  <div class="header-wrapper">
+    <a href="https://netcookies.github.io/b/works/2014-08-29/" class="thumbnail" title="archlinux上架设goagent "></a>
+    <header class="article-header">
+      <div class="clearfix">
+        <h2 class="title"><a href="https://netcookies.github.io/b/works/2014-08-29/">archlinux上架设goagent </a></h2>
+        <ul class="p-facts">
+          <li><time datetime="2014-08-29T12:40:00JST">Aug 29, 2014</time></li>
+          <li><a href="https://netcookies.github.io/b/works/">Works</a></li>
+          
+        </ul>
+      </div>
+    </header>
+  </div>
+</article>
+</li><li><article class="li sm article-ccdff7fb1d5d222acb5dccee63a7b4c3">
+  <div class="header-wrapper">
+    <a href="https://netcookies.github.io/b/works/2014-08-27-1/" class="thumbnail" title="通过SSH安装oracle "></a>
+    <header class="article-header">
+      <div class="clearfix">
+        <h2 class="title"><a href="https://netcookies.github.io/b/works/2014-08-27-1/">通过SSH安装oracle </a></h2>
+        <ul class="p-facts">
+          <li><time datetime="2014-08-27T16:35:00JST">Aug 27, 2014</time></li>
+          <li><a href="https://netcookies.github.io/b/works/">Works</a></li>
+          
+        </ul>
+      </div>
+    </header>
+  </div>
+</article>
+</li><li><article class="li sm article-fd545c4d43cee30cbf58e2adb7781bce">
+  <div class="header-wrapper">
+    <a href="https://netcookies.github.io/b/works/2014-08-27/" class="thumbnail" title="ArchLinux 安装与配置"></a>
+    <header class="article-header">
+      <div class="clearfix">
+        <h2 class="title"><a href="https://netcookies.github.io/b/works/2014-08-27/">ArchLinux 安装与配置</a></h2>
+        <ul class="p-facts">
+          <li><time datetime="2014-08-27T13:05:00JST">Aug 27, 2014</time></li>
+          <li><a href="https://netcookies.github.io/b/works/">Works</a></li>
+          
+        </ul>
+      </div>
+    </header>
+  </div>
+</article>
+</li><li><article class="li sm article-1dadec6ee08dda19e712d59a1cb18571">
+  <div class="header-wrapper">
+    <a href="https://netcookies.github.io/b/works/2014-07-28/" class="thumbnail" title="Oracle免安装客户端 "></a>
+    <header class="article-header">
+      <div class="clearfix">
+        <h2 class="title"><a href="https://netcookies.github.io/b/works/2014-07-28/">Oracle免安装客户端 </a></h2>
+        <ul class="p-facts">
+          <li><time datetime="2014-07-28T11:48:00JST">Jul 28, 2014</time></li>
+          <li><a href="https://netcookies.github.io/b/works/">Works</a></li>
+          
+        </ul>
+      </div>
+    </header>
+  </div>
+</article>
+</li><li><article class="li sm article-136608c06e0bee092b0dba8f2c346b93">
+  <div class="header-wrapper">
+    <a href="https://netcookies.github.io/b/works/2014-07-06/" class="thumbnail" title="dualwan一线多拨"></a>
+    <header class="article-header">
+      <div class="clearfix">
+        <h2 class="title"><a href="https://netcookies.github.io/b/works/2014-07-06/">dualwan一线多拨</a></h2>
+        <ul class="p-facts">
+          <li><time datetime="2014-07-06T21:19:00JST">Jul 6, 2014</time></li>
+          <li><a href="https://netcookies.github.io/b/works/">Works</a></li>
+          
+        </ul>
+      </div>
+    </header>
+  </div>
+</article>
+</li><li><article class="li sm article-f38d6e72376046b829156af55bed56c7">
+  <div class="header-wrapper">
+    <a href="https://netcookies.github.io/b/works/2014-06-06/" class="thumbnail" title="配置 Samba4 作为 AD域控制器"></a>
+    <header class="article-header">
+      <div class="clearfix">
+        <h2 class="title"><a href="https://netcookies.github.io/b/works/2014-06-06/">配置 Samba4 作为 AD域控制器</a></h2>
+        <ul class="p-facts">
+          <li><time datetime="2014-06-06T12:59:00JST">Jun 6, 2014</time></li>
+          <li><a href="https://netcookies.github.io/b/works/">Works</a></li>
+          
+        </ul>
+      </div>
+    </header>
+  </div>
+</article>
+</li><li><article class="li sm article-b8e597b03ef87493a9d0702a04dd70ab">
+  <div class="header-wrapper">
+    <a href="https://netcookies.github.io/b/works/2014-05-23-2/" class="thumbnail" title="文件备份自动压缩打包 "></a>
+    <header class="article-header">
+      <div class="clearfix">
+        <h2 class="title"><a href="https://netcookies.github.io/b/works/2014-05-23-2/">文件备份自动压缩打包 </a></h2>
+        <ul class="p-facts">
+          <li><time datetime="2014-05-23T21:34:00JST">May 23, 2014</time></li>
+          <li><a href="https://netcookies.github.io/b/works/">Works</a></li>
+          
+        </ul>
+      </div>
+    </header>
+  </div>
+</article>
+</li><li><article class="li sm article-4f8ede94661089a2bb01b50b2080c5b0">
+  <div class="header-wrapper">
+    <a href="https://netcookies.github.io/b/post/about/" class="thumbnail" title="About"></a>
+    <header class="article-header">
+      <div class="clearfix">
+        <h2 class="title"><a href="https://netcookies.github.io/b/post/about/">About</a></h2>
+        <ul class="p-facts">
+          <li><time datetime="2014-05-22T10:02:00JST">May 22, 2014</time></li>
+          <li><a href="https://netcookies.github.io/b/post/">post</a></li>
+          
+        </ul>
+      </div>
+    </header>
+  </div>
+</article>
+</li>
+    </ul>
+  </section>
+  
+</div>
+
+
+    </main>
+
+    
+
+    <footer class="l-footer">
+      <div class="l-container">
+        <p><span class="h-logo">&copy; Isulew&#39;s Blog</span></p>
+        <aside>
+          <p>Powered by <a href="https://gohugo.io/">Hugo</a>.</p>
+          <p><a href="https://github.com/dim0627/hugo_theme_aglaus" class="h-logo">Aglaus</a> designed by <a href="http://yet.unresolved.xyz/">Daisuke Tsuji</a>.</p>
+        </aside>
+      </div>
+    </footer>
+
+    <a href="#" class="p-movetop" title="ページ上部へ戻る" rel="nofollow"></a>
+  </body>
+</html>
+

@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="">
+
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="chrome=1">
+<meta name="HandheldFriendly" content="True">
+<meta name="MobileOptimized" content="320">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="referrer" content="no-referrer">
+
+
+<base href="https://netcookies.github.io/b/">
+<title>
+
+
+     ArchLinux 安装与配置 
+
+</title>
+<link rel="canonical" href="https://netcookies.github.io/b/post/2014-08-27/">
+
+
+<script type="text/javascript">
+    var baseURL = 'https:\/\/netcookies.github.io\/b\/';
+    var host = baseURL.substring(0, baseURL.length - 1).replace(/\//g, '');
+    if ((host === window.location.host) && (window.location.protocol !== 'https:')) {
+        window.location.protocol = 'https:';
+    }
+</script>
+
+
+
+
+
+<link rel="stylesheet" href="/css/reset.css">
+<link rel="stylesheet" href="/css/pygments.css">
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+
+<link rel="shortcut icon"
+
+    href="/img/favicon.ico"
+
+>
+
+
+
+
+
+
+</head>
+
+
+<body lang="">
+
+<section class="header"> 
+    <div class="container">
+        <div class="content">
+            
+            <a href="/"><div class="name"></div></a>
+            <nav>
+                <ul>
+                    <a href="/blog/"><li>Blog</li></a>
+                    <a href="/about/"><li>About</li></a>
+                    <a href="/code/"><li>Code</li></a>
+                </ul>
+            </nav>
+        </div>
+    </div>
+</section>
+
+<section class="icons">
+    <div class="container">
+        <div class="content">
+
+        
+        
+        
+
+        
+
+        
+
+        
+
+        
+
+        
+            <a href="https://netcookies.github.io/b/index.xml">
+                <i class="icon ion-social-rss larger"></i>
+            </a>
+        
+        </div>
+    </div>
+</section>
+
+<section class="main">
+    <div class="container">
+        <div class="content">
+            <p>检查需要配置网络的接口名(interface)</p>
+
+<pre><code>ip link
+</code></pre>
+
+<p>输出如下：</p>
+
+<pre><code>1: lo: &lt;LOOPBACK,UP,LOWER_UP&gt; mtu 65536 qdisc noqueue state UNKNOWN mode DEFAULT
+    link/loopback 00:00:00:00:00:00 brd 00:00:00:00:00:00
+2: enp2s0f0: &lt;BROADCAST,MULTICAST&gt; mtu 1500 qdisc noop state DOWN mode DEFAULT qlen 1000
+    link/ether 00:11:25:31:69:20 brd ff:ff:ff:ff:ff:ff
+3: wlp3s0: &lt;BROADCAST,MULTICAST,UP,LOWER_UP&gt; mtu 1500 qdisc mq state UP mode DORMANT qlen 1000
+    link/ether 01:02:03:04:05:06 brd ff:ff:ff:ff:ff:ff
+</code></pre>
+
+<p>配置有线网络，如果为dhcp自动分配或无线网络的这里略过<a href="https://wiki.archlinux.org/index.php/Beginners%27_guide#Wireless_2">详细</a></p>
+
+<pre><code>ip addr add 192.168.0.100/24 dev enp2s0f0
+ip route add default via 192.168.0.1
+vi /etc/resolv.conf
+#填入dns
+nameserver 114.114.114.114
+</code></pre>
+
+<p>用fdisk分区，分出一个swap及一个ext3/ext4分区</p>
+
+<pre><code>fdisk /dev/sda
+o   #创建一个新的分区表
+n   #创建新分区
+p   #主分区
+2   #分区2，用作swap，大小与内存相等及可
+enter #这里默认即可
++1G #大小1G
+n   #创建新分区
+p   #主分区
+1   #分区1，用作系统区
+enter #这里默认即可
+enter #默认剩余的所有空间
+w   #写入分区表
+mkfs.ext3 /dev/sda1     #格式化分区
+mkswap /dev/sda2
+swapon /dev/sda2
+</code></pre>
+
+<p>挂载分区，更改源</p>
+
+<pre><code>mount /dev/sda1 /mnt
+vi /etc/pacman.d/mirrorlist
+</code></pre>
+
+<p>国内源如下：</p>
+
+<pre><code>##
+## Arch Linux repository mirrorlist
+## Generated on 2014-08-26
+##
+
+## China
+#Server = http://mirrors.163.com/archlinux/$repo/os/$arch
+#Server = http://mirror.bjtu.edu.cn/archlinux/$repo/os/$arch
+#Server = http://mirrors.hust.edu.cn/archlinux/$repo/os/$arch
+#Server = http://mirrors.hustunique.com/archlinux/$repo/os/$arch
+#Server = http://mirrors.neusoft.edu.cn/archlinux/$repo/os/$arch
+#Server = http://run.hit.edu.cn/archlinux/$repo/os/$arch
+#Server = http://mirrors.ustc.edu.cn/archlinux/$repo/os/$arch
+</code></pre>
+
+<p>开始安装</p>
+
+<pre><code>pacstrap -i /mnt base base-devel
+</code></pre>
+
+<p>生成fstab</p>
+
+<pre><code>genfstab -U -p /mnt &gt;&gt; /mnt/etc/fstab
+vi /mnt/etc/fstab #确认下看看有没有错误
+</code></pre>
+
+<p>chroot 并配置系统</p>
+
+<pre><code>arch-chroot /mnt /bin/bash
+</code></pre>
+
+<p>语言配置</p>
+
+<pre><code>vi /etc/locale.gen
+#将en_US.UTF-8 UTF-8 前面的#号去掉
+...
+#en_SG ISO-8859-1
+en_US.UTF-8 UTF-8
+#en_US ISO-8859-1
+...
+</code></pre>
+
+<pre><code>locale-gen
+echo LANG=en_US.UTF-8 &gt; /etc/locale.conf
+export LANG=en_US.UTF-8
+</code></pre>
+
+<p>时区</p>
+
+<pre><code>ln -s /usr/share/zoneinfo/Asia/Shanghai /etc/localtime
+hwclock --systohc --utc
+</code></pre>
+
+<p>加载必要的内核模块</p>
+
+<pre><code>vi /etc/modules-load.d/virtio-net.conf 
+</code></pre>
+
+<p>以下模块为qemu 虚拟机必须</p>
+
+<pre><code># Load 'virtio-net.ko' at boot. 
+
+virtio-net
+</code></pre>
+
+<p>主机名</p>
+
+<pre><code>echo myhostname &gt; /etc/hostname
+vi /etc/hosts
+</code></pre>
+
+<pre><code>#
+# /etc/hosts: static lookup table for host names
+#
+
+#&lt;ip-address&gt;	&lt;hostname.domain.org&gt;	&lt;hostname&gt;
+127.0.0.1	localhost.localdomain	localhost	myhostname
+::1		localhost.localdomain	localhost
+
+# End of file
+</code></pre>
+
+<p>网络配置</p>
+
+<pre><code>systemctl stop dhcpcd.service
+systemctl disable dhcpcd.service
+cd /etc/netctl
+cp examples/ethernet-static my_network
+netctl enable my_network
+vi my_network  #将其中的接口 地址 网关 dns 等修改成对应的值
+</code></pre>
+
+<p>Create an initial ramdisk environment</p>
+
+<pre><code>vi /etc/mkinitcpio.conf
+...
+MODULES=&quot;virtio virtio_blk virtio_pci virtio_net&quot;
+...
+</code></pre>
+
+<pre><code>mkinitcpio -p linux
+</code></pre>
+
+<p>设定root密码</p>
+
+<pre><code>passwd
+</code></pre>
+
+<p>安装bootloader</p>
+
+<pre><code>pacman -S syslinux
+syslinux-install_update -iam
+</code></pre>
+
+<p>编辑/boot/syslinux/syslinux.cfg， 将其中的/dev/sda3 改成你实际的root分区</p>
+
+<p>重启, 进行最后配置，安装些常用的软件</p>
+
+<pre><code>systemctl disable dhcpcd.service
+pacman -S vim openssh
+</code></pre>
+
+<p>done! enjoy~</p>
+
+<p><em>quote from <a href="https://wiki.archlinux.org/index.php/Beginners%27_guide#Wired">ArchLinux</a></em></p>
+
+        </div>
+    </div>
+</section>
+
+
+
+
+
+
+</body>
+</html>
+
