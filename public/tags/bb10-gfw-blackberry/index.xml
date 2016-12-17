@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Isulew&#39;s Blog</title>
+    <link>https://netcookies.github.io/b/tags/bb10-gfw-blackberry/index.xml</link>
+    <description>Recent content on Isulew&#39;s Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <atom:link href="https://netcookies.github.io/b/tags/bb10-gfw-blackberry/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>Blackberry 10 系统穿墙指北</title>
+      <link>https://netcookies.github.io/b/4share/2015-08-24/</link>
+      <pubDate>Mon, 24 Aug 2015 23:42:00 +0800</pubDate>
+      
+      <guid>https://netcookies.github.io/b/4share/2015-08-24/</guid>
+      <description>&lt;ol&gt;
+&lt;li&gt;设置&lt;/li&gt;
+&lt;li&gt;wifi&lt;/li&gt;
+&lt;li&gt;长按需要穿墙的wifi名称、点编辑&lt;/li&gt;
+&lt;li&gt;使用代理服务器&lt;/li&gt;
+&lt;li&gt;自动代理服务器(PAC)&lt;/li&gt;
+&lt;li&gt;URL里输入 &lt;a href=&#34;https://pac.itzmx.com/abc.pac&#34;&gt;https://pac.itzmx.com/abc.pac&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;保存即可&lt;/li&gt;
+&lt;/ol&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>

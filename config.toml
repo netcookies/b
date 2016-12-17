@@ -1,15 +1,39 @@
 baseurl = "https://netcookies.github.io/b/"
+#languageCode = "en-us"
+#googleAnalytics = "UA-89033419-1"
+builddrafts = false
+canonifyurls = true
+contentdir = "content"
+languageCode = "en-US"
+layoutdir = "layouts"
+publishdir = "public"
 title = "Isulew's Blog"
-languageCode = "en-us"
+author = "Isulew Li"
+pygmentsuseclasses = true
+disqusshortname = "nzndorg" # Comment out to disable Disqus.
+pluralizelisttitles = false
 
-googleAnalytics = "UA-89033419-1"
+[permalinks]
+fixed = ":title/"
+blog = "blog/:slug/"
 
 [params]
-  dateformat = "Jan 2, 2006"
-  Author = "Isulew"
-  disqusShortname = "nzndorg"
-  ampscripts = """
-<script async custom-element="amp-twitter" src="https://cdn.ampproject.org/v0/amp-twitter-0.1.js"></script>
-<script async custom-element="amp-iframe" src="https://cdn.ampproject.org/v0/amp-iframe-0.1.js"></script>
-<script async custom-element="amp-ad" src="https://cdn.ampproject.org/v0/amp-ad-0.1.js"></script>
-"""
+author = "Isulew Li"
+# gravatar = "" # do not use in the same time as Avatar
+# avatar = "" # path to image in static dir e.g img/avatar.png (do not use in the same time as Gravatar)
+# cachebuster = false # FIXME: See issue #32.
+dateform = "Jan 2, 2006"
+dateformfull = "Mon Jan 2 2006 15:04:05 MST"
+description = "Don't panic"
+email = "netcookies@gmail.com"
+faviconfile = "img/leaf.ico"
+gatracker = "UA-89033419-1"
+github = "//github.com/netcookies"
+highlightjs = true
+# highlightjslanguages = ["go"] # additional languages not included in the "common" set
+initials = "ad" # Displayed on single post page; DEPRECATED in v0.3.0.
+lang = "en"
+#linkedin = "//linkedin.com/in/netcookies"
+twitter = "//twitter.com/netcookies"
+
+extracssfiles = [ "/css/override.css"  ] # In your `static/css`, add/remove files as necessary.

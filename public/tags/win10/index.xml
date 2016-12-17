@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Isulew&#39;s Blog</title>
+    <link>https://netcookies.github.io/b/tags/win10/index.xml</link>
+    <description>Recent content on Isulew&#39;s Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-US</language>
+    <atom:link href="https://netcookies.github.io/b/tags/win10/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>Win10 VPN TCP/IP属性无法打开解决办法</title>
+      <link>https://netcookies.github.io/b/blog/win10-vpn-tcp/ip%E5%B1%9E%E6%80%A7%E6%97%A0%E6%B3%95%E6%89%93%E5%BC%80%E8%A7%A3%E5%86%B3%E5%8A%9E%E6%B3%95/</link>
+      <pubDate>Sat, 08 Aug 2015 22:54:00 +0800</pubDate>
+      
+      <guid>https://netcookies.github.io/b/blog/win10-vpn-tcp/ip%E5%B1%9E%E6%80%A7%E6%97%A0%E6%B3%95%E6%89%93%E5%BC%80%E8%A7%A3%E5%86%B3%E5%8A%9E%E6%B3%95/</guid>
+      <description>&lt;p&gt;升级win10后，在网络适配器中无法正常打开TCP/IP IPV4/V6的属性对话框。
+如果需要更改“在远程网络上使用默认网关”，即所有的网络请求都走vpn，不论是内外网。
+可以用下面的命令workaround下，首先打开powershell（直接通过win10的搜索功能打开或通过开始菜单里找）&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-bat&#34;&gt;Get-VpnConnection
+Set-VpnConnection -Name &amp;quot;myVPN&amp;quot; -SplitTunneling $True
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;通过&lt;code&gt;Get-VpnConnection&lt;/code&gt;得到vpn的名字，再通过&lt;code&gt;Set-VpnConnection&lt;/code&gt;来更改对应的属性&lt;/p&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>

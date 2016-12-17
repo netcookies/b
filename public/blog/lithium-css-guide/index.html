@@ -1,0 +1,456 @@
+<!DOCTYPE html>
+<html lang="en-US">
+
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="chrome=1">
+<meta name="HandheldFriendly" content="True">
+<meta name="MobileOptimized" content="320">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="referrer" content="no-referrer">
+<meta name="description" content="Don&#39;t panic">
+
+<base href="https://netcookies.github.io/b/">
+<title>
+
+
+     Lithium CSS Guide 
+
+</title>
+<link rel="canonical" href="https://netcookies.github.io/b/blog/lithium-css-guide/">
+
+
+<script type="text/javascript">
+    var baseURL = 'https:\/\/netcookies.github.io\/b\/';
+    var host = baseURL.substring(0, baseURL.length - 1).replace(/\//g, '');
+    if ((host === window.location.host) && (window.location.protocol !== 'https:')) {
+        window.location.protocol = 'https:';
+    }
+</script>
+
+
+
+
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.8.0/styles/default.min.css">
+
+
+<link rel="stylesheet" href="https://netcookies.github.io/b/css/reset.css">
+<link rel="stylesheet" href="https://netcookies.github.io/b/css/pygments.css">
+<link rel="stylesheet" href="https://netcookies.github.io/b/css/main.css">
+
+
+    <link rel="stylesheet" href="https://netcookies.github.io/b/css/override.css">
+
+
+
+<link rel="shortcut icon"
+
+    href="https://netcookies.github.io/b/img/leaf.ico"
+
+>
+
+
+
+
+
+
+</head>
+
+
+<body lang="en">
+
+<section class="header"> 
+    <div class="container">
+        <div class="content">
+            
+            <a href="https://netcookies.github.io/b/"><div class="name">Isulew Li</div></a>
+            <nav>
+                <ul>
+                    <a href="https://netcookies.github.io/b/blog/"><li>Blog</li></a>
+                    <a href="https://netcookies.github.io/b/about/"><li>About</li></a>
+                    <a href="https://netcookies.github.io/b/code/"><li>Code</li></a>
+                </ul>
+            </nav>
+        </div>
+    </div>
+</section>
+
+<section class="icons">
+    <div class="container">
+        <div class="content">
+
+        
+            <a href="//github.com/netcookies" target="_blank">
+                <i class="icon ion-social-github"></i>
+            </a>
+        
+        
+        
+            <a href="//twitter.com/netcookies" target="_blank">
+                <i class="icon ion-social-twitter"></i>
+            </a>
+        
+
+        
+
+        
+
+        
+
+        
+            <a href="mailto:netcookies@gmail.com">
+                <i class="icon ion-ios-email larger"></i>
+            </a>
+        
+
+        
+            <a href="https://netcookies.github.io/b/index.xml">
+                <i class="icon ion-social-rss larger"></i>
+            </a>
+        
+        </div>
+    </div>
+</section>
+
+
+<section class="main post non-narrow zero-top-spacing">
+    <div class="container">
+        <div class="content">
+            <div class="front-matter">
+                <div class="title-container">
+                    <div class="page-heading">
+
+    Lithium CSS Guide
+
+</div>
+
+                    <div class="initials"><a href="https://netcookies.github.io/b/"></a></div>
+                </div>
+                <div class="meta">
+                    <div class="date" title="Tue Mar 3 2015 23:18:00 CST">Mar 3, 2015</div>
+                    <div class="reading-time"><div class="middot"></div>4 minutes read</div>
+                </div>
+            </div>
+            <div class="markdown">
+                <p>#Page</p>
+
+<p>usage: <code>#lia-body .CommunityPage .lia-body</code>
+<code>#lia-body .lia-page</code></p>
+
+<p>a) CommunityPage
+b) ForumPage
+c) BlogPage
+d) TkbPage
+e) IdeaPage</p>
+
+<p>usage: <code>.min-width .lia-content</code></p>
+
+<p>#List
+1.table</p>
+
+<p>a) lia-list-wide
+&gt;3col with header</p>
+
+<p>b) lia-list-slim
+&gt;2col without header</p>
+
+<p>c) lia-list-standard, lia-list-standard-inline
+&gt;simple list</p>
+
+<p>d) lia-list-statistics
+&gt;2col for statistics</p>
+
+<p><img src="~/23-35-39.jpg" alt="" /></p>
+
+<p>2.grid</p>
+
+<p>usage: <code>#lia-body .lia-content table.lia-list-wide td</code>
+&gt;table td global</p>
+
+<p>a) lia-date-cell-primary
+&gt;normally use with <code>lia-date-cell-text</code></p>
+
+<p>b) lia-date-cell-secondary
+&gt;normally use with <code>lia-date-cell-date lia-date-cell-ineger</code></p>
+
+<p>c) lia-date-cell-tertiary
+&gt;normally use with <code>lia-date-cell-icon lia-date-cell-checkbox</code></p>
+
+<p><img src="~/23-36-08.jpg" alt="" /></p>
+
+<p>#button</p>
+
+<p>a) lia-button
+&gt;main button class</p>
+
+<p>b) lia-button-group
+&gt;group button</p>
+
+<p>c) lia-button-primary lia-button-secondary
+&gt;use with most important / normal important</p>
+
+<p>d) lia-button-interstitial-primary lia-button-interstitial-secondary
+&gt;less important action with primary / secondary colors</p>
+
+<p>e) lia-button-Submit-action lia-button-Cancel-action lia-Preview-action lia-button-Reset
+&gt;detail</p>
+
+<p><img src="~/22-04-36.jpg" alt="" /></p>
+
+<p>#Feedback
+ignore</p>
+
+<p>#Effect</p>
+
+<p>a) lia-effect-highlight</p>
+
+<p>#Labels
+a) lia-label
+&gt;usually a <code>lia-list-standard-inline</code> before a list</p>
+
+<p>b) lia-label-tabs-sort
+&gt;before a <code>lia-tabs-sort</code></p>
+
+<p><img src="~/22-17-54.jpg" alt="" /></p>
+
+<p>#Tooltip
+a) lia-panel-tooltip
+&gt;just tooltip</p>
+
+<p>#Tabs
+a) lia-tabs-standard-wrapper
+&gt;main class of tabs</p>
+
+<p>b) lia-tabs-standard
+&gt;common class of tabs</p>
+
+<p>c) lia-tabs-secondary
+&gt;sub-tabs on current tab</p>
+
+<p>d) lia-tabs-active lia-tabs-inactive lia-tabs-sort
+&gt;detail</p>
+
+<p><img src="~/22-25-30.jpg" alt="" /></p>
+
+<p>#Page/Pagination
+a) lia-paging-full-wrapper
+&gt;wrapper of Pagination</p>
+
+<p>b) lia-paging-full lia-paging-full-left
+&gt;display pagination on right side / left side</p>
+
+<p>c) lia-paging-full-pages lia-paging-page-previous lia-paging-page-next lia-paging-page-ellipses
+&gt; page number / previous page / next page / ellipses</p>
+
+<p>d) lia-paging-page-active lia-paging-page-first lia-paging-page-last
+&gt;page active / first page number / last page number</p>
+
+<p>e) lia-paging-page-link lia-paging-page-arrow
+&gt; within <code>lia-paging-page-previous lia-paging-page-next</code></p>
+
+<p><img src="~/22-38-38.jpg" alt="" /></p>
+
+<p>#Menu
+a) lia-menu-action
+&gt;main class of menu</p>
+
+<p>b) lia-menu-bar lia-menu-bar-top lia-menu-bar-bottom
+&gt;a combination of buttons,menus,paging component / <code>if has top / bottom bar</code></p>
+
+<p><img src="~/22-51-45.jpg" alt="" /></p>
+
+<p>c) lia-menu-navigation lia-menu-dropdown-items
+&gt;dropdown menu / dropdown menu items</p>
+
+<p>d) lia-menu-bar-buttons
+&gt; the buttons in menu bar</p>
+
+<p><img src="~/22-52-47.jpg" alt="" /></p>
+
+<p>e) lia-decoration-border-menu-bar lia-decoration-border-menu-bar-top lia-decoration-border-menu-bar-bottom lia-decoration-border-menu-bar-cotent
+&gt;provide additional border class</p>
+
+<p>#Autocomplete</p>
+
+<p>a) lia-autocomplete
+&gt;suggestions</p>
+
+<p>b) lia-autocomplete-loader
+&gt;loading image for autocomplete functions<code>img</code></p>
+
+<p>#Control/Link</p>
+
+<p>a) lia-link-navigation
+&gt;all link</p>
+
+<p>b) lia-view-filter lia-view-filter-ascending lia-view-filter-descending
+&gt; sorting or filter</p>
+
+<p><img src="~/23-05-59.jpg" alt="" /></p>
+
+<p>d) lia-menu-item lia-view-all lia-link-disabled
+&gt;menu item / view all / disabled</p>
+
+<p><img src="~/23-06-35.jpg" alt="" /></p>
+
+<p>#Form</p>
+
+<p>a) lia-form lia-form-tags lia-form-horizontal lia-form-vertical lia-form-inline
+&gt;applied to all <code>&lt;form&gt;</code>/ horizontal /vertical /inline</p>
+
+<p>b) lia-form-submit lia-form-footer
+&gt;form action buttons / usually action buttons in</p>
+
+<p>c) lia-form-row lia-form-row-reverse-label-input
+&gt;row / row that label on the right</p>
+
+<p>d) lia-form-label-wrapper lia-form-label lia-form-label-required lia-label-required-mark
+&gt;form label wrapper / form label / form label required / marker required label</p>
+
+<p><img src="~/23-36-29.jpg" alt="" /></p>
+
+<p>e) lia-form-input-wrapper lia-form-type-text lia-form-type-password lia-form-type-file
+&gt;input wrapper / text input / password input / file input</p>
+
+<p>f) lia-form-radio-group lia-form-fieldset-last
+&gt;radio button in field / last fieldset</p>
+
+<p><img src="~/23-37-10.jpg" alt="" /></p>
+
+<p>g) lia-form-field-error lia-form-error-text lia-form-validation-help-text
+&gt;style input error / error text below input field / help text below input field</p>
+
+<p>#Panel</p>
+
+<p>a) lia-panel
+&gt;basic panel</p>
+
+<p>b) lia-decoration-border lia-decoration-border-top lia-decoration-content lia-decoration-bottom
+&gt;decoration border</p>
+
+<p>c) lia-panel-heading-bar lia-panel-heading-bar-wrapper lia-panel-heading-bar-title
+&gt;title of panel / wrapper of heading bar / title text</p>
+
+<p>d) lia-panel-content lia-panel-content-wrapper
+&gt;content of the panel / wrapper of content</p>
+
+<p>e) lia-panel-standard lia-panel-section
+&gt;default panel class / separate panel section</p>
+
+<p><img src="~/22-31-55.jpg" alt="" /></p>
+
+<p>#Message</p>
+
+<p>a) lia-panel-message
+&gt;common class of message</p>
+
+<p>b) lia-message-board lia-message-blog lia-message-idea
+&gt;forum / blog / idea</p>
+
+<p>c) lia-panel-message-root lia-panel-message-content lia-panel-message-first
+&gt;root message of a thread / message content / first message of multi-page thread</p>
+
+<p>d) lia-mesage-actions lia-message-actions-secondary
+&gt;primary action on message / secondary action on message</p>
+
+<p>e) lia-message-body lia-message-body-content
+&gt;message body / messge body content</p>
+
+<p>f) lia-message-author lia-message-heading lia-message-footer lia-message-editor
+&gt;author / heading / footer / editor</p>
+
+<p>g) lia-message-labels lia-message-moderation lia-message-notify lia-message-options lia-message-dates
+&gt;labels / Change Status / for moderator link / option menu / posting date</p>
+
+<p>h) lia-message-read lia-message-unread lia-message-subject lia-message-subject-status lia-message-tags lia-message-statistics
+&gt; read idea /  unread idea / message subject / subject status(idea) / tags in footer / statistics in footer</p>
+
+<p>i) lia-panel-intermission lia-message-posted-on lila-message-edited-on
+&gt;blank between <code>lia-panel-message</code> / posting information / edit information</p>
+
+<p>j) lia-message-view-style-collapsed lia-message-view-style-expanded
+&gt;(idea only) collapsed view / expanded view</p>
+
+<p><img src="~/23-07-54.jpg" alt="" /></p>
+
+<p><img src="~/23-08-21.jpg" alt="" /></p>
+
+<p>#Kudos</p>
+
+<p>a) lia-button-image-kudos-wrapper lia-button-image-kudos
+&gt;wrapper of kudos / kudos itself</p>
+
+<p>b) lia-button-image-kudos-enabled lia-button-image-kudos-disabled lia-button-image-kudos-frozen lia-button-image-kudos-count lia-button-image-kudos-give
+&gt;kudos enabled / disabled / frozen / count kudos / click to give kudos</p>
+
+<p>c) lia-button-image-kudos-kudoed lia-button-image-kudos-not-kudoed lia-button-image-kudos-has-kudos
+&gt;kudoed / not kudoed / has others kudos</p>
+
+<p><img src="~/23-16-14.jpg" alt="" /></p>
+
+<p>#User/Avatar
+a) lia-user-info-group
+&gt; top-level class of user info group</p>
+
+<p>b)lia-user-avatar lia-user-attributes lia-user-name lia-user-rank lia-user-leaderboard-rank
+&gt;user avatar / attributes(user-name rank leaderboard-rank</p>
+
+<p>c) lia-user-kudos-weight lia-user-kudos-count
+&gt;kudos weight on leaderboards / kudos count on leaderboards</p>
+
+<p><img src="~/23-24-44.jpg" alt="" /></p>
+
+<p><img src="~/23-25-10.jpg" alt="" /></p>
+
+                <br>
+                <p><a href="https://netcookies.github.io/b/blog/">Back to posts</a></p>
+            </div>
+            <br>
+            <div class="disqus">
+                <div id="disqus_thread"></div>
+<script type="text/javascript">
+    var disqus_shortname = 'nzndorg';
+    var disqus_identifier = 'https:\/\/netcookies.github.io\/b\/blog\/lithium-css-guide\/';
+    var disqus_title = 'Lithium CSS Guide';
+    var disqus_url = 'https:\/\/netcookies.github.io\/b\/blog\/lithium-css-guide\/';
+
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+
+<script type="text/javascript">
+var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+</script>
+<script type="text/javascript">
+try {
+    var pageTracker = _gat._getTracker("UA-89033419-1");
+    pageTracker._trackPageview();
+} catch(err) {}
+</script>
+
+
+
+  <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.8.0/highlight.min.js"></script>
+  
+
+  <script type="text/javascript">
+    hljs.initHighlightingOnLoad();
+  </script>
+
+
+
+</body>
+</html>
+

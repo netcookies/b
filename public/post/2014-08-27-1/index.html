@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html lang="">
+
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="chrome=1">
+<meta name="HandheldFriendly" content="True">
+<meta name="MobileOptimized" content="320">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="referrer" content="no-referrer">
+
+
+<base href="https://netcookies.github.io/b/">
+<title>
+
+
+     通过SSH安装oracle  
+
+</title>
+<link rel="canonical" href="https://netcookies.github.io/b/post/2014-08-27-1/">
+
+
+<script type="text/javascript">
+    var baseURL = 'https:\/\/netcookies.github.io\/b\/';
+    var host = baseURL.substring(0, baseURL.length - 1).replace(/\//g, '');
+    if ((host === window.location.host) && (window.location.protocol !== 'https:')) {
+        window.location.protocol = 'https:';
+    }
+</script>
+
+
+
+
+
+<link rel="stylesheet" href="/css/reset.css">
+<link rel="stylesheet" href="/css/pygments.css">
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+
+<link rel="shortcut icon"
+
+    href="/img/favicon.ico"
+
+>
+
+
+
+
+
+
+</head>
+
+
+<body lang="">
+
+<section class="header"> 
+    <div class="container">
+        <div class="content">
+            
+            <a href="/"><div class="name"></div></a>
+            <nav>
+                <ul>
+                    <a href="/blog/"><li>Blog</li></a>
+                    <a href="/about/"><li>About</li></a>
+                    <a href="/code/"><li>Code</li></a>
+                </ul>
+            </nav>
+        </div>
+    </div>
+</section>
+
+<section class="icons">
+    <div class="container">
+        <div class="content">
+
+        
+        
+        
+
+        
+
+        
+
+        
+
+        
+
+        
+            <a href="https://netcookies.github.io/b/index.xml">
+                <i class="icon ion-social-rss larger"></i>
+            </a>
+        
+        </div>
+    </div>
+</section>
+
+<section class="main">
+    <div class="container">
+        <div class="content">
+            <p>上一篇说到安装ArchLinux后，现在需安装Oracle</p>
+
+<p>安装之前</p>
+
+<pre><code>cd ~
+pacman -S vim ssh abs unzip wget xorg-xhost
+wget https://aur.archlinux.org/packages/au/aura-bin/aura-bin.tar.gz
+tar -xzf aura-bin.tar.gz
+cd aura-bin
+makepkg
+pacman -U aura-bin-x.x.x.x-x-x86_64.pkg.tar.xz
+</code></pre>
+
+<p>下载oracle有两种方法</p>
+
+<pre><code>-1. 一种登录oracle网站下载好保存在本地，再通过sftp等方法传至服务器
+2. 用chrome导出登录后的cookie，并用wget直接通过服务器端下载，插件下载：[地址](https://chrome.google.com/webstore/detail/cookietxt-export/lopabhfecdfhgogdbojmaicoicjekelh)
+
+wget --load-cookies cookie_txt_file  http://download.oracle.com/otn/linux/oracle11g/R2/linux.x64_11gR2_database_1of2.zip 
+http://download.oracle.com/otn/linux/oracle11g/R2/linux.x64_11gR2_database_2of2.zip
+</code></pre>
+
+<p>解压安装包</p>
+
+<pre><code>find . -name '*of2.zip' -exec unzip {} \;
+</code></pre>
+
+<p>oracle required packages</p>
+
+<pre><code>pacman -S sudo icu gawk gdb elfutils sysstat libstdc++5 jre7-openjdk libaio
+aura -Akua beecrypt rpm-org
+aura -A ksh
+</code></pre>
+
+<p>添加用户，与用户组</p>
+
+<pre><code>groupadd oinstall
+groupadd dba
+groupadd oper
+groupadd asmadmin
+
+useradd -g oinstall -G dba,oper,asmadmin oracle -b /oracle
+passwd oracle
+</code></pre>
+
+<p>处理sysctl, limits.conf</p>
+
+<pre><code>cat &gt; /etc/sysctl.d/99-sysctl.conf &lt;&lt; EOF
+fs.suid_dumpable = 1
+fs.aio-max-nr = 1048576
+fs.file-max = 6815744
+kernel.shmall = 2097152
+kernel.shmmax = 536870912
+kernel.shmmni = 4096
+# semaphores: semmsl, semmns, semopm, semmni
+kernel.sem = 250 32000 100 128
+net.ipv4.ip_local_port_range = 9000 65500
+net.core.rmem_default=262144
+net.core.rmem_max=4194304
+net.core.wmem_default=262144
+net.core.wmem_max=1048586
+EOF
+vim /etc/security/limits.conf
+</code></pre>
+
+<pre><code>oracle              soft    nproc   2047
+oracle              hard    nproc   16384
+oracle              soft    nofile  4096
+oracle              hard    nofile  65536
+oracle              soft    stack   10240
+</code></pre>
+
+<p>建立安装目录并设立权限</p>
+
+<pre><code>mkdir -p /oracle/inventory /oracle/recovery /oracle/product/db /oracle/tmp
+chown -R oracle:dba /oracle
+chmod 777 /oracle/tmp
+</code></pre>
+
+<p>编辑oracle用户的.bashrc</p>
+
+<pre><code>#Oracle Settings
+export TMP=/tmp
+export TMPDIR=/tmp
+export ORACLE_HOSTNAME=oracledb.localdomain
+export ORACLE_UNQNAME=xdb
+export ORACLE_BASE=/oracle
+export ORACLE_HOME=/oracle/product/db
+export ORACLE_SID=xdb
+export ORACLE_INVENTORY=/oracle/inventory
+export ORACLE_BASE ORACLE_SID ORACLE_HOME
+export PATH=$ORACLE_HOME/bin:$PATH
+export LD_LIBRARY_PATH=$ORACLE_HOME/lib:$LD_LIBRARY_PATH
+export CLASSPATH=$ORACLE_HOME/jlib:$ORACLE_HOME/rdbms/jlib
+export EDITOR=vim
+export VISUAL=vim
+</code></pre>
+
+<p>开始安装,<code>&lt;machine-name&gt;</code>可以留空，这样就指定即在服务器本机打开X视窗安装</p>
+
+<pre><code>DISPLAY=&lt;machine-name&gt;:0.0; export DISPLAY
+</code></pre>
+
+<p>如果为通过SSH远程安装oracle，则可通过ssh的x11 forwarding功能，通过本地的X server来开启安装窗口，这里博主用的是<a href="http://sourceforge.net/projects/xming/">Xming</a>。
+Xming的安装包有自带putty,如果已经有putty了可以不安装。
+putty需要进行如下配置，开启x11 forwarding</p>
+
+<pre><code>Session
+    Host Name 填入无端IP
+    Saved Sessions 填入要保存的名称
+Connection
+    SSH
+        X11
+            Enable X11 forwarding 开启
+            X display location 填入 localhost:0.0 或 127.0.0.1:0.0
+</code></pre>
+
+<p>运行Xming中的XLaunch将No Access Control勾上
+最后将代码中的ip地址替换成运行有Xming的主机IP，并运行</p>
+
+<pre><code>使用oracle用户通过ssh连接至服务器
+DISPLAY=&lt;Local IP addr&gt;:0.0; export DISPLAY;xhost +
+cd /安装包路径
+./runInstaller
+</code></pre>
+
+<p>图形化的安装界面略过~~
+安装后，让数据库自启
+新建启动和关闭的脚本</p>
+
+<pre><code>mkdir -p ~/scripts
+chown oracle.oinstall ~/scripts
+</code></pre>
+
+<p>~/scripts/startup.sh</p>
+
+<pre><code>#!/bin/bash
+
+#Oracle Settings
+export TMP=/oracle/tmp
+export TMPDIR=/oracle/tmp
+export ORACLE_HOSTNAME=oracledb.localdomain
+export ORACLE_UNQNAME=xdb
+export ORACLE_SID=xdb
+export PATH=$ORACLE_HOME/bin:$PATH
+
+ORAENV_ASK=NO
+. oraenv
+ORAENV_ASK=YES
+
+# Start Listener
+lsnrctl start
+
+# Start Database
+sqlplus / as sysdba &lt;&lt; EOF
+STARTUP;
+EXIT;
+EOF
+</code></pre>
+
+<p>~/scripts/shutdown.sh</p>
+
+<pre><code>#!/bin/bash
+
+#Oracle Settings
+export TMP=/oracle/tmp
+export TMPDIR=/oracle/tmp
+export ORACLE_HOSTNAME=oracledb.localdomain
+export ORACLE_UNQNAME=xdb
+export ORACLE_SID=xdb
+export PATH=$ORACLE_HOME/bin:$PATH
+
+ORAENV_ASK=NO
+. oraenv
+ORAENV_ASK=YES
+
+# Stop Database
+sqlplus / as sysdba &lt;&lt; EOF
+SHUTDOWN IMMEDIATE;
+EXIT;
+EOF
+
+# Stop Listener
+lsnrctl stop
+</code></pre>
+
+<p>脚本权限</p>
+
+<pre><code>chmod u+x /oracle/scripts/s*.sh
+chown oracle.oinstall /oracle/scripts/s*.sh
+</code></pre>
+
+<p>建立服务 <code>/lib/systemd/system/dbora.service</code></p>
+
+<pre><code>[Unit]
+Description=The Oracle Database Service
+After=syslog.target network.target
+
+[Service]
+Type=simple
+ExecStart=/bin/su oracle -c &quot;/oracle/scripts/startup.sh &gt;&gt; /oracle/scripts/startup_shutdown.log 2&gt;&amp;1&quot; &amp;
+ExecStop=/bin/su oracle -c &quot;/oracle/scripts/shutdown.sh &gt;&gt; /oracle/scripts/startup_shutdown.log 2&gt;&amp;1&quot;
+
+[Install]
+WantedBy=multi-user.target
+</code></pre>
+
+<pre><code>ln -s /lib/systemd/system/dbora.service /etc/systemd/system/dbora.service
+systemctl daemon-reload
+systemctl enable dbora.service
+</code></pre>
+
+<p>查看服务状态</p>
+
+<pre><code>systemctl status dbora.service
+</code></pre>
+
+<p>enjoy~!</p>
+
+<p>quote from <a href="https://wiki.archlinux.org/index.php/Oracle">wiki.archlinux.org</a> <a href="http://www.oracle-base.com/articles/11g/oracle-db-11gr2-installation-on-oracle-linux-5.php#manual_setup">oracle-base</a></p>
+
+        </div>
+    </div>
+</section>
+
+
+
+
+
+
+</body>
+</html>
+

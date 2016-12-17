@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Isulew&#39;s Blog</title>
+    <link>https://netcookies.github.io/b/tags/keepass-gmail/index.xml</link>
+    <description>Recent content on Isulew&#39;s Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <atom:link href="https://netcookies.github.io/b/tags/keepass-gmail/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>介绍下KeePass， 用强迫症的方式管理密码</title>
+      <link>https://netcookies.github.io/b/4share/2014-09-11/</link>
+      <pubDate>Thu, 11 Sep 2014 17:01:00 +0800</pubDate>
+      
+      <guid>https://netcookies.github.io/b/4share/2014-09-11/</guid>
+      <description>&lt;p&gt;今天在&lt;a href=&#34;http://v2ex.com/t/132808#reply17&#34;&gt;v2ex&lt;/a&gt;看到则&lt;code&gt;振奋人心&lt;/code&gt;的消息，500万Gmail用户密码泄漏&amp;hellip;&amp;hellip;虽然经确认发现我的密码没泄漏，但还是决定找个软件好好管理下自己的密码了，经我百般对比，决定就是下面这款啦：&lt;a href=&#34;http://keepass.info/download.html&#34;&gt;KeePass&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;有中文所以一些常用功能就不介绍啦，重点在QQ，支付宝等密码框有做加密防勾子处理的，无法自动输入密码，这里提供下解决方法：&lt;/p&gt;
+
+&lt;ol&gt;
+&lt;li&gt;首先你需要下载这款插件&lt;a href=&#34;http://rdc-keepass-plugin.appspot.com/&#34;&gt;RDCAutoTypeAndTCATO&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;解压放入KeePass的目录中&lt;/li&gt;
+&lt;li&gt;在工具[tools] -&amp;gt; RDCAutoTypeAndTCATO -&amp;gt; Programs List&amp;hellip;&lt;/li&gt;
+&lt;li&gt;在弹出的两列表中各填入一行&lt;code&gt;QQ.exe&lt;/code&gt;，其它程序类似，只要将主程序的文件名填入内即可&lt;/li&gt;
+&lt;li&gt;在QQ的密码保存记录选项中，找到&lt;em&gt;自动输入&lt;/em&gt;&lt;/li&gt;
+&lt;li&gt;打开QQ进入等待输入密码的状态&lt;/li&gt;
+&lt;li&gt;为指定窗口使用自定义规则，&lt;em&gt;添加&lt;/em&gt;&lt;/li&gt;
+&lt;li&gt;在*目标窗口*处选择QQ进程&lt;/li&gt;
+&lt;li&gt;使用自定义键击顺序，&lt;code&gt;{Password}{ENTER}&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;确定并保存，按下自动输入的快捷键(默认为：Ctrl+Alt+A)&lt;/li&gt;
+&lt;li&gt;enjoy~!&lt;/li&gt;
+&lt;/ol&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>
