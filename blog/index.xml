@@ -978,7 +978,7 @@ Set-VpnConnection -Name &amp;quot;myVPN&amp;quot; -SplitTunneling $True
 &lt;p&gt;此时A高度为0，因为B与C不在document flow中&lt;/p&gt;
 &lt;/blockquote&gt;
 
-&lt;p&gt;&lt;img src=&#34;~/22-53-51.jpg&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;img/2015-03-08/22-53-51.jpg&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
 
 &lt;p&gt;2.如何避免上图中的情况？&lt;/p&gt;
 
@@ -1036,7 +1036,7 @@ Set-VpnConnection -Name &amp;quot;myVPN&amp;quot; -SplitTunneling $True
 &lt;p&gt;&lt;code&gt;content-box; border-box&lt;/code&gt;，他们的区别在与padding算在box-model内还是外&lt;/p&gt;
 &lt;/blockquote&gt;
 
-&lt;p&gt;&lt;img src=&#34;~/23-48-19.jpg&#34; alt=&#34;&#34; /&gt;
+&lt;p&gt;&lt;img src=&#34;img/2015-03-08/23-48-19.jpg&#34; alt=&#34;&#34; /&gt;
 border-box常见于button：&lt;/p&gt;
 
 &lt;pre&gt;&lt;code&gt;.lia-button {
@@ -1095,7 +1095,7 @@ e) IdeaPage&lt;/p&gt;
 &lt;p&gt;d) lia-list-statistics
 &amp;gt;2col for statistics&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&#34;~/23-35-39.jpg&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;img/2015-03-03/23-35-39.jpg&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
 
 &lt;p&gt;2.grid&lt;/p&gt;
 
@@ -1111,7 +1111,7 @@ e) IdeaPage&lt;/p&gt;
 &lt;p&gt;c) lia-date-cell-tertiary
 &amp;gt;normally use with &lt;code&gt;lia-date-cell-icon lia-date-cell-checkbox&lt;/code&gt;&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&#34;~/23-36-08.jpg&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;img/2015-03-03/23-36-08.jpg&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
 
 &lt;p&gt;#button&lt;/p&gt;
 
@@ -1130,7 +1130,7 @@ e) IdeaPage&lt;/p&gt;
 &lt;p&gt;e) lia-button-Submit-action lia-button-Cancel-action lia-Preview-action lia-button-Reset
 &amp;gt;detail&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&#34;~/22-04-36.jpg&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;img/2015-03-03/22-04-36.jpg&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
 
 &lt;p&gt;#Feedback
 ignore&lt;/p&gt;
@@ -1146,7 +1146,7 @@ a) lia-label
 &lt;p&gt;b) lia-label-tabs-sort
 &amp;gt;before a &lt;code&gt;lia-tabs-sort&lt;/code&gt;&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&#34;~/22-17-54.jpg&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;img/2015-03-03/22-17-54.jpg&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
 
 &lt;p&gt;#Tooltip
 a) lia-panel-tooltip
@@ -1165,7 +1165,7 @@ a) lia-tabs-standard-wrapper
 &lt;p&gt;d) lia-tabs-active lia-tabs-inactive lia-tabs-sort
 &amp;gt;detail&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&#34;~/22-25-30.jpg&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;img/2015-03-03/22-25-30.jpg&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
 
 &lt;p&gt;#Page/Pagination
 a) lia-paging-full-wrapper
@@ -1183,7 +1183,7 @@ a) lia-paging-full-wrapper
 &lt;p&gt;e) lia-paging-page-link lia-paging-page-arrow
 &amp;gt; within &lt;code&gt;lia-paging-page-previous lia-paging-page-next&lt;/code&gt;&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&#34;~/22-38-38.jpg&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;img/2015-03-03/22-38-38.jpg&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
 
 &lt;p&gt;#Menu
 a) lia-menu-action
@@ -1192,7 +1192,7 @@ a) lia-menu-action
 &lt;p&gt;b) lia-menu-bar lia-menu-bar-top lia-menu-bar-bottom
 &amp;gt;a combination of buttons,menus,paging component / &lt;code&gt;if has top / bottom bar&lt;/code&gt;&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&#34;~/22-51-45.jpg&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;img/2015-03-03/22-51-45.jpg&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
 
 &lt;p&gt;c) lia-menu-navigation lia-menu-dropdown-items
 &amp;gt;dropdown menu / dropdown menu items&lt;/p&gt;
@@ -1200,7 +1200,7 @@ a) lia-menu-action
 &lt;p&gt;d) lia-menu-bar-buttons
 &amp;gt; the buttons in menu bar&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&#34;~/22-52-47.jpg&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;img/2015-03-03/22-52-47.jpg&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
 
 &lt;p&gt;e) lia-decoration-border-menu-bar lia-decoration-border-menu-bar-top lia-decoration-border-menu-bar-bottom lia-decoration-border-menu-bar-cotent
 &amp;gt;provide additional border class&lt;/p&gt;
@@ -1221,12 +1221,12 @@ a) lia-menu-action
 &lt;p&gt;b) lia-view-filter lia-view-filter-ascending lia-view-filter-descending
 &amp;gt; sorting or filter&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&#34;~/23-05-59.jpg&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;img/2015-03-03/23-05-59.jpg&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
 
 &lt;p&gt;d) lia-menu-item lia-view-all lia-link-disabled
 &amp;gt;menu item / view all / disabled&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&#34;~/23-06-35.jpg&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;img/2015-03-03/23-06-35.jpg&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
 
 &lt;p&gt;#Form&lt;/p&gt;
 
@@ -1242,7 +1242,7 @@ a) lia-menu-action
 &lt;p&gt;d) lia-form-label-wrapper lia-form-label lia-form-label-required lia-label-required-mark
 &amp;gt;form label wrapper / form label / form label required / marker required label&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&#34;~/23-36-29.jpg&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;img/2015-03-03/23-36-29.jpg&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
 
 &lt;p&gt;e) lia-form-input-wrapper lia-form-type-text lia-form-type-password lia-form-type-file
 &amp;gt;input wrapper / text input / password input / file input&lt;/p&gt;
@@ -1250,7 +1250,7 @@ a) lia-menu-action
 &lt;p&gt;f) lia-form-radio-group lia-form-fieldset-last
 &amp;gt;radio button in field / last fieldset&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&#34;~/23-37-10.jpg&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;img/2015-03-03/23-37-10.jpg&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
 
 &lt;p&gt;g) lia-form-field-error lia-form-error-text lia-form-validation-help-text
 &amp;gt;style input error / error text below input field / help text below input field&lt;/p&gt;
@@ -1272,7 +1272,7 @@ a) lia-menu-action
 &lt;p&gt;e) lia-panel-standard lia-panel-section
 &amp;gt;default panel class / separate panel section&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&#34;~/22-31-55.jpg&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;img/2015-03-03/22-31-55.jpg&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
 
 &lt;p&gt;#Message&lt;/p&gt;
 
@@ -1306,9 +1306,9 @@ a) lia-menu-action
 &lt;p&gt;j) lia-message-view-style-collapsed lia-message-view-style-expanded
 &amp;gt;(idea only) collapsed view / expanded view&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&#34;~/23-07-54.jpg&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;img/2015-03-03/23-07-54.jpg&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&#34;~/23-08-21.jpg&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;img/2015-03-03/23-08-21.jpg&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
 
 &lt;p&gt;#Kudos&lt;/p&gt;
 
@@ -1321,7 +1321,7 @@ a) lia-menu-action
 &lt;p&gt;c) lia-button-image-kudos-kudoed lia-button-image-kudos-not-kudoed lia-button-image-kudos-has-kudos
 &amp;gt;kudoed / not kudoed / has others kudos&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&#34;~/23-16-14.jpg&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;img/2015-03-03/23-16-14.jpg&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
 
 &lt;p&gt;#User/Avatar
 a) lia-user-info-group
@@ -1333,9 +1333,9 @@ a) lia-user-info-group
 &lt;p&gt;c) lia-user-kudos-weight lia-user-kudos-count
 &amp;gt;kudos weight on leaderboards / kudos count on leaderboards&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&#34;~/23-24-44.jpg&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;img/2015-03-03/23-24-44.jpg&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&#34;~/23-25-10.jpg&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;img/2015-03-03/23-25-10.jpg&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
 </description>
     </item>
     
