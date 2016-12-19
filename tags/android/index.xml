@@ -2,18 +2,18 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Isulew&#39;s Blog</title>
-    <link>https://netcookies.github.io/b/tags/android/index.xml</link>
+    <link>https://nznd.org/b/tags/android/index.xml</link>
     <description>Recent content on Isulew&#39;s Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-US</language>
-    <atom:link href="https://netcookies.github.io/b/tags/android/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://nznd.org/b/tags/android/index.xml" rel="self" type="application/rss+xml" />
     
     <item>
       <title>一加X ROOT 并安装Xposed(不解锁BootLoader)</title>
-      <link>https://netcookies.github.io/b/blog/%E4%B8%80%E5%8A%A0x-root-%E5%B9%B6%E5%AE%89%E8%A3%85xposed%E4%B8%8D%E8%A7%A3%E9%94%81bootloader/</link>
+      <link>https://nznd.org/b/blog/%E4%B8%80%E5%8A%A0x-root-%E5%B9%B6%E5%AE%89%E8%A3%85xposed%E4%B8%8D%E8%A7%A3%E9%94%81bootloader/</link>
       <pubDate>Fri, 15 Jan 2016 16:46:00 +0800</pubDate>
       
-      <guid>https://netcookies.github.io/b/blog/%E4%B8%80%E5%8A%A0x-root-%E5%B9%B6%E5%AE%89%E8%A3%85xposed%E4%B8%8D%E8%A7%A3%E9%94%81bootloader/</guid>
+      <guid>https://nznd.org/b/blog/%E4%B8%80%E5%8A%A0x-root-%E5%B9%B6%E5%AE%89%E8%A3%85xposed%E4%B8%8D%E8%A7%A3%E9%94%81bootloader/</guid>
       <description>&lt;p&gt;##前言
 现在很多安卓手机都做的很好，基本买来不用安装什么App就够用了。但是国内的某些应用各种唤醒各种耗电，逼不得已只能Root阻止各种应用自动唤醒，甚至是自动唤醒他家的所有App。
 本文测试机为：&lt;code&gt;一加X&lt;/code&gt;

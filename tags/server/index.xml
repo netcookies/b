@@ -2,18 +2,18 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Isulew&#39;s Blog</title>
-    <link>https://netcookies.github.io/b/tags/server/index.xml</link>
+    <link>https://nznd.org/b/tags/server/index.xml</link>
     <description>Recent content on Isulew&#39;s Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-US</language>
-    <atom:link href="https://netcookies.github.io/b/tags/server/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://nznd.org/b/tags/server/index.xml" rel="self" type="application/rss+xml" />
     
     <item>
       <title>架设kvm虚拟化服务器 </title>
-      <link>https://netcookies.github.io/b/blog/%E6%9E%B6%E8%AE%BEkvm%E8%99%9A%E6%8B%9F%E5%8C%96%E6%9C%8D%E5%8A%A1%E5%99%A8/</link>
+      <link>https://nznd.org/b/blog/%E6%9E%B6%E8%AE%BEkvm%E8%99%9A%E6%8B%9F%E5%8C%96%E6%9C%8D%E5%8A%A1%E5%99%A8/</link>
       <pubDate>Thu, 29 May 2014 17:07:00 +0800</pubDate>
       
-      <guid>https://netcookies.github.io/b/blog/%E6%9E%B6%E8%AE%BEkvm%E8%99%9A%E6%8B%9F%E5%8C%96%E6%9C%8D%E5%8A%A1%E5%99%A8/</guid>
+      <guid>https://nznd.org/b/blog/%E6%9E%B6%E8%AE%BEkvm%E8%99%9A%E6%8B%9F%E5%8C%96%E6%9C%8D%E5%8A%A1%E5%99%A8/</guid>
       <description>
 
 &lt;p&gt;软硬件环境：

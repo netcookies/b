@@ -2,18 +2,18 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Isulew&#39;s Blog</title>
-    <link>https://netcookies.github.io/b/tags/nc/index.xml</link>
+    <link>https://nznd.org/b/tags/nc/index.xml</link>
     <description>Recent content on Isulew&#39;s Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-US</language>
-    <atom:link href="https://netcookies.github.io/b/tags/nc/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://nznd.org/b/tags/nc/index.xml" rel="self" type="application/rss+xml" />
     
     <item>
       <title>PowerDisgner数据建模时生成oracle脚本需要的配置</title>
-      <link>https://netcookies.github.io/b/blog/powerdisgner%E6%95%B0%E6%8D%AE%E5%BB%BA%E6%A8%A1%E6%97%B6%E7%94%9F%E6%88%90oracle%E8%84%9A%E6%9C%AC%E9%9C%80%E8%A6%81%E7%9A%84%E9%85%8D%E7%BD%AE/</link>
+      <link>https://nznd.org/b/blog/powerdisgner%E6%95%B0%E6%8D%AE%E5%BB%BA%E6%A8%A1%E6%97%B6%E7%94%9F%E6%88%90oracle%E8%84%9A%E6%9C%AC%E9%9C%80%E8%A6%81%E7%9A%84%E9%85%8D%E7%BD%AE/</link>
       <pubDate>Thu, 09 Oct 2014 16:38:00 +0800</pubDate>
       
-      <guid>https://netcookies.github.io/b/blog/powerdisgner%E6%95%B0%E6%8D%AE%E5%BB%BA%E6%A8%A1%E6%97%B6%E7%94%9F%E6%88%90oracle%E8%84%9A%E6%9C%AC%E9%9C%80%E8%A6%81%E7%9A%84%E9%85%8D%E7%BD%AE/</guid>
+      <guid>https://nznd.org/b/blog/powerdisgner%E6%95%B0%E6%8D%AE%E5%BB%BA%E6%A8%A1%E6%97%B6%E7%94%9F%E6%88%90oracle%E8%84%9A%E6%9C%AC%E9%9C%80%E8%A6%81%E7%9A%84%E9%85%8D%E7%BD%AE/</guid>
       <description>&lt;p&gt;用PowerDisgner12为oracle进行数据建模时，生成的脚本默认是以&lt;code&gt;“&lt;/code&gt;区分大小写，生成脚本如下：&lt;/p&gt;
 
 &lt;pre&gt;&lt;code&gt;...

@@ -2,18 +2,18 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Isulew&#39;s Blog</title>
-    <link>https://netcookies.github.io/b/tags/raspberry/index.xml</link>
+    <link>https://nznd.org/b/tags/raspberry/index.xml</link>
     <description>Recent content on Isulew&#39;s Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-US</language>
-    <atom:link href="https://netcookies.github.io/b/tags/raspberry/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://nznd.org/b/tags/raspberry/index.xml" rel="self" type="application/rss+xml" />
     
     <item>
       <title>Raspberry Pi编译驱动（8188eu)</title>
-      <link>https://netcookies.github.io/b/blog/raspberry-pi%E7%BC%96%E8%AF%91%E9%A9%B1%E5%8A%A88188eu/</link>
+      <link>https://nznd.org/b/blog/raspberry-pi%E7%BC%96%E8%AF%91%E9%A9%B1%E5%8A%A88188eu/</link>
       <pubDate>Wed, 04 Nov 2015 16:56:00 +0800</pubDate>
       
-      <guid>https://netcookies.github.io/b/blog/raspberry-pi%E7%BC%96%E8%AF%91%E9%A9%B1%E5%8A%A88188eu/</guid>
+      <guid>https://nznd.org/b/blog/raspberry-pi%E7%BC%96%E8%AF%91%E9%A9%B1%E5%8A%A88188eu/</guid>
       <description>&lt;ol&gt;
 &lt;li&gt;下载内核源码,，用&lt;code&gt;uname -r&lt;/code&gt;查看本机内核
 &lt;code&gt;

@@ -2,18 +2,18 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Isulew&#39;s Blog</title>
-    <link>https://netcookies.github.io/b/tags/archlinux/index.xml</link>
+    <link>https://nznd.org/b/tags/archlinux/index.xml</link>
     <description>Recent content on Isulew&#39;s Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-US</language>
-    <atom:link href="https://netcookies.github.io/b/tags/archlinux/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://nznd.org/b/tags/archlinux/index.xml" rel="self" type="application/rss+xml" />
     
     <item>
       <title>archlinux上架设goagent </title>
-      <link>https://netcookies.github.io/b/blog/archlinux%E4%B8%8A%E6%9E%B6%E8%AE%BEgoagent/</link>
+      <link>https://nznd.org/b/blog/archlinux%E4%B8%8A%E6%9E%B6%E8%AE%BEgoagent/</link>
       <pubDate>Fri, 29 Aug 2014 12:40:00 +0800</pubDate>
       
-      <guid>https://netcookies.github.io/b/blog/archlinux%E4%B8%8A%E6%9E%B6%E8%AE%BEgoagent/</guid>
+      <guid>https://nznd.org/b/blog/archlinux%E4%B8%8A%E6%9E%B6%E8%AE%BEgoagent/</guid>
       <description>&lt;ul&gt;
 &lt;li&gt;安装准备
 需要安装的包&lt;/li&gt;

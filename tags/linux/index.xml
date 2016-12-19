@@ -2,18 +2,18 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Isulew&#39;s Blog</title>
-    <link>https://netcookies.github.io/b/tags/linux/index.xml</link>
+    <link>https://nznd.org/b/tags/linux/index.xml</link>
     <description>Recent content on Isulew&#39;s Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-US</language>
-    <atom:link href="https://netcookies.github.io/b/tags/linux/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://nznd.org/b/tags/linux/index.xml" rel="self" type="application/rss+xml" />
     
     <item>
       <title>Raspberry Pi编译驱动（8188eu)</title>
-      <link>https://netcookies.github.io/b/blog/raspberry-pi%E7%BC%96%E8%AF%91%E9%A9%B1%E5%8A%A88188eu/</link>
+      <link>https://nznd.org/b/blog/raspberry-pi%E7%BC%96%E8%AF%91%E9%A9%B1%E5%8A%A88188eu/</link>
       <pubDate>Wed, 04 Nov 2015 16:56:00 +0800</pubDate>
       
-      <guid>https://netcookies.github.io/b/blog/raspberry-pi%E7%BC%96%E8%AF%91%E9%A9%B1%E5%8A%A88188eu/</guid>
+      <guid>https://nznd.org/b/blog/raspberry-pi%E7%BC%96%E8%AF%91%E9%A9%B1%E5%8A%A88188eu/</guid>
       <description>&lt;ol&gt;
 &lt;li&gt;下载内核源码,，用&lt;code&gt;uname -r&lt;/code&gt;查看本机内核
 &lt;code&gt;
@@ -64,10 +64,10 @@ sudo make install
     
     <item>
       <title>Shadowsocks 安装配置常见问题解答</title>
-      <link>https://netcookies.github.io/b/blog/shadowsocks-%E5%AE%89%E8%A3%85%E9%85%8D%E7%BD%AE%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98%E8%A7%A3%E7%AD%94/</link>
+      <link>https://nznd.org/b/blog/shadowsocks-%E5%AE%89%E8%A3%85%E9%85%8D%E7%BD%AE%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98%E8%A7%A3%E7%AD%94/</link>
       <pubDate>Fri, 23 Oct 2015 21:07:00 +0800</pubDate>
       
-      <guid>https://netcookies.github.io/b/blog/shadowsocks-%E5%AE%89%E8%A3%85%E9%85%8D%E7%BD%AE%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98%E8%A7%A3%E7%AD%94/</guid>
+      <guid>https://nznd.org/b/blog/shadowsocks-%E5%AE%89%E8%A3%85%E9%85%8D%E7%BD%AE%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98%E8%A7%A3%E7%AD%94/</guid>
       <description>
 
 &lt;h3 id=&#34;init-system-helpers-缺失&#34;&gt;init-system-helpers 缺失&lt;/h3&gt;
@@ -99,10 +99,10 @@ dpkg -i init-system-helpers_1.18_all.deb
     
     <item>
       <title>archlinux上架设goagent </title>
-      <link>https://netcookies.github.io/b/blog/archlinux%E4%B8%8A%E6%9E%B6%E8%AE%BEgoagent/</link>
+      <link>https://nznd.org/b/blog/archlinux%E4%B8%8A%E6%9E%B6%E8%AE%BEgoagent/</link>
       <pubDate>Fri, 29 Aug 2014 12:40:00 +0800</pubDate>
       
-      <guid>https://netcookies.github.io/b/blog/archlinux%E4%B8%8A%E6%9E%B6%E8%AE%BEgoagent/</guid>
+      <guid>https://nznd.org/b/blog/archlinux%E4%B8%8A%E6%9E%B6%E8%AE%BEgoagent/</guid>
       <description>&lt;ul&gt;
 &lt;li&gt;安装准备
 需要安装的包&lt;/li&gt;
@@ -258,10 +258,10 @@ systemctl start goagent_restart.*
     
     <item>
       <title>通过SSH安装oracle </title>
-      <link>https://netcookies.github.io/b/blog/%E9%80%9A%E8%BF%87ssh%E5%AE%89%E8%A3%85oracle/</link>
+      <link>https://nznd.org/b/blog/%E9%80%9A%E8%BF%87ssh%E5%AE%89%E8%A3%85oracle/</link>
       <pubDate>Wed, 27 Aug 2014 16:35:00 +0800</pubDate>
       
-      <guid>https://netcookies.github.io/b/blog/%E9%80%9A%E8%BF%87ssh%E5%AE%89%E8%A3%85oracle/</guid>
+      <guid>https://nznd.org/b/blog/%E9%80%9A%E8%BF%87ssh%E5%AE%89%E8%A3%85oracle/</guid>
       <description>&lt;p&gt;上一篇说到安装ArchLinux后，现在需安装Oracle&lt;/p&gt;
 
 &lt;p&gt;安装之前&lt;/p&gt;
@@ -487,10 +487,10 @@ systemctl enable dbora.service
     
     <item>
       <title>ArchLinux 安装与配置</title>
-      <link>https://netcookies.github.io/b/blog/archlinux-%E5%AE%89%E8%A3%85%E4%B8%8E%E9%85%8D%E7%BD%AE/</link>
+      <link>https://nznd.org/b/blog/archlinux-%E5%AE%89%E8%A3%85%E4%B8%8E%E9%85%8D%E7%BD%AE/</link>
       <pubDate>Wed, 27 Aug 2014 13:05:00 +0800</pubDate>
       
-      <guid>https://netcookies.github.io/b/blog/archlinux-%E5%AE%89%E8%A3%85%E4%B8%8E%E9%85%8D%E7%BD%AE/</guid>
+      <guid>https://nznd.org/b/blog/archlinux-%E5%AE%89%E8%A3%85%E4%B8%8E%E9%85%8D%E7%BD%AE/</guid>
       <description>&lt;p&gt;检查需要配置网络的接口名(interface)&lt;/p&gt;
 
 &lt;pre&gt;&lt;code&gt;ip link
