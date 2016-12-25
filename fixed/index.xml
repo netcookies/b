@@ -1,13 +1,23 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Fixed-rss on Isulew&#39;s Blog</title>
+    <title>Fixed on Isulew&#39;s Blog</title>
     <link>https://nznd.org/b/fixed/index.xml</link>
-    <description>Recent content in Fixed-rss on Isulew&#39;s Blog</description>
+    <description>Recent content in Fixed on Isulew&#39;s Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-US</language>
-    <lastBuildDate>Thu, 22 May 2014 10:02:00 +0800</lastBuildDate>
+    <lastBuildDate>Mon, 26 Dec 2016 01:49:27 +0800</lastBuildDate>
     <atom:link href="https://nznd.org/b/fixed/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>code</title>
+      <link>https://nznd.org/b/code/</link>
+      <pubDate>Mon, 26 Dec 2016 01:49:27 +0800</pubDate>
+      
+      <guid>https://nznd.org/b/code/</guid>
+      <description>&lt;p&gt;Place holder for future.&lt;/p&gt;
+</description>
+    </item>
     
     <item>
       <title>About</title>

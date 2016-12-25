@@ -2,8 +2,8 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
-    <loc>https://nznd.org/b/</loc>
-    <lastmod>2016-09-15T18:00:00+08:00</lastmod>
+    <loc>https://nznd.org/b/code/</loc>
+    <lastmod>2016-12-26T01:49:27+08:00</lastmod>
   </url>
   
   <url>
@@ -129,6 +129,239 @@
   <url>
     <loc>https://nznd.org/b/about/</loc>
     <lastmod>2014-05-22T10:02:00+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://nznd.org/b/tags/android/</loc>
+    <lastmod>2016-01-15T16:46:00+08:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://nznd.org/b/tags/anyconnect/</loc>
+    <lastmod>2015-09-29T23:12:00+08:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://nznd.org/b/tags/archlinux/</loc>
+    <lastmod>2014-08-29T12:40:00+08:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://nznd.org/b/tags/backup/</loc>
+    <lastmod>2014-05-23T21:34:00+08:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://nznd.org/b/tags/bb10/</loc>
+    <lastmod>2015-08-24T23:42:00+08:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://nznd.org/b/tags/blackberry/</loc>
+    <lastmod>2015-08-24T23:42:00+08:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://nznd.org/b/blog/</loc>
+    <lastmod>2016-09-15T18:00:00+08:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://nznd.org/b/tags/client/</loc>
+    <lastmod>2014-07-28T11:48:00+08:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://nznd.org/b/tags/debian/</loc>
+    <lastmod>2015-10-23T21:07:00+08:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://nznd.org/b/tags/domain/</loc>
+    <lastmod>2014-06-06T12:59:00+08:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://nznd.org/b/tags/dualwan/</loc>
+    <lastmod>2014-07-06T21:19:00+08:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://nznd.org/b/fixed/</loc>
+    <lastmod>2016-12-26T01:49:27+08:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://nznd.org/b/tags/gfw/</loc>
+    <lastmod>2015-08-24T23:42:00+08:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://nznd.org/b/tags/gmail/</loc>
+    <lastmod>2014-09-11T17:01:00+08:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://nznd.org/b/tags/goagent/</loc>
+    <lastmod>2014-08-29T12:40:00+08:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://nznd.org/b/</loc>
+    <lastmod>2016-12-26T01:49:27+08:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://nznd.org/b/tags/keepass/</loc>
+    <lastmod>2014-09-11T17:01:00+08:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://nznd.org/b/tags/kvm/</loc>
+    <lastmod>2014-05-29T17:07:00+08:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://nznd.org/b/tags/linux/</loc>
+    <lastmod>2015-11-04T16:56:00+08:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://nznd.org/b/tags/nc/</loc>
+    <lastmod>2014-10-09T16:38:00+08:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://nznd.org/b/tags/ocserv/</loc>
+    <lastmod>2015-09-29T23:12:00+08:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://nznd.org/b/tags/oracle/</loc>
+    <lastmod>2014-10-09T16:38:00+08:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://nznd.org/b/tags/passport/</loc>
+    <lastmod>2015-01-17T18:17:00+08:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://nznd.org/b/tags/pi/</loc>
+    <lastmod>2015-11-04T16:56:00+08:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://nznd.org/b/tags/powerdisgner/</loc>
+    <lastmod>2014-10-09T16:38:00+08:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://nznd.org/b/tags/rar/</loc>
+    <lastmod>2014-05-23T21:34:00+08:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://nznd.org/b/tags/raspberry/</loc>
+    <lastmod>2015-11-04T16:56:00+08:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://nznd.org/b/tags/raspberrypi/</loc>
+    <lastmod>2015-09-29T23:12:00+08:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://nznd.org/b/tags/root/</loc>
+    <lastmod>2016-01-15T16:46:00+08:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://nznd.org/b/tags/route/</loc>
+    <lastmod>2014-07-06T21:19:00+08:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://nznd.org/b/tags/samba4/</loc>
+    <lastmod>2014-06-06T12:59:00+08:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://nznd.org/b/tags/server/</loc>
+    <lastmod>2014-05-29T17:07:00+08:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://nznd.org/b/tags/</loc>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://nznd.org/b/tags/ubuntu/</loc>
+    <lastmod>2015-10-23T21:07:00+08:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://nznd.org/b/tags/vpn/</loc>
+    <lastmod>2015-09-29T23:12:00+08:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://nznd.org/b/tags/win10/</loc>
+    <lastmod>2015-08-08T22:54:00+08:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://nznd.org/b/tags/windows/</loc>
+    <lastmod>2014-05-23T21:34:00+08:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://nznd.org/b/tags/xposed/</loc>
+    <lastmod>2016-01-15T16:46:00+08:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://nznd.org/b/tags/%E6%95%B0%E6%8D%AE%E5%BB%BA%E6%A8%A1/</loc>
+    <lastmod>2014-10-09T16:38:00+08:00</lastmod>
+    <priority>0</priority>
   </url>
   
 </urlset>

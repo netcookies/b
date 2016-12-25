@@ -14,10 +14,10 @@
 <title>
 
 
-     PowerDisgner数据建模时生成oracle脚本需要的配置 
+     code 
 
 </title>
-<link rel="canonical" href="https://nznd.org/b/blog/powerdisgner%E6%95%B0%E6%8D%AE%E5%BB%BA%E6%A8%A1%E6%97%B6%E7%94%9F%E6%88%90oracle%E8%84%9A%E6%9C%AC%E9%9C%80%E8%A6%81%E7%9A%84%E9%85%8D%E7%BD%AE/">
+<link rel="canonical" href="https://nznd.org/b/code/">
 
 
 <script type="text/javascript">
@@ -114,71 +114,22 @@
     </div>
 </section>
 
-
-<section class="main post non-narrow zero-top-spacing">
+<section class="main">
     <div class="container">
         <div class="content">
-            <div class="front-matter">
-                <div class="title-container">
-                    <div class="page-heading">
+            <div class="page-heading">
 
-    PowerDisgner数据建模时生成oracle脚本需要的配置
+    code
 
 </div>
 
-                    <div class="initials"><a href="https://nznd.org/b/">ad</a></div>
-                </div>
-                <div class="meta">
-                    <div class="date" title="Thu Oct 9 2014 16:38:00 &#43;0800">Oct 9, 2014</div>
-                    <div class="reading-time"><div class="middot"></div>1 minute read</div>
-                </div>
-            </div>
             <div class="markdown">
-                <p>用PowerDisgner12为oracle进行数据建模时，生成的脚本默认是以<code>“</code>区分大小写，生成脚本如下：</p>
+                <p>Place holder for future.</p>
 
-<pre><code>...
-create table &quot;table_name&quot;
-...
-</code></pre>
-
-<p>这样执行脚本后，表名实际为<code>&quot;table_name&quot;</code>而不是<code>table_name</code>，结果显示不是我们所要的。</p>
-
-<p>于是需要做如下更改：</p>
-
-<pre><code>1. 打开PowerDesiger中
-2. physical data model -&gt; Database -&gt; Edit current DBMS
-3. Script-&gt;Sql-&gt;Format
-4. CaseSensitivityUsingQuote
-5. Check Yes
-6. Uppercase only
-7. Check Yes
-</code></pre>
-
-                <br>
-                <p><a href="https://nznd.org/b/blog/">Back to posts</a></p>
-            </div>
-            <br>
-            <div class="disqus">
-                <div id="disqus_thread"></div>
-<script type="text/javascript">
-    var disqus_shortname = 'nzndorg';
-    var disqus_identifier = 'https:\/\/nznd.org\/b\/blog\/powerdisgner%E6%95%B0%E6%8D%AE%E5%BB%BA%E6%A8%A1%E6%97%B6%E7%94%9F%E6%88%90oracle%E8%84%9A%E6%9C%AC%E9%9C%80%E8%A6%81%E7%9A%84%E9%85%8D%E7%BD%AE\/';
-    var disqus_title = 'PowerDisgner数据建模时生成oracle脚本需要的配置';
-    var disqus_url = 'https:\/\/nznd.org\/b\/blog\/powerdisgner%E6%95%B0%E6%8D%AE%E5%BB%BA%E6%A8%A1%E6%97%B6%E7%94%9F%E6%88%90oracle%E8%84%9A%E6%9C%AC%E9%9C%80%E8%A6%81%E7%9A%84%E9%85%8D%E7%BD%AE\/';
-
-    (function() {
-        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
-        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
-        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
-    })();
-</script>
-<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
-<a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
             </div>
         </div>
     </div>
 </section>
-
 
 
 <script type="text/javascript">
