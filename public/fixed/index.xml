@@ -2,19 +2,19 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Fixed-rss on Isulew&#39;s Blog</title>
-    <link>https://netcookies.github.io/b/fixed/index.xml</link>
+    <link>https://nznd.org/b/fixed/index.xml</link>
     <description>Recent content in Fixed-rss on Isulew&#39;s Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-US</language>
     <lastBuildDate>Thu, 22 May 2014 10:02:00 +0800</lastBuildDate>
-    <atom:link href="https://netcookies.github.io/b/fixed/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://nznd.org/b/fixed/index.xml" rel="self" type="application/rss+xml" />
     
     <item>
       <title>About</title>
-      <link>https://netcookies.github.io/b/about/</link>
+      <link>https://nznd.org/b/about/</link>
       <pubDate>Thu, 22 May 2014 10:02:00 +0800</pubDate>
       
-      <guid>https://netcookies.github.io/b/about/</guid>
+      <guid>https://nznd.org/b/about/</guid>
       <description>&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;nznd.org {
   $author  =   Isulew / netcookies
   $mail      =   netcookies#gmail.com

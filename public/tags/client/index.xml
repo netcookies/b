@@ -2,18 +2,18 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Isulew&#39;s Blog</title>
-    <link>https://netcookies.github.io/b/tags/client/index.xml</link>
+    <link>https://nznd.org/b/tags/client/index.xml</link>
     <description>Recent content on Isulew&#39;s Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-US</language>
-    <atom:link href="https://netcookies.github.io/b/tags/client/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://nznd.org/b/tags/client/index.xml" rel="self" type="application/rss+xml" />
     
     <item>
       <title>Oracle免安装客户端 </title>
-      <link>https://netcookies.github.io/b/blog/oracle%E5%85%8D%E5%AE%89%E8%A3%85%E5%AE%A2%E6%88%B7%E7%AB%AF/</link>
+      <link>https://nznd.org/b/blog/oracle%E5%85%8D%E5%AE%89%E8%A3%85%E5%AE%A2%E6%88%B7%E7%AB%AF/</link>
       <pubDate>Mon, 28 Jul 2014 11:48:00 +0800</pubDate>
       
-      <guid>https://netcookies.github.io/b/blog/oracle%E5%85%8D%E5%AE%89%E8%A3%85%E5%AE%A2%E6%88%B7%E7%AB%AF/</guid>
+      <guid>https://nznd.org/b/blog/oracle%E5%85%8D%E5%AE%89%E8%A3%85%E5%AE%A2%E6%88%B7%E7%AB%AF/</guid>
       <description>&lt;ol&gt;
 &lt;li&gt;从已经安装过oracle的server或client 拷贝如下文件&lt;/li&gt;
 &lt;/ol&gt;

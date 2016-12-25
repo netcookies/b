@@ -2,19 +2,19 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Blog-rss on Isulew&#39;s Blog</title>
-    <link>https://netcookies.github.io/b/blog/index.xml</link>
+    <link>https://nznd.org/b/blog/index.xml</link>
     <description>Recent content in Blog-rss on Isulew&#39;s Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-US</language>
     <lastBuildDate>Thu, 15 Sep 2016 18:00:00 +0800</lastBuildDate>
-    <atom:link href="https://netcookies.github.io/b/blog/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://nznd.org/b/blog/index.xml" rel="self" type="application/rss+xml" />
     
     <item>
       <title>当梯子不可用时可以自动重启梯子的脚本</title>
-      <link>https://netcookies.github.io/b/blog/%E5%BD%93%E6%A2%AF%E5%AD%90%E4%B8%8D%E5%8F%AF%E7%94%A8%E6%97%B6%E5%8F%AF%E4%BB%A5%E8%87%AA%E5%8A%A8%E9%87%8D%E5%90%AF%E6%A2%AF%E5%AD%90%E7%9A%84%E8%84%9A%E6%9C%AC/</link>
+      <link>https://nznd.org/b/blog/%E5%BD%93%E6%A2%AF%E5%AD%90%E4%B8%8D%E5%8F%AF%E7%94%A8%E6%97%B6%E5%8F%AF%E4%BB%A5%E8%87%AA%E5%8A%A8%E9%87%8D%E5%90%AF%E6%A2%AF%E5%AD%90%E7%9A%84%E8%84%9A%E6%9C%AC/</link>
       <pubDate>Thu, 15 Sep 2016 18:00:00 +0800</pubDate>
       
-      <guid>https://netcookies.github.io/b/blog/%E5%BD%93%E6%A2%AF%E5%AD%90%E4%B8%8D%E5%8F%AF%E7%94%A8%E6%97%B6%E5%8F%AF%E4%BB%A5%E8%87%AA%E5%8A%A8%E9%87%8D%E5%90%AF%E6%A2%AF%E5%AD%90%E7%9A%84%E8%84%9A%E6%9C%AC/</guid>
+      <guid>https://nznd.org/b/blog/%E5%BD%93%E6%A2%AF%E5%AD%90%E4%B8%8D%E5%8F%AF%E7%94%A8%E6%97%B6%E5%8F%AF%E4%BB%A5%E8%87%AA%E5%8A%A8%E9%87%8D%E5%90%AF%E6%A2%AF%E5%AD%90%E7%9A%84%E8%84%9A%E6%9C%AC/</guid>
       <description>
 
 &lt;h3 id=&#34;序&#34;&gt;序&lt;/h3&gt;
@@ -162,10 +162,10 @@ exit $rs
     
     <item>
       <title>自建rss服务并适配 IOS 移动端（ TTRSS &#43; Fever )</title>
-      <link>https://netcookies.github.io/b/blog/%E8%87%AA%E5%BB%BArss%E6%9C%8D%E5%8A%A1%E5%B9%B6%E9%80%82%E9%85%8D-ios-%E7%A7%BB%E5%8A%A8%E7%AB%AF-ttrss-&#43;-fever-/</link>
+      <link>https://nznd.org/b/blog/%E8%87%AA%E5%BB%BArss%E6%9C%8D%E5%8A%A1%E5%B9%B6%E9%80%82%E9%85%8D-ios-%E7%A7%BB%E5%8A%A8%E7%AB%AF-ttrss-&#43;-fever-/</link>
       <pubDate>Mon, 25 Apr 2016 13:43:00 +0800</pubDate>
       
-      <guid>https://netcookies.github.io/b/blog/%E8%87%AA%E5%BB%BArss%E6%9C%8D%E5%8A%A1%E5%B9%B6%E9%80%82%E9%85%8D-ios-%E7%A7%BB%E5%8A%A8%E7%AB%AF-ttrss-&#43;-fever-/</guid>
+      <guid>https://nznd.org/b/blog/%E8%87%AA%E5%BB%BArss%E6%9C%8D%E5%8A%A1%E5%B9%B6%E9%80%82%E9%85%8D-ios-%E7%A7%BB%E5%8A%A8%E7%AB%AF-ttrss-&#43;-fever-/</guid>
       <description>
 
 &lt;p&gt;##前言
@@ -333,10 +333,10 @@ rm -rf tt-rss_reeder_theme-master
     
     <item>
       <title>一加X ROOT 并安装Xposed(不解锁BootLoader)</title>
-      <link>https://netcookies.github.io/b/blog/%E4%B8%80%E5%8A%A0x-root-%E5%B9%B6%E5%AE%89%E8%A3%85xposed%E4%B8%8D%E8%A7%A3%E9%94%81bootloader/</link>
+      <link>https://nznd.org/b/blog/%E4%B8%80%E5%8A%A0x-root-%E5%B9%B6%E5%AE%89%E8%A3%85xposed%E4%B8%8D%E8%A7%A3%E9%94%81bootloader/</link>
       <pubDate>Fri, 15 Jan 2016 16:46:00 +0800</pubDate>
       
-      <guid>https://netcookies.github.io/b/blog/%E4%B8%80%E5%8A%A0x-root-%E5%B9%B6%E5%AE%89%E8%A3%85xposed%E4%B8%8D%E8%A7%A3%E9%94%81bootloader/</guid>
+      <guid>https://nznd.org/b/blog/%E4%B8%80%E5%8A%A0x-root-%E5%B9%B6%E5%AE%89%E8%A3%85xposed%E4%B8%8D%E8%A7%A3%E9%94%81bootloader/</guid>
       <description>&lt;p&gt;##前言
 现在很多安卓手机都做的很好，基本买来不用安装什么App就够用了。但是国内的某些应用各种唤醒各种耗电，逼不得已只能Root阻止各种应用自动唤醒，甚至是自动唤醒他家的所有App。
 本文测试机为：&lt;code&gt;一加X&lt;/code&gt;
@@ -384,10 +384,10 @@ rm -rf tt-rss_reeder_theme-master
     
     <item>
       <title>Raspberry Pi编译驱动（8188eu)</title>
-      <link>https://netcookies.github.io/b/blog/raspberry-pi%E7%BC%96%E8%AF%91%E9%A9%B1%E5%8A%A88188eu/</link>
+      <link>https://nznd.org/b/blog/raspberry-pi%E7%BC%96%E8%AF%91%E9%A9%B1%E5%8A%A88188eu/</link>
       <pubDate>Wed, 04 Nov 2015 16:56:00 +0800</pubDate>
       
-      <guid>https://netcookies.github.io/b/blog/raspberry-pi%E7%BC%96%E8%AF%91%E9%A9%B1%E5%8A%A88188eu/</guid>
+      <guid>https://nznd.org/b/blog/raspberry-pi%E7%BC%96%E8%AF%91%E9%A9%B1%E5%8A%A88188eu/</guid>
       <description>&lt;ol&gt;
 &lt;li&gt;下载内核源码,，用&lt;code&gt;uname -r&lt;/code&gt;查看本机内核
 &lt;code&gt;
@@ -438,10 +438,10 @@ sudo make install
     
     <item>
       <title>Shadowsocks 安装配置常见问题解答</title>
-      <link>https://netcookies.github.io/b/blog/shadowsocks-%E5%AE%89%E8%A3%85%E9%85%8D%E7%BD%AE%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98%E8%A7%A3%E7%AD%94/</link>
+      <link>https://nznd.org/b/blog/shadowsocks-%E5%AE%89%E8%A3%85%E9%85%8D%E7%BD%AE%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98%E8%A7%A3%E7%AD%94/</link>
       <pubDate>Fri, 23 Oct 2015 21:07:00 +0800</pubDate>
       
-      <guid>https://netcookies.github.io/b/blog/shadowsocks-%E5%AE%89%E8%A3%85%E9%85%8D%E7%BD%AE%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98%E8%A7%A3%E7%AD%94/</guid>
+      <guid>https://nznd.org/b/blog/shadowsocks-%E5%AE%89%E8%A3%85%E9%85%8D%E7%BD%AE%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98%E8%A7%A3%E7%AD%94/</guid>
       <description>
 
 &lt;h3 id=&#34;init-system-helpers-缺失&#34;&gt;init-system-helpers 缺失&lt;/h3&gt;
@@ -473,10 +473,10 @@ dpkg -i init-system-helpers_1.18_all.deb
     
     <item>
       <title>Raspberry Pi 搭建Anyconnect VPN</title>
-      <link>https://netcookies.github.io/b/blog/raspberry-pi-%E6%90%AD%E5%BB%BAanyconnect-vpn/</link>
+      <link>https://nznd.org/b/blog/raspberry-pi-%E6%90%AD%E5%BB%BAanyconnect-vpn/</link>
       <pubDate>Tue, 29 Sep 2015 23:12:00 +0800</pubDate>
       
-      <guid>https://netcookies.github.io/b/blog/raspberry-pi-%E6%90%AD%E5%BB%BAanyconnect-vpn/</guid>
+      <guid>https://nznd.org/b/blog/raspberry-pi-%E6%90%AD%E5%BB%BAanyconnect-vpn/</guid>
       <description>&lt;ul&gt;
 &lt;li&gt;Debian &amp;gt;=7, ubuntu &amp;gt;=14.04 的可以直接使用这个脚本一键安装&lt;/li&gt;
 &lt;/ul&gt;
@@ -932,10 +932,10 @@ HOTPLUG_INTERFACES=&amp;quot;eth0 wlan0&amp;quot;
     
     <item>
       <title>Blackberry 10 系统穿墙指北</title>
-      <link>https://netcookies.github.io/b/blog/blackberry-10-%E7%B3%BB%E7%BB%9F%E7%A9%BF%E5%A2%99%E6%8C%87%E5%8C%97/</link>
+      <link>https://nznd.org/b/blog/blackberry-10-%E7%B3%BB%E7%BB%9F%E7%A9%BF%E5%A2%99%E6%8C%87%E5%8C%97/</link>
       <pubDate>Mon, 24 Aug 2015 23:42:00 +0800</pubDate>
       
-      <guid>https://netcookies.github.io/b/blog/blackberry-10-%E7%B3%BB%E7%BB%9F%E7%A9%BF%E5%A2%99%E6%8C%87%E5%8C%97/</guid>
+      <guid>https://nznd.org/b/blog/blackberry-10-%E7%B3%BB%E7%BB%9F%E7%A9%BF%E5%A2%99%E6%8C%87%E5%8C%97/</guid>
       <description>&lt;ol&gt;
 &lt;li&gt;设置&lt;/li&gt;
 &lt;li&gt;wifi&lt;/li&gt;
@@ -950,10 +950,10 @@ HOTPLUG_INTERFACES=&amp;quot;eth0 wlan0&amp;quot;
     
     <item>
       <title>Win10 VPN TCP/IP属性无法打开解决办法</title>
-      <link>https://netcookies.github.io/b/blog/win10-vpn-tcp/ip%E5%B1%9E%E6%80%A7%E6%97%A0%E6%B3%95%E6%89%93%E5%BC%80%E8%A7%A3%E5%86%B3%E5%8A%9E%E6%B3%95/</link>
+      <link>https://nznd.org/b/blog/win10-vpn-tcp/ip%E5%B1%9E%E6%80%A7%E6%97%A0%E6%B3%95%E6%89%93%E5%BC%80%E8%A7%A3%E5%86%B3%E5%8A%9E%E6%B3%95/</link>
       <pubDate>Sat, 08 Aug 2015 22:54:00 +0800</pubDate>
       
-      <guid>https://netcookies.github.io/b/blog/win10-vpn-tcp/ip%E5%B1%9E%E6%80%A7%E6%97%A0%E6%B3%95%E6%89%93%E5%BC%80%E8%A7%A3%E5%86%B3%E5%8A%9E%E6%B3%95/</guid>
+      <guid>https://nznd.org/b/blog/win10-vpn-tcp/ip%E5%B1%9E%E6%80%A7%E6%97%A0%E6%B3%95%E6%89%93%E5%BC%80%E8%A7%A3%E5%86%B3%E5%8A%9E%E6%B3%95/</guid>
       <description>&lt;p&gt;升级win10后，在网络适配器中无法正常打开TCP/IP IPV4/V6的属性对话框。
 如果需要更改“在远程网络上使用默认网关”，即所有的网络请求都走vpn，不论是内外网。
 可以用下面的命令workaround下，首先打开powershell（直接通过win10的搜索功能打开或通过开始菜单里找）&lt;/p&gt;
@@ -968,17 +968,17 @@ Set-VpnConnection -Name &amp;quot;myVPN&amp;quot; -SplitTunneling $True
     
     <item>
       <title>CSS基础Q&amp;A</title>
-      <link>https://netcookies.github.io/b/blog/css%E5%9F%BA%E7%A1%80qa/</link>
+      <link>https://nznd.org/b/blog/css%E5%9F%BA%E7%A1%80qa/</link>
       <pubDate>Sun, 08 Mar 2015 22:40:00 +0800</pubDate>
       
-      <guid>https://netcookies.github.io/b/blog/css%E5%9F%BA%E7%A1%80qa/</guid>
+      <guid>https://nznd.org/b/blog/css%E5%9F%BA%E7%A1%80qa/</guid>
       <description>&lt;p&gt;1.有如下三个div,B与C都是&lt;code&gt;float: left&lt;/code&gt;,B与C分别高50px，100px。此时A高度为多少？为什么？&lt;/p&gt;
 
 &lt;blockquote&gt;
 &lt;p&gt;此时A高度为0，因为B与C不在document flow中&lt;/p&gt;
 &lt;/blockquote&gt;
 
-&lt;p&gt;&lt;img src=&#34;~/22-53-51.jpg&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;img/2015-03-08/22-53-51.jpg&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
 
 &lt;p&gt;2.如何避免上图中的情况？&lt;/p&gt;
 
@@ -1036,7 +1036,7 @@ Set-VpnConnection -Name &amp;quot;myVPN&amp;quot; -SplitTunneling $True
 &lt;p&gt;&lt;code&gt;content-box; border-box&lt;/code&gt;，他们的区别在与padding算在box-model内还是外&lt;/p&gt;
 &lt;/blockquote&gt;
 
-&lt;p&gt;&lt;img src=&#34;~/23-48-19.jpg&#34; alt=&#34;&#34; /&gt;
+&lt;p&gt;&lt;img src=&#34;img/2015-03-08/23-48-19.jpg&#34; alt=&#34;&#34; /&gt;
 border-box常见于button：&lt;/p&gt;
 
 &lt;pre&gt;&lt;code&gt;.lia-button {
@@ -1063,10 +1063,10 @@ box-sizing: border-box;
     
     <item>
       <title>Lithium CSS Guide</title>
-      <link>https://netcookies.github.io/b/blog/lithium-css-guide/</link>
+      <link>https://nznd.org/b/blog/lithium-css-guide/</link>
       <pubDate>Tue, 03 Mar 2015 23:18:00 +0800</pubDate>
       
-      <guid>https://netcookies.github.io/b/blog/lithium-css-guide/</guid>
+      <guid>https://nznd.org/b/blog/lithium-css-guide/</guid>
       <description>&lt;p&gt;#Page&lt;/p&gt;
 
 &lt;p&gt;usage: &lt;code&gt;#lia-body .CommunityPage .lia-body&lt;/code&gt;
@@ -1095,7 +1095,7 @@ e) IdeaPage&lt;/p&gt;
 &lt;p&gt;d) lia-list-statistics
 &amp;gt;2col for statistics&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&#34;~/23-35-39.jpg&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;img/2015-03-03/23-35-39.jpg&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
 
 &lt;p&gt;2.grid&lt;/p&gt;
 
@@ -1111,7 +1111,7 @@ e) IdeaPage&lt;/p&gt;
 &lt;p&gt;c) lia-date-cell-tertiary
 &amp;gt;normally use with &lt;code&gt;lia-date-cell-icon lia-date-cell-checkbox&lt;/code&gt;&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&#34;~/23-36-08.jpg&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;img/2015-03-03/23-36-08.jpg&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
 
 &lt;p&gt;#button&lt;/p&gt;
 
@@ -1130,7 +1130,7 @@ e) IdeaPage&lt;/p&gt;
 &lt;p&gt;e) lia-button-Submit-action lia-button-Cancel-action lia-Preview-action lia-button-Reset
 &amp;gt;detail&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&#34;~/22-04-36.jpg&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;img/2015-03-03/22-04-36.jpg&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
 
 &lt;p&gt;#Feedback
 ignore&lt;/p&gt;
@@ -1146,7 +1146,7 @@ a) lia-label
 &lt;p&gt;b) lia-label-tabs-sort
 &amp;gt;before a &lt;code&gt;lia-tabs-sort&lt;/code&gt;&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&#34;~/22-17-54.jpg&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;img/2015-03-03/22-17-54.jpg&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
 
 &lt;p&gt;#Tooltip
 a) lia-panel-tooltip
@@ -1165,7 +1165,7 @@ a) lia-tabs-standard-wrapper
 &lt;p&gt;d) lia-tabs-active lia-tabs-inactive lia-tabs-sort
 &amp;gt;detail&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&#34;~/22-25-30.jpg&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;img/2015-03-03/22-25-30.jpg&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
 
 &lt;p&gt;#Page/Pagination
 a) lia-paging-full-wrapper
@@ -1183,7 +1183,7 @@ a) lia-paging-full-wrapper
 &lt;p&gt;e) lia-paging-page-link lia-paging-page-arrow
 &amp;gt; within &lt;code&gt;lia-paging-page-previous lia-paging-page-next&lt;/code&gt;&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&#34;~/22-38-38.jpg&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;img/2015-03-03/22-38-38.jpg&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
 
 &lt;p&gt;#Menu
 a) lia-menu-action
@@ -1192,7 +1192,7 @@ a) lia-menu-action
 &lt;p&gt;b) lia-menu-bar lia-menu-bar-top lia-menu-bar-bottom
 &amp;gt;a combination of buttons,menus,paging component / &lt;code&gt;if has top / bottom bar&lt;/code&gt;&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&#34;~/22-51-45.jpg&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;img/2015-03-03/22-51-45.jpg&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
 
 &lt;p&gt;c) lia-menu-navigation lia-menu-dropdown-items
 &amp;gt;dropdown menu / dropdown menu items&lt;/p&gt;
@@ -1200,7 +1200,7 @@ a) lia-menu-action
 &lt;p&gt;d) lia-menu-bar-buttons
 &amp;gt; the buttons in menu bar&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&#34;~/22-52-47.jpg&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;img/2015-03-03/22-52-47.jpg&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
 
 &lt;p&gt;e) lia-decoration-border-menu-bar lia-decoration-border-menu-bar-top lia-decoration-border-menu-bar-bottom lia-decoration-border-menu-bar-cotent
 &amp;gt;provide additional border class&lt;/p&gt;
@@ -1221,12 +1221,12 @@ a) lia-menu-action
 &lt;p&gt;b) lia-view-filter lia-view-filter-ascending lia-view-filter-descending
 &amp;gt; sorting or filter&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&#34;~/23-05-59.jpg&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;img/2015-03-03/23-05-59.jpg&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
 
 &lt;p&gt;d) lia-menu-item lia-view-all lia-link-disabled
 &amp;gt;menu item / view all / disabled&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&#34;~/23-06-35.jpg&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;img/2015-03-03/23-06-35.jpg&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
 
 &lt;p&gt;#Form&lt;/p&gt;
 
@@ -1242,7 +1242,7 @@ a) lia-menu-action
 &lt;p&gt;d) lia-form-label-wrapper lia-form-label lia-form-label-required lia-label-required-mark
 &amp;gt;form label wrapper / form label / form label required / marker required label&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&#34;~/23-36-29.jpg&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;img/2015-03-03/23-36-29.jpg&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
 
 &lt;p&gt;e) lia-form-input-wrapper lia-form-type-text lia-form-type-password lia-form-type-file
 &amp;gt;input wrapper / text input / password input / file input&lt;/p&gt;
@@ -1250,7 +1250,7 @@ a) lia-menu-action
 &lt;p&gt;f) lia-form-radio-group lia-form-fieldset-last
 &amp;gt;radio button in field / last fieldset&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&#34;~/23-37-10.jpg&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;img/2015-03-03/23-37-10.jpg&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
 
 &lt;p&gt;g) lia-form-field-error lia-form-error-text lia-form-validation-help-text
 &amp;gt;style input error / error text below input field / help text below input field&lt;/p&gt;
@@ -1272,7 +1272,7 @@ a) lia-menu-action
 &lt;p&gt;e) lia-panel-standard lia-panel-section
 &amp;gt;default panel class / separate panel section&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&#34;~/22-31-55.jpg&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;img/2015-03-03/22-31-55.jpg&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
 
 &lt;p&gt;#Message&lt;/p&gt;
 
@@ -1306,9 +1306,9 @@ a) lia-menu-action
 &lt;p&gt;j) lia-message-view-style-collapsed lia-message-view-style-expanded
 &amp;gt;(idea only) collapsed view / expanded view&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&#34;~/23-07-54.jpg&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;img/2015-03-03/23-07-54.jpg&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&#34;~/23-08-21.jpg&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;img/2015-03-03/23-08-21.jpg&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
 
 &lt;p&gt;#Kudos&lt;/p&gt;
 
@@ -1321,7 +1321,7 @@ a) lia-menu-action
 &lt;p&gt;c) lia-button-image-kudos-kudoed lia-button-image-kudos-not-kudoed lia-button-image-kudos-has-kudos
 &amp;gt;kudoed / not kudoed / has others kudos&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&#34;~/23-16-14.jpg&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;img/2015-03-03/23-16-14.jpg&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
 
 &lt;p&gt;#User/Avatar
 a) lia-user-info-group
@@ -1333,18 +1333,18 @@ a) lia-user-info-group
 &lt;p&gt;c) lia-user-kudos-weight lia-user-kudos-count
 &amp;gt;kudos weight on leaderboards / kudos count on leaderboards&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&#34;~/23-24-44.jpg&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;img/2015-03-03/23-24-44.jpg&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&#34;~/23-25-10.jpg&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;img/2015-03-03/23-25-10.jpg&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
 </description>
     </item>
     
     <item>
       <title>Black Passport进阶操作指南（三）</title>
-      <link>https://netcookies.github.io/b/blog/black-passport%E8%BF%9B%E9%98%B6%E6%93%8D%E4%BD%9C%E6%8C%87%E5%8D%97%E4%B8%89/</link>
+      <link>https://nznd.org/b/blog/black-passport%E8%BF%9B%E9%98%B6%E6%93%8D%E4%BD%9C%E6%8C%87%E5%8D%97%E4%B8%89/</link>
       <pubDate>Wed, 04 Feb 2015 15:03:00 +0800</pubDate>
       
-      <guid>https://netcookies.github.io/b/blog/black-passport%E8%BF%9B%E9%98%B6%E6%93%8D%E4%BD%9C%E6%8C%87%E5%8D%97%E4%B8%89/</guid>
+      <guid>https://nznd.org/b/blog/black-passport%E8%BF%9B%E9%98%B6%E6%93%8D%E4%BD%9C%E6%8C%87%E5%8D%97%E4%B8%89/</guid>
       <description>&lt;p&gt;转眼到手半个月了，PP已然胜任主力机，只是需要比IOS, Android花更多心思。
 有几个问题分享下，以免大家再走弯路&lt;/p&gt;
 
@@ -1363,10 +1363,10 @@ a) lia-user-info-group
     
     <item>
       <title>Black Passport进阶操作指南（二）</title>
-      <link>https://netcookies.github.io/b/blog/black-passport%E8%BF%9B%E9%98%B6%E6%93%8D%E4%BD%9C%E6%8C%87%E5%8D%97%E4%BA%8C/</link>
+      <link>https://nznd.org/b/blog/black-passport%E8%BF%9B%E9%98%B6%E6%93%8D%E4%BD%9C%E6%8C%87%E5%8D%97%E4%BA%8C/</link>
       <pubDate>Sun, 25 Jan 2015 22:06:00 +0800</pubDate>
       
-      <guid>https://netcookies.github.io/b/blog/black-passport%E8%BF%9B%E9%98%B6%E6%93%8D%E4%BD%9C%E6%8C%87%E5%8D%97%E4%BA%8C/</guid>
+      <guid>https://nznd.org/b/blog/black-passport%E8%BF%9B%E9%98%B6%E6%93%8D%E4%BD%9C%E6%8C%87%E5%8D%97%E4%BA%8C/</guid>
       <description>&lt;p&gt;PP自带的10.3系统电量控制还是不错的，但一种情况除外：就是你装了一堆的国产免费安卓应用，诸如不管你是聊天还是看新闻；或是查个字典，美图秀秀个图片；更不用说淘宝百度全家福，开其中一个唤醒全家App。电量那是刷刷刷的往下掉，原来可以用个两三天，现在一天一充不是梦&lt;/p&gt;
 
 &lt;hr /&gt;
@@ -1433,10 +1433,10 @@ a) lia-user-info-group
     
     <item>
       <title>Black Passport进阶操作指南（一）</title>
-      <link>https://netcookies.github.io/b/blog/black-passport%E8%BF%9B%E9%98%B6%E6%93%8D%E4%BD%9C%E6%8C%87%E5%8D%97%E4%B8%80/</link>
+      <link>https://nznd.org/b/blog/black-passport%E8%BF%9B%E9%98%B6%E6%93%8D%E4%BD%9C%E6%8C%87%E5%8D%97%E4%B8%80/</link>
       <pubDate>Fri, 23 Jan 2015 20:45:00 +0800</pubDate>
       
-      <guid>https://netcookies.github.io/b/blog/black-passport%E8%BF%9B%E9%98%B6%E6%93%8D%E4%BD%9C%E6%8C%87%E5%8D%97%E4%B8%80/</guid>
+      <guid>https://nznd.org/b/blog/black-passport%E8%BF%9B%E9%98%B6%E6%93%8D%E4%BD%9C%E6%8C%87%E5%8D%97%E4%B8%80/</guid>
       <description>&lt;ol&gt;
 &lt;li&gt;键盘操作总结
 
@@ -1471,10 +1471,10 @@ a) lia-user-info-group
     
     <item>
       <title>BlackBerry Passport一星期评测</title>
-      <link>https://netcookies.github.io/b/blog/blackberry-passport%E4%B8%80%E6%98%9F%E6%9C%9F%E8%AF%84%E6%B5%8B/</link>
+      <link>https://nznd.org/b/blog/blackberry-passport%E4%B8%80%E6%98%9F%E6%9C%9F%E8%AF%84%E6%B5%8B/</link>
       <pubDate>Sat, 17 Jan 2015 18:17:00 +0800</pubDate>
       
-      <guid>https://netcookies.github.io/b/blog/blackberry-passport%E4%B8%80%E6%98%9F%E6%9C%9F%E8%AF%84%E6%B5%8B/</guid>
+      <guid>https://nznd.org/b/blog/blackberry-passport%E4%B8%80%E6%98%9F%E6%9C%9F%E8%AF%84%E6%B5%8B/</guid>
       <description>
 
 &lt;p&gt;前言：&lt;/p&gt;
@@ -1514,10 +1514,10 @@ GestureSearch | 非原生 | Google自家出品的手势搜索（后面有介绍�
     
     <item>
       <title>PowerDisgner数据建模时生成oracle脚本需要的配置</title>
-      <link>https://netcookies.github.io/b/blog/powerdisgner%E6%95%B0%E6%8D%AE%E5%BB%BA%E6%A8%A1%E6%97%B6%E7%94%9F%E6%88%90oracle%E8%84%9A%E6%9C%AC%E9%9C%80%E8%A6%81%E7%9A%84%E9%85%8D%E7%BD%AE/</link>
+      <link>https://nznd.org/b/blog/powerdisgner%E6%95%B0%E6%8D%AE%E5%BB%BA%E6%A8%A1%E6%97%B6%E7%94%9F%E6%88%90oracle%E8%84%9A%E6%9C%AC%E9%9C%80%E8%A6%81%E7%9A%84%E9%85%8D%E7%BD%AE/</link>
       <pubDate>Thu, 09 Oct 2014 16:38:00 +0800</pubDate>
       
-      <guid>https://netcookies.github.io/b/blog/powerdisgner%E6%95%B0%E6%8D%AE%E5%BB%BA%E6%A8%A1%E6%97%B6%E7%94%9F%E6%88%90oracle%E8%84%9A%E6%9C%AC%E9%9C%80%E8%A6%81%E7%9A%84%E9%85%8D%E7%BD%AE/</guid>
+      <guid>https://nznd.org/b/blog/powerdisgner%E6%95%B0%E6%8D%AE%E5%BB%BA%E6%A8%A1%E6%97%B6%E7%94%9F%E6%88%90oracle%E8%84%9A%E6%9C%AC%E9%9C%80%E8%A6%81%E7%9A%84%E9%85%8D%E7%BD%AE/</guid>
       <description>&lt;p&gt;用PowerDisgner12为oracle进行数据建模时，生成的脚本默认是以&lt;code&gt;“&lt;/code&gt;区分大小写，生成脚本如下：&lt;/p&gt;
 
 &lt;pre&gt;&lt;code&gt;...

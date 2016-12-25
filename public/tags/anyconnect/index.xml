@@ -2,18 +2,18 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Isulew&#39;s Blog</title>
-    <link>https://netcookies.github.io/b/tags/anyconnect/index.xml</link>
+    <link>https://nznd.org/b/tags/anyconnect/index.xml</link>
     <description>Recent content on Isulew&#39;s Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-US</language>
-    <atom:link href="https://netcookies.github.io/b/tags/anyconnect/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://nznd.org/b/tags/anyconnect/index.xml" rel="self" type="application/rss+xml" />
     
     <item>
       <title>Raspberry Pi 搭建Anyconnect VPN</title>
-      <link>https://netcookies.github.io/b/blog/raspberry-pi-%E6%90%AD%E5%BB%BAanyconnect-vpn/</link>
+      <link>https://nznd.org/b/blog/raspberry-pi-%E6%90%AD%E5%BB%BAanyconnect-vpn/</link>
       <pubDate>Tue, 29 Sep 2015 23:12:00 +0800</pubDate>
       
-      <guid>https://netcookies.github.io/b/blog/raspberry-pi-%E6%90%AD%E5%BB%BAanyconnect-vpn/</guid>
+      <guid>https://nznd.org/b/blog/raspberry-pi-%E6%90%AD%E5%BB%BAanyconnect-vpn/</guid>
       <description>&lt;ul&gt;
 &lt;li&gt;Debian &amp;gt;=7, ubuntu &amp;gt;=14.04 的可以直接使用这个脚本一键安装&lt;/li&gt;
 &lt;/ul&gt;

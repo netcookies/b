@@ -2,18 +2,18 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Isulew&#39;s Blog</title>
-    <link>https://netcookies.github.io/b/tags/dualwan/index.xml</link>
+    <link>https://nznd.org/b/tags/dualwan/index.xml</link>
     <description>Recent content on Isulew&#39;s Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-US</language>
-    <atom:link href="https://netcookies.github.io/b/tags/dualwan/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://nznd.org/b/tags/dualwan/index.xml" rel="self" type="application/rss+xml" />
     
     <item>
       <title>dualwan一线多拨</title>
-      <link>https://netcookies.github.io/b/blog/dualwan%E4%B8%80%E7%BA%BF%E5%A4%9A%E6%8B%A8/</link>
+      <link>https://nznd.org/b/blog/dualwan%E4%B8%80%E7%BA%BF%E5%A4%9A%E6%8B%A8/</link>
       <pubDate>Sun, 06 Jul 2014 21:19:00 +0800</pubDate>
       
-      <guid>https://netcookies.github.io/b/blog/dualwan%E4%B8%80%E7%BA%BF%E5%A4%9A%E6%8B%A8/</guid>
+      <guid>https://nznd.org/b/blog/dualwan%E4%B8%80%E7%BA%BF%E5%A4%9A%E6%8B%A8/</guid>
       <description>&lt;p&gt;1.telnet 至路由器并运行命令显示vlan配置&lt;/p&gt;
 
 &lt;pre&gt;&lt;code&gt;# nvram show | grep vlan

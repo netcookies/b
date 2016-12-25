@@ -1,4 +1,4 @@
-baseurl = "https://netcookies.github.io/b/"
+baseurl = "https://nznd.org/b/"
 #languageCode = "en-us"
 #googleAnalytics = "UA-89033419-1"
 builddrafts = false
@@ -12,6 +12,7 @@ author = "Isulew Li"
 pygmentsuseclasses = true
 disqusshortname = "nzndorg" # Comment out to disable Disqus.
 pluralizelisttitles = false
+hasCJKLanguage = true
 
 [permalinks]
 fixed = ":title/"
@@ -27,6 +28,7 @@ dateformfull = "Mon Jan 2 2006 15:04:05 MST"
 description = "Don't panic"
 email = "netcookies@gmail.com"
 faviconfile = "img/leaf.ico"
+faviconpath = "//nznd.org"
 gatracker = "UA-89033419-1"
 github = "//github.com/netcookies"
 highlightjs = true
@@ -36,4 +38,5 @@ lang = "en"
 #linkedin = "//linkedin.com/in/netcookies"
 twitter = "//twitter.com/netcookies"
 
-extracssfiles = [ "/css/override.css"  ] # In your `static/css`, add/remove files as necessary.
+#extracssfiles = [ "/css/override.css"  ] # In your `static/css`, add/remove files as necessary.
+#extracssfiles = [   ] # In your `static/css`, add/remove files as necessary.
