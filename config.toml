@@ -18,25 +18,47 @@ hasCJKLanguage = true
 fixed = ":title/"
 blog = "blog/:slug/"
 
-[params]
-author = "Isulew"
-# gravatar = "" # do not use in the same time as Avatar
- avatar = "img/nznd-black.svg" # path to image in static dir e.g img/avatar.png (do not use in the same time as Gravatar)
-# cachebuster = false # FIXME: See issue #32.
-dateform = "Jan 2, 2006"
-dateformfull = "Mon Jan 2 2006 15:04:05 MST"
-description = "Don't panic"
-email = "netcookies@gmail.com"
-faviconfile = "img/leaf.ico"
-faviconpath = "//nznd.org"
-gatracker = "UA-89033419-1"
-github = "//github.com/netcookies"
-highlightjs = true
-# highlightjslanguages = ["go"] # additional languages not included in the "common" set
-initials = "ad" # Displayed on single post page; DEPRECATED in v0.3.0.
-lang = "en"
-#linkedin = "//linkedin.com/in/netcookies"
-twitter = "//twitter.com/netcookies"
 
-#extracssfiles = [ "/css/override.css"  ] # In your `static/css`, add/remove files as necessary.
-#extracssfiles = [   ] # In your `static/css`, add/remove files as necessary.
+[[menu.main]]
+name                   = "Blog"
+weight                 = -120
+identifier             = "blog"
+url                    = "/"
+
+[[menu.main]]
+name                   = "About"
+weight                 = -110
+identifier             = "about"
+url                    = "/about/"
+
+[[menu.main]]
+name                   = "Code"
+weight                 = -100
+identifier             = "code"
+url                    = "/code/"
+
+[params]
+author                          = "Isulew"
+cachebuster                     = true                          # add the current unix timestamp in query string for cache busting css assets
+dateform                        = "Jan 2, 2006"
+dateformfull                    = "Mon Jan 2 2006 15:04:05 MST"
+description                     = "Don't panic"
+email                           = "netcookies@gmail.com"
+extracssfiles                   = [ "/css/override.css" ]       # In your `static` directory, add/remove files as necessary.
+faviconfile                     = "img/leaf.ico"
+faviconpath                     = "//nznd.org"
+github                          = "//github.com/netcookies"
+highlightjs                     = true
+lang                            = "en"
+#linkedin                       = "//linkedin.com/in/you"
+noshowreadtime                  = false                         # if true, don't show "<x> minutes read" in posts
+selfintro                       = ""                            # appears in the site header when set to a non-empty string
+twitter                         = "//twitter.com/netcookies"
+# highlightjslanguages          = ["go"]                        # additional languages not included in the "common" set
+
+ avatar                         = "img/nznd-black.svg" # path to image in static dir e.g img/avatar.png (do not use in the same time as Gravatar)
+# gravatar                      = ""                # do not use in the same time as avatar
+
+# The following are DEPRECATED.
+gatracker                       = "UA-89033419-1" # use googleAnalytics instead
+initials                        = "ad"  # displayed on single post page; deprecated in v0.3.0.
