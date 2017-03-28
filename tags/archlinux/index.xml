@@ -2,11 +2,14 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Archlinux on Isulew&#39;s Blog</title>
-    <link>https://nznd.org/b/tags/archlinux/index.xml</link>
+    <link>https://nznd.org/b/tags/archlinux/</link>
     <description>Recent content in Archlinux on Isulew&#39;s Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-US</language>
-    <atom:link href="https://nznd.org/b/tags/archlinux/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Fri, 29 Aug 2014 12:40:00 +0800</lastBuildDate>
+    
+	<atom:link href="https://nznd.org/b/tags/archlinux/index.xml" rel="self" type="application/rss+xml" />
+    
     
     <item>
       <title>archlinux上架设goagent </title>
@@ -14,157 +17,7 @@
       <pubDate>Fri, 29 Aug 2014 12:40:00 +0800</pubDate>
       
       <guid>https://nznd.org/b/blog/archlinux%E4%B8%8A%E6%9E%B6%E8%AE%BEgoagent/</guid>
-      <description>&lt;ul&gt;
-&lt;li&gt;安装准备
-需要安装的包&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;pre&gt;&lt;code&gt;pacman -S wget 
-pacman -S  python2-crypto python2-pyopenssl  python2-gevent python2-greenlet nss
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;ul&gt;
-&lt;li&gt;获取安装包&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;pre&gt;&lt;code&gt;cd ~
-wget https://nodeload.github.com/goagent/goagent/legacy.zip/3.0
-mv goagent* goagent
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;ul&gt;
-&lt;li&gt;goagent配置&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;pre&gt;&lt;code&gt;cd ~/goagent/local
-cat &amp;gt; proxy.user.ini &amp;lt;&amp;lt; EOF
-[listen]
-ip = 0.0.0.0
-username = *proxy*
-password = *goagent*
-visible = 0
-
-[gae]
-appid = &amp;lt;goagent&amp;gt;
-password = &amp;lt;password&amp;gt;
-window = 6
-keepalive = 1
-obfuscate = 1
-
-[pac]
-enable = 0
-
-[iplist]
-google_cn = &amp;lt;iplist&amp;gt;
-google_hk = &amp;lt;iplist&amp;gt;
-EOF
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;ul&gt;
-&lt;li&gt;配置nss(libnss3-tool)&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;pre&gt;&lt;code&gt;mkdir -p ~/.pki/nssdb
-chmod 700 ~/.pki/nssdb
-certutil -d ~/.pki/nssdb -N --empty-passwod
-certutil -d sql:$HOME/.pki/nssdb -A -t &amp;quot;C,,&amp;quot; -n GoAgent -i ~/programs/goagent/local/CA.crt
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;按提示设置nssdb的密码。
-手工运行&lt;code&gt;python2 proxy.py&lt;/code&gt;, 并输入上面设置的nssdb的密码&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;建立daemon开机自启&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;pre&gt;&lt;code&gt;ln -s /bin/python2.7 /bin/python
-cat &amp;gt; /lib/systemd/system/goagent.service &amp;lt;&amp;lt;EOF
-[Unit]
-Description=Goagent Proxy
-After=syslog.target network.target
-
-[Service]
-User=root
-Group=root
-Type=oneshot
-RemainAfterExit=yes
-ExecStart=/bin/bash /root/goagent/local/proxy.sh start
-ExecStop=/bin/bash /root/goagent/local/proxy.sh stop
-
-[Install]
-WantedBy=multi-user.target
-EOF
-
-ln -s /lib/systemd/system/goagent.service /etc/systemd/system/goagent.service
-systemctl daemon-reload
-systemctl enable goagent.service
-systemctl start goagent.service
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;查看日志命令&lt;code&gt;journalctl -u goagent&lt;/code&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;em&gt;补充说明：&lt;/em&gt;
-遇到问题&lt;code&gt;error[24]: too many open files&lt;/code&gt;&lt;/p&gt;
-
-&lt;p&gt;问题是由于ulimit和/etc/security/limits.conf中的设置造成的
-出于对资源以及安全的考虑，我们不修改这两个配置，而采用重启的方法解决。当然此处也列出这两个配置的修改方法：&lt;strong&gt;不建议采用&lt;/strong&gt;&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;ulimit -a #查看配置
-ulimit -u 65536
-ulimit -n 65536
-
-在limits.conf末尾加上
-*soft nofile 65536
-*hard nofile 65536
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;我们采用定时重启的方法，配置如下：&lt;/p&gt;
-
-&lt;p&gt;写个重启&lt;code&gt;goagent.service&lt;/code&gt;的脚本&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;cat &amp;gt; /root/goagent_restart.sh &amp;lt;&amp;lt;EOF
-#!bin/sh
-#restart goagent.
-systemctl restart goagent.service
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;新建个service和timer用来定时执行上面的脚本&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;cat &amp;gt; /lib/systemd/system/goagent_restart.service &amp;lt;&amp;lt;EOF
-[Unit]
-Description=Goagent Proxy
-
-[Service]
-User=root
-Group=root
-Type=simple
-ExecStart=/bin/sh /root/goagent_restart.sh
-
-[Install]
-WantedBy=multi-user.target
-EOF
-
-cat &amp;gt; /lib/systemd/system/goagent_restart.timer &amp;lt;&amp;lt;EOF
-[Unit]
-Description=restart goagent every 12h
-
-[Timer]
-# Time to wait after booting before we run first time
-OnBootSec=10min
-# Time between running each consecutive time
-OnUnitActiveSec=12h
-Unit=goagent_restart.service
-
-[Install]
-WantedBy=multi-user.target
-EOF
-
-ln -s /lib/systemd/system/goagent_restart.* /etc/systemd/system/
-systemctl daemon-reload
-systemctl enable goagent_restart.*
-systemctl start goagent_restart.*
-&lt;/code&gt;&lt;/pre&gt;
-</description>
+      <description>安装准备 需要安装的包 pacman -S wget pacman -S python2-crypto python2-pyopenssl python2-gevent python2-greenlet nss 获取安装包 cd ~ wget https://nodeload.github.com/goagent/goagent/legacy.zip/3.0 mv goagent* goagent goagent配置 cd ~/goagent/local cat &amp;gt; proxy.user.ini &amp;lt;&amp;lt; EOF [listen] ip = 0.0.0.0 username = *proxy* password = *goagent* visible = 0 [gae] appid = &amp;lt;goagent&amp;gt; password = &amp;lt;password&amp;gt; window =</description>
     </item>
     
   </channel>

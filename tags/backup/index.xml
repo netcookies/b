@@ -2,11 +2,14 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Backup on Isulew&#39;s Blog</title>
-    <link>https://nznd.org/b/tags/backup/index.xml</link>
+    <link>https://nznd.org/b/tags/backup/</link>
     <description>Recent content in Backup on Isulew&#39;s Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-US</language>
-    <atom:link href="https://nznd.org/b/tags/backup/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Fri, 23 May 2014 21:34:00 +0800</lastBuildDate>
+    
+	<atom:link href="https://nznd.org/b/tags/backup/index.xml" rel="self" type="application/rss+xml" />
+    
     
     <item>
       <title>文件备份自动压缩打包 </title>
@@ -14,20 +17,7 @@
       <pubDate>Fri, 23 May 2014 21:34:00 +0800</pubDate>
       
       <guid>https://nznd.org/b/blog/%E6%96%87%E4%BB%B6%E5%A4%87%E4%BB%BD%E8%87%AA%E5%8A%A8%E5%8E%8B%E7%BC%A9%E6%89%93%E5%8C%85/</guid>
-      <description>&lt;pre&gt;&lt;code class=&#34;language-bat&#34;&gt;@echo off   
-set a=%date:~0,8%    
-rem 给a赋值当前日期的前8位, 我系统系统取得的值为2010/04/21 周三, 前八位即2010/04    
-set a=%a:-=%    
-rem 去掉a变量中的/,得结果为201004    
-&amp;quot;C:\Program Files\WinRAR\RAR.exe&amp;quot; a -df -agYYYYMM iufo *%a%*.bak    
-rem 通过rar进行打包    
-set a=
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;hr /&gt;
-
-&lt;p&gt;主要有几个要点需要mark下, win下的批处理没有字符串处理函数, 只能用环境变量来代替 rar 命令参数可以参见winrar帮助&lt;/p&gt;
-</description>
+      <description>@echo off set a=%date:~0,8% rem 给a赋值当前日期的前8位, 我系统系统取得的值为2010/04/21 周三, 前八位即2010/04 set a=%a:-=% rem 去掉a变量中的/,得结果为20</description>
     </item>
     
   </channel>

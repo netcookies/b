@@ -2,11 +2,14 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Oracle on Isulew&#39;s Blog</title>
-    <link>https://nznd.org/b/tags/oracle/index.xml</link>
+    <link>https://nznd.org/b/tags/oracle/</link>
     <description>Recent content in Oracle on Isulew&#39;s Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-US</language>
-    <atom:link href="https://nznd.org/b/tags/oracle/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Thu, 09 Oct 2014 16:38:00 +0800</lastBuildDate>
+    
+	<atom:link href="https://nznd.org/b/tags/oracle/index.xml" rel="self" type="application/rss+xml" />
+    
     
     <item>
       <title>PowerDisgner数据建模时生成oracle脚本需要的配置</title>
@@ -14,26 +17,7 @@
       <pubDate>Thu, 09 Oct 2014 16:38:00 +0800</pubDate>
       
       <guid>https://nznd.org/b/blog/powerdisgner%E6%95%B0%E6%8D%AE%E5%BB%BA%E6%A8%A1%E6%97%B6%E7%94%9F%E6%88%90oracle%E8%84%9A%E6%9C%AC%E9%9C%80%E8%A6%81%E7%9A%84%E9%85%8D%E7%BD%AE/</guid>
-      <description>&lt;p&gt;用PowerDisgner12为oracle进行数据建模时，生成的脚本默认是以&lt;code&gt;“&lt;/code&gt;区分大小写，生成脚本如下：&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;...
-create table &amp;quot;table_name&amp;quot;
-...
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;这样执行脚本后，表名实际为&lt;code&gt;&amp;quot;table_name&amp;quot;&lt;/code&gt;而不是&lt;code&gt;table_name&lt;/code&gt;，结果显示不是我们所要的。&lt;/p&gt;
-
-&lt;p&gt;于是需要做如下更改：&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;1. 打开PowerDesiger中
-2. physical data model -&amp;gt; Database -&amp;gt; Edit current DBMS
-3. Script-&amp;gt;Sql-&amp;gt;Format
-4. CaseSensitivityUsingQuote
-5. Check Yes
-6. Uppercase only
-7. Check Yes
-&lt;/code&gt;&lt;/pre&gt;
-</description>
+      <description>用PowerDisgner12为oracle进行数据建模时，生成的脚本默认是以“区分大小写，生成脚本如下： ... create table &amp;quot;table_name&amp;quot; ... 这样执行脚本后，表名实际</description>
     </item>
     
     <item>
@@ -42,227 +26,7 @@ create table &amp;quot;table_name&amp;quot;
       <pubDate>Wed, 27 Aug 2014 16:35:00 +0800</pubDate>
       
       <guid>https://nznd.org/b/blog/%E9%80%9A%E8%BF%87ssh%E5%AE%89%E8%A3%85oracle/</guid>
-      <description>&lt;p&gt;上一篇说到安装ArchLinux后，现在需安装Oracle&lt;/p&gt;
-
-&lt;p&gt;安装之前&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;cd ~
-pacman -S vim ssh abs unzip wget xorg-xhost
-wget https://aur.archlinux.org/packages/au/aura-bin/aura-bin.tar.gz
-tar -xzf aura-bin.tar.gz
-cd aura-bin
-makepkg
-pacman -U aura-bin-x.x.x.x-x-x86_64.pkg.tar.xz
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;下载oracle有两种方法&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;-1. 一种登录oracle网站下载好保存在本地，再通过sftp等方法传至服务器
-2. 用chrome导出登录后的cookie，并用wget直接通过服务器端下载，插件下载：[地址](https://chrome.google.com/webstore/detail/cookietxt-export/lopabhfecdfhgogdbojmaicoicjekelh)
-
-wget --load-cookies cookie_txt_file  http://download.oracle.com/otn/linux/oracle11g/R2/linux.x64_11gR2_database_1of2.zip 
-http://download.oracle.com/otn/linux/oracle11g/R2/linux.x64_11gR2_database_2of2.zip
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;解压安装包&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;find . -name &#39;*of2.zip&#39; -exec unzip {} \;
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;oracle required packages&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;pacman -S sudo icu gawk gdb elfutils sysstat libstdc++5 jre7-openjdk libaio
-aura -Akua beecrypt rpm-org
-aura -A ksh
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;添加用户，与用户组&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;groupadd oinstall
-groupadd dba
-groupadd oper
-groupadd asmadmin
-
-useradd -g oinstall -G dba,oper,asmadmin oracle -b /oracle
-passwd oracle
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;处理sysctl, limits.conf&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;cat &amp;gt; /etc/sysctl.d/99-sysctl.conf &amp;lt;&amp;lt; EOF
-fs.suid_dumpable = 1
-fs.aio-max-nr = 1048576
-fs.file-max = 6815744
-kernel.shmall = 2097152
-kernel.shmmax = 536870912
-kernel.shmmni = 4096
-# semaphores: semmsl, semmns, semopm, semmni
-kernel.sem = 250 32000 100 128
-net.ipv4.ip_local_port_range = 9000 65500
-net.core.rmem_default=262144
-net.core.rmem_max=4194304
-net.core.wmem_default=262144
-net.core.wmem_max=1048586
-EOF
-vim /etc/security/limits.conf
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;pre&gt;&lt;code&gt;oracle              soft    nproc   2047
-oracle              hard    nproc   16384
-oracle              soft    nofile  4096
-oracle              hard    nofile  65536
-oracle              soft    stack   10240
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;建立安装目录并设立权限&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;mkdir -p /oracle/inventory /oracle/recovery /oracle/product/db /oracle/tmp
-chown -R oracle:dba /oracle
-chmod 777 /oracle/tmp
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;编辑oracle用户的.bashrc&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;#Oracle Settings
-export TMP=/tmp
-export TMPDIR=/tmp
-export ORACLE_HOSTNAME=oracledb.localdomain
-export ORACLE_UNQNAME=xdb
-export ORACLE_BASE=/oracle
-export ORACLE_HOME=/oracle/product/db
-export ORACLE_SID=xdb
-export ORACLE_INVENTORY=/oracle/inventory
-export ORACLE_BASE ORACLE_SID ORACLE_HOME
-export PATH=$ORACLE_HOME/bin:$PATH
-export LD_LIBRARY_PATH=$ORACLE_HOME/lib:$LD_LIBRARY_PATH
-export CLASSPATH=$ORACLE_HOME/jlib:$ORACLE_HOME/rdbms/jlib
-export EDITOR=vim
-export VISUAL=vim
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;开始安装,&lt;code&gt;&amp;lt;machine-name&amp;gt;&lt;/code&gt;可以留空，这样就指定即在服务器本机打开X视窗安装&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;DISPLAY=&amp;lt;machine-name&amp;gt;:0.0; export DISPLAY
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;如果为通过SSH远程安装oracle，则可通过ssh的x11 forwarding功能，通过本地的X server来开启安装窗口，这里博主用的是&lt;a href=&#34;http://sourceforge.net/projects/xming/&#34;&gt;Xming&lt;/a&gt;。
-Xming的安装包有自带putty,如果已经有putty了可以不安装。
-putty需要进行如下配置，开启x11 forwarding&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;Session
-    Host Name 填入无端IP
-    Saved Sessions 填入要保存的名称
-Connection
-    SSH
-        X11
-            Enable X11 forwarding 开启
-            X display location 填入 localhost:0.0 或 127.0.0.1:0.0
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;运行Xming中的XLaunch将No Access Control勾上
-最后将代码中的ip地址替换成运行有Xming的主机IP，并运行&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;使用oracle用户通过ssh连接至服务器
-DISPLAY=&amp;lt;Local IP addr&amp;gt;:0.0; export DISPLAY;xhost +
-cd /安装包路径
-./runInstaller
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;图形化的安装界面略过~~
-安装后，让数据库自启
-新建启动和关闭的脚本&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;mkdir -p ~/scripts
-chown oracle.oinstall ~/scripts
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;~/scripts/startup.sh&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;#!/bin/bash
-
-#Oracle Settings
-export TMP=/oracle/tmp
-export TMPDIR=/oracle/tmp
-export ORACLE_HOSTNAME=oracledb.localdomain
-export ORACLE_UNQNAME=xdb
-export ORACLE_SID=xdb
-export PATH=$ORACLE_HOME/bin:$PATH
-
-ORAENV_ASK=NO
-. oraenv
-ORAENV_ASK=YES
-
-# Start Listener
-lsnrctl start
-
-# Start Database
-sqlplus / as sysdba &amp;lt;&amp;lt; EOF
-STARTUP;
-EXIT;
-EOF
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;~/scripts/shutdown.sh&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;#!/bin/bash
-
-#Oracle Settings
-export TMP=/oracle/tmp
-export TMPDIR=/oracle/tmp
-export ORACLE_HOSTNAME=oracledb.localdomain
-export ORACLE_UNQNAME=xdb
-export ORACLE_SID=xdb
-export PATH=$ORACLE_HOME/bin:$PATH
-
-ORAENV_ASK=NO
-. oraenv
-ORAENV_ASK=YES
-
-# Stop Database
-sqlplus / as sysdba &amp;lt;&amp;lt; EOF
-SHUTDOWN IMMEDIATE;
-EXIT;
-EOF
-
-# Stop Listener
-lsnrctl stop
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;脚本权限&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;chmod u+x /oracle/scripts/s*.sh
-chown oracle.oinstall /oracle/scripts/s*.sh
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;建立服务 &lt;code&gt;/lib/systemd/system/dbora.service&lt;/code&gt;&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;[Unit]
-Description=The Oracle Database Service
-After=syslog.target network.target
-
-[Service]
-Type=simple
-ExecStart=/bin/su oracle -c &amp;quot;/oracle/scripts/startup.sh &amp;gt;&amp;gt; /oracle/scripts/startup_shutdown.log 2&amp;gt;&amp;amp;1&amp;quot; &amp;amp;
-ExecStop=/bin/su oracle -c &amp;quot;/oracle/scripts/shutdown.sh &amp;gt;&amp;gt; /oracle/scripts/startup_shutdown.log 2&amp;gt;&amp;amp;1&amp;quot;
-
-[Install]
-WantedBy=multi-user.target
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;pre&gt;&lt;code&gt;ln -s /lib/systemd/system/dbora.service /etc/systemd/system/dbora.service
-systemctl daemon-reload
-systemctl enable dbora.service
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;查看服务状态&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;systemctl status dbora.service
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;enjoy~!&lt;/p&gt;
-
-&lt;p&gt;quote from &lt;a href=&#34;https://wiki.archlinux.org/index.php/Oracle&#34;&gt;wiki.archlinux.org&lt;/a&gt; &lt;a href=&#34;http://www.oracle-base.com/articles/11g/oracle-db-11gr2-installation-on-oracle-linux-5.php#manual_setup&#34;&gt;oracle-base&lt;/a&gt;&lt;/p&gt;
-</description>
+      <description>上一篇说到安装ArchLinux后，现在需安装Oracle 安装之前 cd ~ pacman -S vim ssh abs unzip wget xorg-xhost wget https://aur.archlinux.org/packages/au/aura-bin/aura-bin.tar.gz tar -xzf aura-bin.tar.gz cd aura-bin makepkg pacman -U aura-bin-x.x.x.x-x-x86_64.pkg.tar.xz 下载oracle有两种方法 -1. 一种</description>
     </item>
     
     <item>
@@ -271,33 +35,7 @@ systemctl enable dbora.service
       <pubDate>Mon, 28 Jul 2014 11:48:00 +0800</pubDate>
       
       <guid>https://nznd.org/b/blog/oracle%E5%85%8D%E5%AE%89%E8%A3%85%E5%AE%A2%E6%88%B7%E7%AB%AF/</guid>
-      <description>&lt;ol&gt;
-&lt;li&gt;从已经安装过oracle的server或client 拷贝如下文件&lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;pre&gt;&lt;code&gt;classes12.jar
-oci.dll
-ocijdbc10.dll
-ociw32.dll
-ojdbc14.jar
-orannzsbb10.dll
-oraocci10.dll
-oraociei10.dll
-sqlnet.ora
-tnsnames.ora
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;ol&gt;
-&lt;li&gt;配置环境变量&lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;pre&gt;&lt;code&gt;Path = D:\oraclient;
-TNS_ADMIN = D:\oraclient;
-NLS_LANG = SIMPLIFIED CHINESE_CHINA.ZHS16GBK
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;提供个下载连接&lt;a href=&#34;http://pan.baidu.com/s/1o69cMYA&#34;&gt;10.2.0.1_32bit&lt;/a&gt;&lt;/p&gt;
-</description>
+      <description>从已经安装过oracle的server或client 拷贝如下文件 classes12.jar oci.dll ocijdbc10.dll ociw32.dll ojdbc14.jar orannzsbb10.dll oraocci10.dll oraociei10.dll sqlnet.ora tnsnames.ora 配置环境变量 Path = D:\oraclient; TNS_ADMIN = D:\oraclient; NLS_LANG = SIMPLIFIED CHINESE_CHINA.ZHS16GBK 提供个下载连接10.2.</description>
     </item>
     
   </channel>

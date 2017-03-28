@@ -2,11 +2,14 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Client on Isulew&#39;s Blog</title>
-    <link>https://nznd.org/b/tags/client/index.xml</link>
+    <link>https://nznd.org/b/tags/client/</link>
     <description>Recent content in Client on Isulew&#39;s Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-US</language>
-    <atom:link href="https://nznd.org/b/tags/client/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Mon, 28 Jul 2014 11:48:00 +0800</lastBuildDate>
+    
+	<atom:link href="https://nznd.org/b/tags/client/index.xml" rel="self" type="application/rss+xml" />
+    
     
     <item>
       <title>Oracle免安装客户端 </title>
@@ -14,33 +17,7 @@
       <pubDate>Mon, 28 Jul 2014 11:48:00 +0800</pubDate>
       
       <guid>https://nznd.org/b/blog/oracle%E5%85%8D%E5%AE%89%E8%A3%85%E5%AE%A2%E6%88%B7%E7%AB%AF/</guid>
-      <description>&lt;ol&gt;
-&lt;li&gt;从已经安装过oracle的server或client 拷贝如下文件&lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;pre&gt;&lt;code&gt;classes12.jar
-oci.dll
-ocijdbc10.dll
-ociw32.dll
-ojdbc14.jar
-orannzsbb10.dll
-oraocci10.dll
-oraociei10.dll
-sqlnet.ora
-tnsnames.ora
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;ol&gt;
-&lt;li&gt;配置环境变量&lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;pre&gt;&lt;code&gt;Path = D:\oraclient;
-TNS_ADMIN = D:\oraclient;
-NLS_LANG = SIMPLIFIED CHINESE_CHINA.ZHS16GBK
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;提供个下载连接&lt;a href=&#34;http://pan.baidu.com/s/1o69cMYA&#34;&gt;10.2.0.1_32bit&lt;/a&gt;&lt;/p&gt;
-</description>
+      <description>从已经安装过oracle的server或client 拷贝如下文件 classes12.jar oci.dll ocijdbc10.dll ociw32.dll ojdbc14.jar orannzsbb10.dll oraocci10.dll oraociei10.dll sqlnet.ora tnsnames.ora 配置环境变量 Path = D:\oraclient; TNS_ADMIN = D:\oraclient; NLS_LANG = SIMPLIFIED CHINESE_CHINA.ZHS16GBK 提供个下载连接10.2.</description>
     </item>
     
   </channel>

@@ -2,11 +2,14 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Gfw on Isulew&#39;s Blog</title>
-    <link>https://nznd.org/b/tags/gfw/index.xml</link>
+    <link>https://nznd.org/b/tags/gfw/</link>
     <description>Recent content in Gfw on Isulew&#39;s Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-US</language>
-    <atom:link href="https://nznd.org/b/tags/gfw/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Mon, 24 Aug 2015 23:42:00 +0800</lastBuildDate>
+    
+	<atom:link href="https://nznd.org/b/tags/gfw/index.xml" rel="self" type="application/rss+xml" />
+    
     
     <item>
       <title>Blackberry 10 系统穿墙指北</title>
@@ -14,16 +17,7 @@
       <pubDate>Mon, 24 Aug 2015 23:42:00 +0800</pubDate>
       
       <guid>https://nznd.org/b/blog/blackberry-10-%E7%B3%BB%E7%BB%9F%E7%A9%BF%E5%A2%99%E6%8C%87%E5%8C%97/</guid>
-      <description>&lt;ol&gt;
-&lt;li&gt;设置&lt;/li&gt;
-&lt;li&gt;wifi&lt;/li&gt;
-&lt;li&gt;长按需要穿墙的wifi名称、点编辑&lt;/li&gt;
-&lt;li&gt;使用代理服务器&lt;/li&gt;
-&lt;li&gt;自动代理服务器(PAC)&lt;/li&gt;
-&lt;li&gt;URL里输入 &lt;a href=&#34;https://pac.itzmx.com/abc.pac&#34;&gt;https://pac.itzmx.com/abc.pac&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;保存即可&lt;/li&gt;
-&lt;/ol&gt;
-</description>
+      <description>设置 wifi 长按需要穿墙的wifi名称、点编辑 使用代理服务器 自动代理服务器(PAC) URL里输入 https://pac.itzmx.com/abc.pac 保存即可</description>
     </item>
     
   </channel>
